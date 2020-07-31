@@ -25,7 +25,7 @@ public class MainPageSwiper : MonoBehaviour, IDragHandler, IEndDragHandler, IBeg
     public void OnDrag(PointerEventData data)   //드래그 중
     {
         float difference = data.pressPosition.x - data.position.x;
-        transform.position = panelLocation - new Vector3(difference, 0, 0);
+       // transform.position = panelLocation - new Vector3(difference, 0, 0);
     }
 
     public void OnEndDrag(PointerEventData data)   //드래그 끝 - 춘배 가만히 있는 애니메이션 출력
