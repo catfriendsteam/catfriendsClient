@@ -28,10 +28,10 @@ public class GageMng : MonoBehaviour
                 timer += Time.deltaTime;
             }
 
-            if (timer >= 2.0f)  // 2초동안 게이지버튼 클릭 안하면 게이지 제거
+            if (timer >= 1.0f)  // 1초동안 게이지버튼 클릭 안하면 게이지 제거
             {
                 isClicked = false;
-                slider.value -= Time.deltaTime * 10;   // 초당 10씩 게이지 제거
+                slider.value -= Time.deltaTime * 20;   // 초당 20씩 게이지 제거
             }
         }
     }
