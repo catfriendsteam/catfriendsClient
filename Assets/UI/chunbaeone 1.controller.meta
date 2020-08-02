@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD:Assets/UI/chunbaeone 1.controller.meta
 guid: 1b188a1a3148a00468cd0087c0c6f951
+=======
+guid: 5ca51838fc889ef4a863209bf641486b
+>>>>>>> parent of 21be87b... 에님:Assets/UI/ChunBae.anim.meta
+=======
+guid: 1b188a1a3148a00468cd0087c0c6f951
+>>>>>>> parent of 21be87b... 에님
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0

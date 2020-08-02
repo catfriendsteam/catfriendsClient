@@ -1441,7 +1441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   percentThreshold: 0.2
   easing: 0.5
-  totalPages: 1
+  totalPages: 5
   isOnDrag: 0
 --- !u!1 &2112415329
 GameObject:
