@@ -50,12 +50,12 @@ public class NestedScrollManager : MonoBehaviour, IBeginDragHandler, IDragHandle
         targetPos = SetPos();
 
         //절반거리를 넘지 않아도 마우스를 빠르게 이동하면
-        if(curPos == targetPos)
+        if (curPos == targetPos)
         {
             // 속도 테스트용 // print(eventData.delta.x);
             //스크롤이 왼쪽으로 빠르게 이동시 목표가 하나 감소
             //숫자 18로 수치 조정 가능
-            if(eventData.delta.x > 18 && curPos - distance >= 0)
+            if (eventData.delta.x > 18 && curPos - distance >= 0)
             {
                 --targetIndex;
                 targetPos = curPos - distance;
@@ -71,13 +71,13 @@ public class NestedScrollManager : MonoBehaviour, IBeginDragHandler, IDragHandle
         }
 
         //테스트용
-       //  print(curPos + "/" + targetPos + "/" + targetIndex);
+        //  print(curPos + "/" + targetPos + "/" + targetIndex);
     }
 
 
     void Update()
     {
-       if(!isDrag) scrollbar.value = Mathf.Lerp(scrollbar.value, targetPos, 0.1f);
+        if (!isDrag) scrollbar.value = Mathf.Lerp(scrollbar.value, targetPos, 0.1f);
     }
 }
 
