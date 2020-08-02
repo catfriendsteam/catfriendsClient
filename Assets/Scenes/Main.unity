@@ -1436,12 +1436,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2103719567}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8240e728de973ba4884d2f379e9c4303, type: 3}
+  m_Script: {fileID: 11500000, guid: f50c32d54b41d3841bfd9cf3b2924e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  percentThreshold: 0.1
-  easing: 0.2
-  totalPages: 5
+  percentThreshold: 0.2
+  easing: 0.5
+  totalPages: 1
   isOnDrag: 0
 --- !u!1 &2112415329
 GameObject:
