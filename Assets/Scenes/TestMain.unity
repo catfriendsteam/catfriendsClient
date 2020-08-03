@@ -280,7 +280,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 29737840}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 373432116}
+        m_MethodName: XButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &29737840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1041,6 +1052,7 @@ GameObject:
   - component: {fileID: 373432113}
   - component: {fileID: 373432115}
   - component: {fileID: 373432114}
+  - component: {fileID: 373432116}
   m_Layer: 5
   m_Name: LowerMenu
   m_TagString: Untagged
@@ -1109,6 +1121,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 373432112}
   m_CullTransparentMesh: 0
+--- !u!114 &373432116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373432112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f01e656f00c7b64a8e63d46319be2ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menu_chunbae: {fileID: 1559510050}
 --- !u!1 &405972633
 GameObject:
   m_ObjectHideFlags: 0
@@ -4961,7 +4986,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1559510051
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6055,7 +6080,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1810528538}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 373432116}
+        m_MethodName: ChunBaeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &1810528540
 CanvasRenderer:
   m_ObjectHideFlags: 0
