@@ -9,6 +9,7 @@ public class GageMng : MonoBehaviour
 
     public StatusManager statusMng;
     public float fevertime;
+    
     public float fevercount;
     public GameObject Fevergage_Text;
     public bool isfever;
@@ -59,6 +60,7 @@ public class GageMng : MonoBehaviour
 
     void Awake()
     {
+       
         fevertime = 10f;
         fevercount = 1.0f + cafefever + chickenfever + gobchangfever + healthfever + landfever;
        
@@ -151,7 +153,7 @@ void AllFeverCheck()
 
                 if (fever_cafe == true)
                 {
-                    slider.value -= Time.deltaTime * fevertime;
+                    slider.value -= Time.deltaTime * (100 / fevertime);
 
                     cafefever = 0.5f;
 
@@ -164,7 +166,7 @@ void AllFeverCheck()
 
                 if (fever_chicken == true)
                 {
-                    slider_chicken.value -= Time.deltaTime * fevertime;
+                    slider_chicken.value -= Time.deltaTime * (100 / fevertime);
 
                    chickenfever = 0.5f;
 
@@ -177,7 +179,7 @@ void AllFeverCheck()
 
                 if (fever_gobchang == true)
                 {
-                    slider_gobchang.value -= Time.deltaTime * fevertime;
+                    slider_gobchang.value -= Time.deltaTime * (100 / fevertime);
 
                     gobchangfever = 0.5f;
 
@@ -190,7 +192,7 @@ void AllFeverCheck()
 
                 if (fever_health == true)
                 {
-                    slider_health.value -= Time.deltaTime * fevertime;
+                    slider_health.value -= Time.deltaTime * (100 / fevertime);
 
                     healthfever = 0.5f;
 
@@ -202,7 +204,7 @@ void AllFeverCheck()
                 }
                 if (fever_land == true)
                 {
-                    slider_land.value -= Time.deltaTime * fevertime;
+                    slider_land.value -= Time.deltaTime * (100 / fevertime);
 
                     landfever = 0.5f;
 
