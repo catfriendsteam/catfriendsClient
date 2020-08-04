@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ButtonMng : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class ButtonMng : MonoBehaviour
     public GageMng gageMng;
     public StatusManager statusMng;
 
+
+    public GameObject menu_chunbae;
 
     public NestedScrollManager nestedScrollMng;
 
@@ -40,15 +43,16 @@ public class ButtonMng : MonoBehaviour
         //카페 게이지 상승
         if (nestedScrollMng.targetIndex >= 0 && nestedScrollMng.targetIndex < 1)
         {
-            if (gageMng.fever_cafe == false)
+            if (gageMng.isfever_cafe == false)
             {
-                slider.value += 1;   //게이지 1%씩 증가
-                gageMng.isClicked = true;
-                gageMng.timer = 0.0f;
+                
+                slider.value += statusMng.touch_value;   //게이지 1%씩 증가
+                gageMng.isClicked_cafe = true;
+                gageMng.timer_cafe = 0.0f;
 
                 statusMng.Touch_IncreaseMoney();
             }
-            else if(gageMng.fever_cafe == true)
+            else if(gageMng.isfever_cafe == true)
             {
                 statusMng.Touch_IncreaseMoney();
             }
@@ -59,7 +63,7 @@ public class ButtonMng : MonoBehaviour
         //치킨 게이지 상승
         if (nestedScrollMng.targetIndex >= 1 && nestedScrollMng.targetIndex < 2)
         {
-            if (gageMng.fever_chicken == false)
+            if (gageMng.isfever_chicken == false)
             {
                 slider_chicken.value += 1;   //게이지 1%씩 증가
                 gageMng.isClicked_chicken = true;
@@ -67,7 +71,7 @@ public class ButtonMng : MonoBehaviour
 
                 statusMng.Touch_IncreaseMoney();
             }
-            else if (gageMng.fever_chicken == true)
+            else if (gageMng.isfever_chicken == true)
             {
                 statusMng.Touch_IncreaseMoney();
             }
@@ -78,7 +82,7 @@ public class ButtonMng : MonoBehaviour
         //곱창 게이지 상승
         if (nestedScrollMng.targetIndex >= 2 && nestedScrollMng.targetIndex < 3)
         {
-            if (gageMng.fever_gobchang == false)
+            if (gageMng.isfever_gobchang == false)
             {
                 slider_Gobchang.value += 1;   //게이지 1%씩 증가
                 gageMng.isClicked_Gobchang = true;
@@ -86,7 +90,7 @@ public class ButtonMng : MonoBehaviour
 
                 statusMng.Touch_IncreaseMoney();
             }
-            else if (gageMng.fever_gobchang == true)
+            else if (gageMng.isfever_gobchang == true)
             {
                 statusMng.Touch_IncreaseMoney();
             }
@@ -95,7 +99,7 @@ public class ButtonMng : MonoBehaviour
         //헬스 게이지 상승
         if (nestedScrollMng.targetIndex >= 3 && nestedScrollMng.targetIndex < 4)
         {
-            if (gageMng.fever_health == false)
+            if (gageMng.isfever_health == false)
             {
                 slider_Health.value += 1;   //게이지 1%씩 증가
                 gageMng.isClicked_Health = true;
@@ -103,7 +107,7 @@ public class ButtonMng : MonoBehaviour
 
                 statusMng.Touch_IncreaseMoney();
             }
-            else if (gageMng.fever_health == true)
+            else if (gageMng.isfever_health == true)
             {
                 statusMng.Touch_IncreaseMoney();
             }
@@ -111,7 +115,7 @@ public class ButtonMng : MonoBehaviour
         //냥냐랜드 게이지 상승
         if (nestedScrollMng.targetIndex >= 4 && nestedScrollMng.targetIndex < 5)
         {
-            if (gageMng.fever_land == false)
+            if (gageMng.isfever_land == false)
             {
                 slider_Land.value += 1;   //게이지 1%씩 증가
                 gageMng.isClicked_Land = true;
@@ -119,7 +123,7 @@ public class ButtonMng : MonoBehaviour
 
                 statusMng.Touch_IncreaseMoney();
             }
-            else if (gageMng.fever_land == true)
+            else if (gageMng.isfever_land == true)
             {
                 statusMng.Touch_IncreaseMoney();
             }
@@ -129,5 +133,27 @@ public class ButtonMng : MonoBehaviour
 
     }
 
+
+    public void ClickChunBaeButton()
+    {
+        menu_chunbae.SetActive(true);
+    }
+
+
+    public void XButton_ChunbaeButton()
+    {
+        menu_chunbae.SetActive(false);
+    }
+
+
+
+    public void InsideCafe()
+    {
+        SceneManager.LoadScene("Cafe");
+    }
+    public void OutsideMain_Cafe()
+    {
+        SceneManager.LoadScene("Main");
+    }
 
 }

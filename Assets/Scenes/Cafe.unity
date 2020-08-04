@@ -202,8 +202,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1864916718}
-        m_MethodName: Outside
+      - m_Target: {fileID: 1864916719}
+        m_MethodName: OutsideMain_Cafe
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -329,6 +329,7 @@ GameObject:
   - component: {fileID: 1864916715}
   - component: {fileID: 1864916714}
   - component: {fileID: 1864916718}
+  - component: {fileID: 1864916719}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -429,6 +430,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe4aa4a6943dd7b4ea181c06e659e831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1864916719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864916713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02232c3fa3b1fbe48a7d918ab7c473a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gageMng: {fileID: 0}
+  statusMng: {fileID: 0}
+  menu_chunbae: {fileID: 0}
+  nestedScrollMng: {fileID: 0}
+  slider: {fileID: 0}
+  slider_chicken: {fileID: 0}
+  slider_Gobchang: {fileID: 0}
+  slider_Health: {fileID: 0}
+  slider_Land: {fileID: 0}
 --- !u!1 &2089447659
 GameObject:
   m_ObjectHideFlags: 0

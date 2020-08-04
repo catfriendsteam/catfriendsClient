@@ -8,36 +8,38 @@ public class GageMng : MonoBehaviour
 
 
     public StatusManager statusMng;
-    public float fevertime;
-    
+    //피버 시간 설정 변수
+    public float fevertime_default;
+    //피버 1.5 2 2.5 새어주는 변수
     public float fevercount;
+
     public GameObject Fevergage_Text;
-    public bool isfever;
+    public bool isfever; // 피버 상태인지 아닌지 받아주는 변수
 
 
     // 카페 게이지 선언
-    public Slider slider;
-    public bool isClicked;
-    public float timer;
-    public Text gageText;
-    public bool fever_cafe;
-    public float cafefever;
+    public Slider slider_cafe;
+    public bool isClicked_cafe;
+    public float timer_cafe;
+    public Text gageText_cafe;
+    public bool isfever_cafe;
+    public float feverfigure_cafe;
 
     //치킨집 게이지 선언
     public Slider slider_chicken;
     public bool isClicked_chicken;
     public float timer_chicken;
     public Text gageText_chicken;
-    public bool fever_chicken;
-    public float chickenfever;
+    public bool isfever_chicken;
+    public float feverfigure_chicken;
 
     //곱창집 게이지 선언
     public Slider slider_gobchang;
     public bool isClicked_Gobchang;
     public float timer_Gobchang;
     public Text gageText_Gobchang;
-    public bool fever_gobchang;
-    public float gobchangfever;
+    public bool isfever_gobchang;
+    public float feverfigure_gobchang;
 
 
     //헬스장 게이지 선언
@@ -45,8 +47,8 @@ public class GageMng : MonoBehaviour
     public bool isClicked_Health;
     public float timer_Health;
     public Text gageText_Health;
-    public bool fever_health;
-    public float healthfever;
+    public bool isfever_health;
+    public float feverfigure_health;
 
 
     //냥냐랜드 게이지 선언
@@ -54,15 +56,15 @@ public class GageMng : MonoBehaviour
     public bool isClicked_Land;
     public float timer_Land;
     public Text gageText_Land;
-    public bool fever_land;
-    public float landfever;
+    public bool isfever_land;
+    public float feverfigure_land;
 
 
     void Awake()
     {
        
-        fevertime = 10f;
-        fevercount = 1.0f + cafefever + chickenfever + gobchangfever + healthfever + landfever;
+        fevertime_default = 10f;
+        fevercount = 1.0f + feverfigure_cafe + feverfigure_chicken + feverfigure_gobchang + feverfigure_health + feverfigure_health;
        
         //모든 가게중에 피버가 하나라도 있으면 true가 되는 변수의 초기값은 false
         isfever = false;
@@ -72,8 +74,8 @@ public class GageMng : MonoBehaviour
 
 
         //카페 선언
-        isClicked = false;
-        timer = 0.0f;
+        isClicked_cafe = false;
+        timer_cafe = 0.0f;
 
         //치킨집 선언
         isClicked_chicken = false;
@@ -137,7 +139,7 @@ public class GageMng : MonoBehaviour
 //모든 가게의 피버 체크
 void AllFeverCheck()
     {
-        if (fever_cafe == false && fever_chicken == false && fever_gobchang == false && fever_health == false && fever_land == false)
+        if (isfever_cafe == false && isfever_chicken == false && isfever_gobchang == false && isfever_health == false && isfever_land == false)
         {
             isfever = false;
             ToshowFeverTextWhenIsfeferTrue();
@@ -148,70 +150,70 @@ void AllFeverCheck()
 
             if (isfever == true)
             {
-                fevercount = 1.0f + cafefever + chickenfever + gobchangfever + healthfever + landfever;
+                fevercount = 1.0f + feverfigure_cafe + feverfigure_chicken + feverfigure_gobchang + feverfigure_health + feverfigure_health;
                 ToshowFeverTextWhenIsfeferTrue();
 
-                if (fever_cafe == true)
+                if (isfever_cafe == true)
                 {
-                    slider.value -= Time.deltaTime * (100 / fevertime);
+                    slider_cafe.value -= Time.deltaTime * (100 / fevertime_default);
 
-                    cafefever = 0.5f;
+                    feverfigure_cafe = 0.5f;
 
-                    if (slider.value == 0)
+                    if (slider_cafe.value == 0)
                     {
-                        fever_cafe = false;
-                        cafefever = 0.0f;
+                        isfever_cafe = false;
+                        feverfigure_cafe = 0.0f;
                     }
                 }
 
-                if (fever_chicken == true)
+                if (isfever_chicken == true)
                 {
-                    slider_chicken.value -= Time.deltaTime * (100 / fevertime);
+                    slider_chicken.value -= Time.deltaTime * (100 / fevertime_default);
 
-                   chickenfever = 0.5f;
+                   feverfigure_chicken = 0.5f;
 
                     if (slider_chicken.value == 0)
                     {
-                        fever_chicken = false;
-                        chickenfever = 0.0f;
+                        isfever_chicken = false;
+                        feverfigure_chicken = 0.0f;
                     }
                 }
 
-                if (fever_gobchang == true)
+                if (isfever_gobchang == true)
                 {
-                    slider_gobchang.value -= Time.deltaTime * (100 / fevertime);
+                    slider_gobchang.value -= Time.deltaTime * (100 / fevertime_default);
 
-                    gobchangfever = 0.5f;
+                    feverfigure_gobchang = 0.5f;
 
                     if (slider_gobchang.value == 0)
                     {
-                        fever_gobchang = false;
-                       gobchangfever = 0.0f;
+                        isfever_gobchang = false;
+                       feverfigure_gobchang = 0.0f;
                     }
                 }
 
-                if (fever_health == true)
+                if (isfever_health == true)
                 {
-                    slider_health.value -= Time.deltaTime * (100 / fevertime);
+                    slider_health.value -= Time.deltaTime * (100 / fevertime_default);
 
-                    healthfever = 0.5f;
+                    feverfigure_health = 0.5f;
 
                     if (slider_health.value == 0)
                     {
-                        fever_health = false;
-                        healthfever = 0.0f;
+                        isfever_health = false;
+                        feverfigure_health = 0.0f;
                     }
                 }
-                if (fever_land == true)
+                if (isfever_land == true)
                 {
-                    slider_land.value -= Time.deltaTime * (100 / fevertime);
+                    slider_land.value -= Time.deltaTime * (100 / fevertime_default);
 
-                    landfever = 0.5f;
+                    feverfigure_health = 0.5f;
 
                     if (slider_land.value == 0)
                     {
-                        fever_land = false;
-                       landfever = 0.0f;
+                        isfever_land = false;
+                       feverfigure_health = 0.0f;
                     }
                 }
 
@@ -232,22 +234,22 @@ void AllFeverCheck()
     void CheckCafeGage() //카페 터치에 따른 게이지 상태 체크
     {
        
-        gageText.text = Mathf.CeilToInt(slider.value).ToString();   // 게이지 숫자 텍스트 표시(실수를 정수로 문자화)
-        if (slider.value > 0 && fever_cafe == false)
+        gageText_cafe.text = Mathf.CeilToInt(slider_cafe.value).ToString();   // 게이지 숫자 텍스트 표시(실수를 정수로 문자화)
+        if (slider_cafe.value > 0 && isfever_cafe == false)
         {
-            if (isClicked == true)
+            if (isClicked_cafe == true)
             {
-                timer += Time.deltaTime;
+                timer_cafe += Time.deltaTime;
             }
 
-            if (timer >= 2.0f)  // 2초동안 게이지버튼 클릭 안하면 게이지 제거
+            if (timer_cafe >= 2.0f)  // 2초동안 게이지버튼 클릭 안하면 게이지 제거
             {
-                isClicked = false;
-                slider.value -= Time.deltaTime * 10;   // 초당 10씩 게이지 제거
+                isClicked_cafe = false;
+                slider_cafe.value -= Time.deltaTime * 10;   // 초당 10씩 게이지 제거
             }
-            if (slider.value == 100)
+            if (slider_cafe.value == 100)
             {
-                fever_cafe = true;
+                isfever_cafe = true;
             
             }
         }
@@ -257,8 +259,8 @@ void AllFeverCheck()
 
     public void SetMaxGageAndGage(int maxgagevalue, int gagevalue)
     {
-        slider.maxValue = maxgagevalue;
-        slider.value = gagevalue;
+        slider_cafe.maxValue = maxgagevalue;
+        slider_cafe.value = gagevalue;
 
         slider_chicken.maxValue = maxgagevalue;
         slider_chicken.value = gagevalue;
@@ -284,7 +286,7 @@ void AllFeverCheck()
     {
 
         gageText_chicken.text = Mathf.CeilToInt(slider_chicken.value).ToString();   // 게이지 숫자 텍스트 표시(실수를 정수로 문자화)
-        if (slider_chicken.value > 0 && fever_chicken == false)
+        if (slider_chicken.value > 0 && isfever_chicken == false)
         {
             if (isClicked_chicken == true)
             {
@@ -298,7 +300,7 @@ void AllFeverCheck()
             }
             if (slider_chicken.value == 100)
             {
-                fever_chicken = true;
+                isfever_chicken = true;
 
             }
         }
@@ -311,7 +313,7 @@ void AllFeverCheck()
     {
 
         gageText_Gobchang.text = Mathf.CeilToInt(slider_gobchang.value).ToString();   // 게이지 숫자 텍스트 표시(실수를 정수로 문자화)
-        if (slider_gobchang.value > 0 && fever_gobchang == false)
+        if (slider_gobchang.value > 0 && isfever_gobchang == false)
         {
             if (isClicked_Gobchang == true)
             {
@@ -325,7 +327,7 @@ void AllFeverCheck()
             }
             if (slider_gobchang.value == 100)
             {
-                fever_gobchang = true;
+                isfever_gobchang = true;
             }
         }
     }
@@ -336,7 +338,7 @@ void AllFeverCheck()
     {
 
         gageText_Health.text = Mathf.CeilToInt(slider_health.value).ToString();   // 게이지 숫자 텍스트 표시(실수를 정수로 문자화)
-        if (slider_health.value > 0 && fever_health == false)
+        if (slider_health.value > 0 && isfever_health == false)
         {
             if (isClicked_Health == true)
             {
@@ -350,7 +352,7 @@ void AllFeverCheck()
             }
             if (slider_health.value == 100)
             {
-                fever_health = true;
+                isfever_health = true;
             }
         }
     }
@@ -362,7 +364,7 @@ void AllFeverCheck()
     {
 
         gageText_Land.text = Mathf.CeilToInt(slider_land.value).ToString();   // 게이지 숫자 텍스트 표시(실수를 정수로 문자화)
-        if (slider_land.value > 0 && fever_land == false)
+        if (slider_land.value > 0 && isfever_land == false)
         {
             if (isClicked_Land == true)
             {
@@ -376,7 +378,7 @@ void AllFeverCheck()
             }
             if (slider_land.value == 100)
             {
-                fever_land = true;
+                isfever_land = true;
             }
         }
     }

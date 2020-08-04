@@ -1411,6 +1411,7 @@ GameObject:
   - component: {fileID: 373432115}
   - component: {fileID: 373432114}
   - component: {fileID: 373432116}
+  - component: {fileID: 373432117}
   m_Layer: 5
   m_Name: LowerMenu
   m_TagString: Untagged
@@ -1492,6 +1493,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu_chunbae: {fileID: 1559510050}
+--- !u!114 &373432117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373432112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02232c3fa3b1fbe48a7d918ab7c473a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gageMng: {fileID: 0}
+  statusMng: {fileID: 0}
+  menu_chunbae: {fileID: 1559510050}
+  nestedScrollMng: {fileID: 0}
+  slider: {fileID: 0}
+  slider_chicken: {fileID: 0}
+  slider_Gobchang: {fileID: 0}
+  slider_Health: {fileID: 0}
+  slider_Land: {fileID: 0}
 --- !u!1 &405972633
 GameObject:
   m_ObjectHideFlags: 0
@@ -4888,6 +4910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gageMng: {fileID: 1285187289}
   statusMng: {fileID: 1285187290}
+  menu_chunbae: {fileID: 0}
   nestedScrollMng: {fileID: 1794963291}
   slider: {fileID: 293371785}
   slider_chicken: {fileID: 254612560}
@@ -4921,35 +4944,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusMng: {fileID: 1285187290}
-  fevertime: 0
+  fevertime_default: 0
   fevercount: 0
   Fevergage_Text: {fileID: 1531741370}
   isfever: 0
-  slider: {fileID: 293371785}
-  isClicked: 0
-  timer: 0
-  gageText: {fileID: 1312795401}
-  fever_cafe: 0
+  slider_cafe: {fileID: 293371785}
+  isClicked_cafe: 0
+  timer_cafe: 0
+  gageText_cafe: {fileID: 1312795401}
+  isfever_cafe: 0
+  feverfigure_cafe: 0
   slider_chicken: {fileID: 254612560}
   isClicked_chicken: 0
   timer_chicken: 0
   gageText_chicken: {fileID: 1786626070}
-  fever_chicken: 0
+  isfever_chicken: 0
+  feverfigure_chicken: 0
   slider_gobchang: {fileID: 2140484555}
   isClicked_Gobchang: 0
   timer_Gobchang: 0
   gageText_Gobchang: {fileID: 1034475230}
-  fever_gobchang: 0
+  isfever_gobchang: 0
+  feverfigure_gobchang: 0
   slider_health: {fileID: 1405042890}
   isClicked_Health: 0
   timer_Health: 0
   gageText_Health: {fileID: 662319476}
-  fever_health: 0
+  isfever_health: 0
+  feverfigure_health: 0
   slider_land: {fileID: 1673183849}
   isClicked_Land: 0
   timer_Land: 0
   gageText_Land: {fileID: 252051894}
-  fever_land: 0
+  isfever_land: 0
+  feverfigure_land: 0
 --- !u!114 &1285187290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4963,6 +4991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gagemng: {fileID: 1285187289}
+  touch_value: 0
   Level_Chunbae: 0
   Touch_Profit: 0
 --- !u!1 &1312795399
@@ -4977,7 +5006,7 @@ GameObject:
   - component: {fileID: 1312795402}
   - component: {fileID: 1312795401}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Text_cafe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7736,8 +7765,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 373432116}
-        m_MethodName: ChunBaeButton
+      - m_Target: {fileID: 373432117}
+        m_MethodName: ClickChunBaeButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8558,7 +8587,7 @@ GameObject:
   - component: {fileID: 1933040531}
   - component: {fileID: 1933040530}
   - component: {fileID: 1933040529}
-  - component: {fileID: 1933040528}
+  - component: {fileID: 1933040532}
   m_Layer: 5
   m_Name: Store_cafe
   m_TagString: Untagged
@@ -8585,18 +8614,6 @@ RectTransform:
   m_AnchoredPosition: {x: -60, y: 374}
   m_SizeDelta: {x: 874, y: 520}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1933040528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1933040526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe4aa4a6943dd7b4ea181c06e659e831, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1933040529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8640,8 +8657,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1933040528}
-        m_MethodName: Inside
+      - m_Target: {fileID: 1933040532}
+        m_MethodName: InsideCafe
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8688,6 +8705,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933040526}
   m_CullTransparentMesh: 0
+--- !u!114 &1933040532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933040526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02232c3fa3b1fbe48a7d918ab7c473a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gageMng: {fileID: 0}
+  statusMng: {fileID: 0}
+  menu_chunbae: {fileID: 0}
+  nestedScrollMng: {fileID: 0}
+  slider: {fileID: 0}
+  slider_chicken: {fileID: 0}
+  slider_Gobchang: {fileID: 0}
+  slider_Health: {fileID: 0}
+  slider_Land: {fileID: 0}
 --- !u!1 &1993104484
 GameObject:
   m_ObjectHideFlags: 0
