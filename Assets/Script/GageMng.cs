@@ -61,40 +61,31 @@ public class GageMng : MonoBehaviour
     {
         fevertime = 10f;
         fevercount = 1.0f + cafefever + chickenfever + gobchangfever + healthfever + landfever;
- 
+       
+        //모든 가게중에 피버가 하나라도 있으면 true가 되는 변수의 초기값은 false
+        isfever = false;
+
+        //모든 가게 슬라이드의 기본 값과 최대 값 설정
+        SetMaxGageAndGage(100, 0);
+
 
         //카페 선언
-        SetMaxGage(100);
-        SetGage(0);
         isClicked = false;
         timer = 0.0f;
 
-        //피버 테스트
-
-        isfever = false;
-
         //치킨집 선언
-        SetMaxGage_chicken(100);
-        SetGage_chicken(0);
         isClicked_chicken = false;
         timer_chicken = 0.0f;
-       
 
-    //곱창집 선언
-        SetMaxGage_Gobchang(100);
-        SetGage_Gobchang(0);
+        //곱창집 선언
         isClicked_Gobchang = false;
         timer_Gobchang = 0.0f;
 
         //헬스장 선언
-        SetMaxGage_Health(100);
-        SetGage_Health(0);
         isClicked_Health = false;
         timer_Health = 0.0f;
 
         //냥냐랜드 선언
-        SetMaxGage_Land(100);
-        SetGage_Land(0);
         isClicked_Land = false;
         timer_Land = 0.0f;
 
@@ -253,14 +244,26 @@ public class GageMng : MonoBehaviour
         }
     }
 
-    public void SetMaxGage(int gageValue)   // 게이지 최대값 설정 함수
+
+
+    public void SetMaxGageAndGage(int maxgagevalue, int gagevalue)
     {
-        slider.maxValue = gageValue;
-        slider.value = gageValue;
-    }
-    public void SetGage(int gageValue)   // 게이지 초기값 설정 함수
-    {
-        slider.value = gageValue;
+        slider.maxValue = maxgagevalue;
+        slider.value = gagevalue;
+
+        slider_chicken.maxValue = maxgagevalue;
+        slider_chicken.value = gagevalue;
+
+
+        slider_gobchang.maxValue = maxgagevalue;
+        slider_gobchang.value = gagevalue;
+
+
+        slider_health.maxValue = maxgagevalue;
+        slider_health.value = gagevalue;
+
+        slider_land.maxValue = maxgagevalue;
+        slider_land.value = gagevalue;
     }
 
 
@@ -291,15 +294,7 @@ public class GageMng : MonoBehaviour
             }
         }
     }
-    public void SetMaxGage_chicken(int gageValue)   // 게이지 최대값 설정 함수
-    {
-        slider_chicken.maxValue = gageValue;
-        slider_chicken.value = gageValue;
-    }
-    public void SetGage_chicken(int gageValue)   // 게이지 초기값 설정 함수
-    {
-        slider_chicken.value = gageValue;
-    }
+   
 
     //곱창집 함수
 
@@ -325,16 +320,7 @@ public class GageMng : MonoBehaviour
             }
         }
     }
-    public void SetMaxGage_Gobchang(int gageValue)   // 게이지 최대값 설정 함수
-    {
-        slider_gobchang.maxValue = gageValue;
-        slider_gobchang.value = gageValue;
-    }
-    public void SetGage_Gobchang(int gageValue)   // 게이지 초기값 설정 함수
-    {
-        slider_gobchang.value = gageValue;
-    }
-
+  
 
     //헬스장 함수
     void CheckHealthGage()  //카페 터치에 따른 게이지 상태 체크
@@ -359,15 +345,7 @@ public class GageMng : MonoBehaviour
             }
         }
     }
-    public void SetMaxGage_Health(int gageValue)   // 게이지 최대값 설정 함수
-    {
-        slider_health.maxValue = gageValue;
-        slider_health.value = gageValue;
-    }
-    public void SetGage_Health(int gageValue)   // 게이지 초기값 설정 함수
-    {
-        slider_health.value = gageValue;
-    }
+ 
 
 
     //냥냐랜드 함수
@@ -393,13 +371,5 @@ public class GageMng : MonoBehaviour
             }
         }
     }
-    public void SetMaxGage_Land(int gageValue)   // 게이지 최대값 설정 함수
-    {
-        slider_land.maxValue = gageValue;
-        slider_land.value = gageValue;
-    }
-    public void SetGage_Land(int gageValue)   // 게이지 초기값 설정 함수
-    {
-        slider_land.value = gageValue;
-    }
+ 
 }
