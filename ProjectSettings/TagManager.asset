@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - UI_UpperMenu
+  - Menu_Chunbae
+  - Fever_Text
   layers:
   - Default
   - TransparentFX

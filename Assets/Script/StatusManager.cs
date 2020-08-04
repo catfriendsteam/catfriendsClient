@@ -6,16 +6,20 @@ using UnityEngine.UI;
 
 public class StatusManager : MonoBehaviour
 {
+    public GageMng gagemng;
+
     public static int Money;
     public static int Diamond;
     public static int GoodPoint;
 
+
+
     //춘배레벨
-    public static int Level_Chunbae;
+    public int Level_Chunbae;
     //레벨 업 비용
     public static int LevelUpCost_Chunbae;
     //터치 당 비용
-    public static int Touch_Profit;
+    public int Touch_Profit;
     //1~99 1  100~ 199 2
     public static float Touch_Step;
 
@@ -37,16 +41,30 @@ public class StatusManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         Text[] UpperMenu = GameObject.FindGameObjectWithTag("UI_UpperMenu").GetComponentsInChildren<Text>();
         UpperMenu[0].text = Money.ToString();
         UpperMenu[1].text = Diamond.ToString();
         UpperMenu[2].text = GoodPoint.ToString();
 
+
     }
 
     public void Touch_IncreaseMoney()
     {
-        Money += Touch_Profit;
-        print("aasds");
+        if (gagemng.isfever == false)
+        {
+            Money += Touch_Profit;
+     
+        }
+        else if(gagemng.isfever == true)
+        {
+       
+            
+            Money += (int)((float)Touch_Profit * gagemng.fevercount);
+        }
+
     }
+    
 }

@@ -2978,7 +2978,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -316}
+  m_AnchoredPosition: {x: 0, y: -303.5}
   m_SizeDelta: {x: 1080, y: 835}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &834254800
@@ -4921,26 +4921,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusMng: {fileID: 1285187290}
+  fevertime: 0
+  fevercount: 0
+  Fevergage_Text: {fileID: 1531741370}
+  isfever: 0
   slider: {fileID: 293371785}
   isClicked: 0
   timer: 0
   gageText: {fileID: 1312795401}
+  fever_cafe: 0
   slider_chicken: {fileID: 254612560}
   isClicked_chicken: 0
   timer_chicken: 0
   gageText_chicken: {fileID: 1786626070}
-  slider_Gobchang: {fileID: 2140484555}
+  fever_chicken: 0
+  slider_gobchang: {fileID: 2140484555}
   isClicked_Gobchang: 0
   timer_Gobchang: 0
   gageText_Gobchang: {fileID: 1034475230}
-  slider_Health: {fileID: 1405042890}
+  fever_gobchang: 0
+  slider_health: {fileID: 1405042890}
   isClicked_Health: 0
   timer_Health: 0
   gageText_Health: {fileID: 662319476}
-  slider_Land: {fileID: 1673183849}
+  fever_health: 0
+  slider_land: {fileID: 1673183849}
   isClicked_Land: 0
   timer_Land: 0
   gageText_Land: {fileID: 252051894}
+  fever_land: 0
 --- !u!114 &1285187290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4953,6 +4962,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74e8bd79a4dd6614fa2e21ce6a14f9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gagemng: {fileID: 1285187289}
+  Level_Chunbae: 0
+  Touch_Profit: 0
 --- !u!1 &1312795399
 GameObject:
   m_ObjectHideFlags: 0
@@ -5708,6 +5720,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451939765}
   m_CullTransparentMesh: 0
+--- !u!1 &1459487742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1459487743}
+  - component: {fileID: 1459487745}
+  - component: {fileID: 1459487744}
+  m_Layer: 5
+  m_Name: FeverText
+  m_TagString: Fever_Text
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1459487743
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459487742}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1531741371}
+  m_Father: {fileID: 1480517926}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 825}
+  m_SizeDelta: {x: 1080, y: 270}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1459487744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459487742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1459487745
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459487742}
+  m_CullTransparentMesh: 0
 --- !u!1 &1479261455
 GameObject:
   m_ObjectHideFlags: 0
@@ -5920,6 +6007,7 @@ RectTransform:
   - {fileID: 373432113}
   - {fileID: 1198731338}
   - {fileID: 1559510051}
+  - {fileID: 1459487743}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6203,6 +6291,99 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1518278998}
   m_CullTransparentMesh: 0
+--- !u!1 &1531741370
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1531741371}
+  - component: {fileID: 1531741373}
+  - component: {fileID: 1531741372}
+  - component: {fileID: 1531741374}
+  m_Layer: 5
+  m_Name: Fevergage_Text
+  m_TagString: Fever_Text
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1531741371
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531741370}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1459487743}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 25, y: -61}
+  m_SizeDelta: {x: 314.38837, y: 212.13634}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1531741372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531741370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 100
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 100
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: X 2 ! !
+--- !u!222 &1531741373
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531741370}
+  m_CullTransparentMesh: 0
+--- !u!114 &1531741374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531741370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc1d70c1aed47b4983983a9b6994456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gagemng: {fileID: 1285187289}
+  Fevergage_Text: {fileID: 1531741370}
 --- !u!1 &1559510050
 GameObject:
   m_ObjectHideFlags: 0
