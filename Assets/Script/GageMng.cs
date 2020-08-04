@@ -105,10 +105,26 @@ public class GageMng : MonoBehaviour
         CheckHealthGage();
         CheckLandGage();
 
+
+
+    }
+
+
+
+
+    //피버 상태일 때 피버텍스트에 피버 변수를 넣어 피버 변수의 숫자가 나타나게 합니다.
+    void ToshowFeverTextWhenIsfeferTrue()
+    {
         if (isfever == true)
         {
+            Fevergage_Text.SetActive(true);
             Text[] Fevertext = GameObject.FindGameObjectWithTag("Fever_Text").GetComponentsInChildren<Text>();
             Fevertext[0].text = fevercount.ToString();
+        }
+        else if(isfever == false)
+        {
+            Fevergage_Text.SetActive(false);
+
         }
 
     }
@@ -116,31 +132,22 @@ public class GageMng : MonoBehaviour
 
 
 
-
-
-
-
-
-
-
-
-    //모든 가게의 피버 체크
-    void AllFeverCheck()
+//모든 가게의 피버 체크
+void AllFeverCheck()
     {
         if (fever_cafe == false && fever_chicken == false && fever_gobchang == false && fever_health == false && fever_land == false)
         {
             isfever = false;
-            Fevergage_Text.SetActive(false);
+            ToshowFeverTextWhenIsfeferTrue();
         }
         else   
         {
             isfever = true;
-          
 
             if (isfever == true)
             {
                 fevercount = 1.0f + cafefever + chickenfever + gobchangfever + healthfever + landfever;
-                Fevergage_Text.SetActive(true);
+                ToshowFeverTextWhenIsfeferTrue();
 
                 if (fever_cafe == true)
                 {
