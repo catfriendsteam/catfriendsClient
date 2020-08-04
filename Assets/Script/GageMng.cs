@@ -196,7 +196,7 @@ public class GageMng : MonoBehaviour
 
                     healthfever = 0.5f;
 
-                    if (slider_gobchang.value == 0)
+                    if (slider_health.value == 0)
                     {
                         fever_health = false;
                         healthfever = 0.0f;
