@@ -59,7 +59,7 @@ public class GageMng : MonoBehaviour
 
     void Awake()
     {
-        fevertime = 1.0f;
+        fevertime = 10f;
         fevercount = 1.0f + cafefever + chickenfever + gobchangfever + healthfever + landfever;
  
 
@@ -118,8 +118,8 @@ public class GageMng : MonoBehaviour
         {
             Text[] Fevertext = GameObject.FindGameObjectWithTag("Fever_Text").GetComponentsInChildren<Text>();
             Fevertext[0].text = fevercount.ToString();
-
         }
+
     }
 
 
