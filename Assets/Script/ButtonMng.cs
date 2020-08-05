@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class ButtonMng : MonoBehaviour
 {
+    public GameObject chunbae;
+    public MoveAndAnimation_Chunbae moveAndAnimation_Chunbae;
 
     public GageMng gageMng;
     public StatusManager statusMng;
@@ -33,14 +35,21 @@ public class ButtonMng : MonoBehaviour
 
 
 
-
+    
 
 
 
 
     public void IncreaseGage()
     {
+
+        //춘배 에니메이션 스크립트에서 트리거를 호출하여 터치할 때마다 에니메이션을 하게 만듭니다.
+        moveAndAnimation_Chunbae.ToTouched_Chunbae();
+        
+        
         //카페 게이지 상승
+
+
         if (nestedScrollMng.targetIndex >= 0 && nestedScrollMng.targetIndex < 1)
         {
             if (gageMng.isfever_cafe == false)

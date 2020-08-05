@@ -281,7 +281,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 373432116}
+      - m_Target: {fileID: 0}
         m_MethodName: XButton
         m_Mode: 1
         m_Arguments:
@@ -1410,7 +1410,6 @@ GameObject:
   - component: {fileID: 373432113}
   - component: {fileID: 373432115}
   - component: {fileID: 373432114}
-  - component: {fileID: 373432116}
   - component: {fileID: 373432117}
   m_Layer: 5
   m_Name: LowerMenu
@@ -1480,19 +1479,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 373432112}
   m_CullTransparentMesh: 0
---- !u!114 &373432116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 373432112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f01e656f00c7b64a8e63d46319be2ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menu_chunbae: {fileID: 1559510050}
 --- !u!114 &373432117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1505,6 +1491,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02232c3fa3b1fbe48a7d918ab7c473a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chunbae: {fileID: 0}
+  moveAndAnimation_Chunbae: {fileID: 0}
   gageMng: {fileID: 0}
   statusMng: {fileID: 0}
   menu_chunbae: {fileID: 1559510050}
@@ -1799,7 +1787,6 @@ GameObject:
   - component: {fileID: 534211468}
   - component: {fileID: 534211467}
   - component: {fileID: 534211466}
-  - component: {fileID: 534211465}
   m_Layer: 5
   m_Name: Store_Health
   m_TagString: Untagged
@@ -1826,18 +1813,6 @@ RectTransform:
   m_AnchoredPosition: {x: -60, y: 374}
   m_SizeDelta: {x: 874, y: 520}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &534211465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534211463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe4aa4a6943dd7b4ea181c06e659e831, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &534211466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1881,7 +1856,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 534211465}
+      - m_Target: {fileID: 0}
         m_MethodName: Inside
         m_Mode: 1
         m_Arguments:
@@ -2551,7 +2526,6 @@ GameObject:
   - component: {fileID: 769136202}
   - component: {fileID: 769136201}
   - component: {fileID: 769136200}
-  - component: {fileID: 769136199}
   m_Layer: 5
   m_Name: Store_Gobchang
   m_TagString: Untagged
@@ -2578,18 +2552,6 @@ RectTransform:
   m_AnchoredPosition: {x: -60, y: 374}
   m_SizeDelta: {x: 874, y: 520}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &769136199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 769136197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe4aa4a6943dd7b4ea181c06e659e831, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &769136200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2633,7 +2595,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 769136199}
+      - m_Target: {fileID: 0}
         m_MethodName: Inside
         m_Mode: 1
         m_Arguments:
@@ -4361,7 +4323,6 @@ GameObject:
   - component: {fileID: 1139980713}
   - component: {fileID: 1139980712}
   - component: {fileID: 1139980711}
-  - component: {fileID: 1139980710}
   m_Layer: 5
   m_Name: Store_chicken
   m_TagString: Untagged
@@ -4388,18 +4349,6 @@ RectTransform:
   m_AnchoredPosition: {x: -60, y: 374}
   m_SizeDelta: {x: 874, y: 520}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1139980710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1139980708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe4aa4a6943dd7b4ea181c06e659e831, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1139980711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4443,7 +4392,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1139980710}
+      - m_Target: {fileID: 0}
         m_MethodName: Inside
         m_Mode: 1
         m_Arguments:
@@ -4908,6 +4857,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02232c3fa3b1fbe48a7d918ab7c473a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chunbae: {fileID: 0}
+  moveAndAnimation_Chunbae: {fileID: 1570355259}
   gageMng: {fileID: 1285187289}
   statusMng: {fileID: 1285187290}
   menu_chunbae: {fileID: 0}
@@ -6579,12 +6530,13 @@ GameObject:
   - component: {fileID: 1570355258}
   - component: {fileID: 1570355257}
   - component: {fileID: 1570355256}
+  - component: {fileID: 1570355259}
   m_Layer: 0
   m_Name: chunbae
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!95 &1570355256
 Animator:
@@ -6669,6 +6621,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1570355259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570355255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52dac0348d7e91d45b788beae4891bed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator_Chunbae: {fileID: 0}
+  StatusMng: {fileID: 1285187290}
+  IsTouched_Chunbae: 0
 --- !u!1 &1591307770
 GameObject:
   m_ObjectHideFlags: 0
@@ -8717,6 +8684,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02232c3fa3b1fbe48a7d918ab7c473a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chunbae: {fileID: 0}
+  moveAndAnimation_Chunbae: {fileID: 0}
   gageMng: {fileID: 0}
   statusMng: {fileID: 0}
   menu_chunbae: {fileID: 0}
@@ -8897,7 +8866,6 @@ GameObject:
   - component: {fileID: 2034664307}
   - component: {fileID: 2034664306}
   - component: {fileID: 2034664305}
-  - component: {fileID: 2034664304}
   m_Layer: 5
   m_Name: Store_Land
   m_TagString: Untagged
@@ -8924,18 +8892,6 @@ RectTransform:
   m_AnchoredPosition: {x: -60, y: 374}
   m_SizeDelta: {x: 874, y: 520}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2034664304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034664302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe4aa4a6943dd7b4ea181c06e659e831, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2034664305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8979,7 +8935,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2034664304}
+      - m_Target: {fileID: 0}
         m_MethodName: Inside
         m_Mode: 1
         m_Arguments:
