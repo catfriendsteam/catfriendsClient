@@ -8,7 +8,7 @@ public class StatusManager : MonoBehaviour
 {
     public GageMng gagemng;
 
-    public static int Money;
+    public static long Money;
     public static int Diamond;
     public static int GoodPoint;
     //터치 당 게이지 차는 비율
@@ -30,7 +30,7 @@ public class StatusManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        Money = 1000;
+        Money = 0;
         Diamond = 1;
         GoodPoint = 2;
         Level_Chunbae = 1;
@@ -58,7 +58,7 @@ public class StatusManager : MonoBehaviour
 
    public void TocheckChunbaeProfitAndUpgradeCost()
     {
-        Touch_Profit = 10 * Level_Chunbae;
+        Touch_Profit = 1111111111 * Level_Chunbae;
         Touch_Step = Mathf.Floor(Level_Chunbae / 100) + 1;
         LevelUpCost_Chunbae = Touch_Profit * (Level_Chunbae + 1) * (int)Touch_Step;
     }
@@ -66,8 +66,44 @@ public class StatusManager : MonoBehaviour
     //Upper매뉴에 있는 돈, 다이아, 선행포인트를 보여줍니다.
    void ShowUpperMenu()
     {
+
+
+        //택스트 태그를 찾아 텍스트 들의 순서를 배열에 넣습니다.
         Text[] UpperMenu = GameObject.FindGameObjectWithTag("UI_UpperMenu").GetComponentsInChildren<Text>();
-        UpperMenu[0].text = Money.ToString();
+
+
+
+        //돈 보여주는 조건문
+        if (Money >= 1000000000000)
+        {
+            long Money_1000000000000 = Money / 1000000000000;
+            long Money_100000000 = (Money % 1000000000000) / 100000000;
+            long Money_10000 = (Money % 100000000) / 10000;
+            long Money_0 = (Money % 10000);
+            UpperMenu[0].text = Money_1000000000000+"조" + Money_100000000 + "억" + Money_10000 + "만" + Money_0.ToString() + "원";
+        }
+        else if (Money >= 100000000)
+        {
+            long Money_100000000 = Money / 100000000;
+            long Money_10000 = (Money % 100000000) / 10000;
+            long Money_0 = (Money % 10000);
+            UpperMenu[0].text = Money_100000000 + "억"+ Money_10000 + "만" + Money_0.ToString() + "원";
+        }
+        else if (Money >= 10000)
+        {
+            long Money_10000 = Money / 10000;
+            long Money_0 = Money % 10000;
+            UpperMenu[0].text = Money_10000 + "만" + Money_0.ToString() + "원";
+        }
+        else if (Money < 10000)
+        {
+            UpperMenu[0].text = Money.ToString() + "원";
+        }
+      
+
+
+
+
         UpperMenu[1].text = Diamond.ToString();
         UpperMenu[2].text = GoodPoint.ToString();
 
