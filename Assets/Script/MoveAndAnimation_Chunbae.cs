@@ -7,12 +7,13 @@ public class MoveAndAnimation_Chunbae : MonoBehaviour
     public Animator Animator_Chunbae;
     public StatusManager StatusMng;
     public bool IsTouched_Chunbae;
+    public int Touch_count;
 
     void Awake()
     {
         Animator_Chunbae = GetComponent<Animator>();
-
-        IsTouched_Chunbae = false;
+          Touch_count =0;
+          IsTouched_Chunbae = false;
     }
 
         // Update is called once per frame
@@ -27,8 +28,30 @@ public class MoveAndAnimation_Chunbae : MonoBehaviour
     //에니메이터에 트리거를 호출하여 애니메이션을 하게 만듭니다.
     public void ToTouched_Chunbae()
 {
-        Animator_Chunbae.SetTrigger("IsTouched_Trigger");
-}
+        if(Touch_count == 0)
+        {
+            Touch_count = 1;
+            Animator_Chunbae.SetInteger("touched_Index", 0);
+            Animator_Chunbae.SetTrigger("IsTouched_Trigger");
+
+        }
+        else if(Touch_count == 1)
+        {
+
+            Touch_count = 2;
+            Animator_Chunbae.SetInteger("touched_Index", 1);
+            Animator_Chunbae.SetTrigger("IsTouched_Trigger");
+           
+        }
+        else if (Touch_count == 2)
+        {
+
+            Touch_count = 0;
+            Animator_Chunbae.SetInteger("touched_Index", 2);
+            Animator_Chunbae.SetTrigger("IsTouched_Trigger");
+            
+        }
+    }
 
 
 }
