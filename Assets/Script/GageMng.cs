@@ -150,7 +150,7 @@ void AllFeverCheck()
 
             if (isfever == true)
             {
-                fevercount = 1.0f + feverfigure_cafe + feverfigure_chicken + feverfigure_gobchang + feverfigure_health + feverfigure_health;
+                fevercount = 1.0f + feverfigure_cafe + feverfigure_chicken + feverfigure_gobchang + feverfigure_health + feverfigure_land;
                 ToshowFeverTextWhenIsfeferTrue();
 
                 if (isfever_cafe == true)
@@ -208,12 +208,12 @@ void AllFeverCheck()
                 {
                     slider_land.value -= Time.deltaTime * (100 / fevertime_default);
 
-                    feverfigure_health = 0.5f;
+                    feverfigure_land = 0.5f;
 
                     if (slider_land.value == 0)
                     {
                         isfever_land = false;
-                       feverfigure_health = 0.0f;
+                       feverfigure_land = 0.0f;
                     }
                 }
 
