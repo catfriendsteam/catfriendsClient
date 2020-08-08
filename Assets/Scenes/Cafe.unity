@@ -442,6 +442,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02232c3fa3b1fbe48a7d918ab7c473a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chunbae: {fileID: 0}
+  moveAndAnimation_Chunbae: {fileID: 0}
   gageMng: {fileID: 0}
   statusMng: {fileID: 0}
   menu_chunbae: {fileID: 0}
@@ -863,7 +865,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1029533235823105681}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8240e728de973ba4884d2f379e9c4303, type: 3}
+  m_Script: {fileID: 11500000, guid: f50c32d54b41d3841bfd9cf3b2924e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   percentThreshold: 0.1

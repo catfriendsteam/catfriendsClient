@@ -46,10 +46,18 @@ public class MoveAndAnimation_Chunbae : MonoBehaviour
         else if (Touch_count == 2)
         {
 
-            Touch_count = 0;
+            Touch_count = 3;
             Animator_Chunbae.SetInteger("touched_Index", 2);
             Animator_Chunbae.SetTrigger("IsTouched_Trigger");
-            
+
+        }
+        else if (Touch_count == 3)
+        {
+
+            Touch_count = 0;
+            Animator_Chunbae.SetInteger("touched_Index", 3);
+            Animator_Chunbae.SetTrigger("IsTouched_Trigger");
+
         }
     }
 

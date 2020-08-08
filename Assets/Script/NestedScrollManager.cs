@@ -46,7 +46,6 @@ public class NestedScrollManager : MonoBehaviour, IBeginDragHandler, IDragHandle
     public void OnEndDrag(PointerEventData eventData)
     {
         isDrag = false;
-
         targetPos = SetPos();
 
         //절반거리를 넘지 않아도 마우스를 빠르게 이동하면
