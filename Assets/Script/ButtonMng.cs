@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ButtonMng : MonoBehaviour
 {
-    public GameObject chunbae;
+    
     public MoveAndAnimation_Chunbae moveAndAnimation_Chunbae;
 
     public GageMng gageMng;

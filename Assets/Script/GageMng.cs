@@ -7,7 +7,7 @@ public class GageMng : MonoBehaviour
 {
 
 
-    public StatusManager statusMng;
+   
     //피버 시간 설정 변수
     public float fevertime_default;
     //피버 1.5 2 2.5 새어주는 변수

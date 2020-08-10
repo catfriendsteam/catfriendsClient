@@ -8,6 +8,7 @@ TagManager:
   - Menu_Chunbae
   - Fever_Text
   - Guest
+  - BorderGuest
   layers:
   - Default
   - TransparentFX

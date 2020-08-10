@@ -9,7 +9,7 @@ public class GuestMove : MonoBehaviour
     public Sprite[] sprites;
 
     SpriteRenderer spriteRenderer;
-    Rigidbody2D rigid;
+
 
     public GameObject chunbae;
 
@@ -17,10 +17,7 @@ public class GuestMove : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        rigid = GetComponent<Rigidbody2D>();
-
-        //속력
-        rigid.velocity = Vector2.right * speed;
+      
 
     }
 
@@ -47,8 +44,11 @@ public class GuestMove : MonoBehaviour
     //나간 후에 삭제하는 함수
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "BorderBullet")
-            Destroy(gameObject);
+        if (collision.gameObject.tag == "BorderGuest")
+        {
+            Destroy(this.gameObject);
+            print("삭제완료");
+        }
 
 
         /* 콜리전에 충돌이 감지된 오브젝트의 게임오브젝트에서 겟컴포넌트하는것

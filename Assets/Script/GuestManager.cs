@@ -31,13 +31,27 @@ public class GuestManager : MonoBehaviour
         //0부터 시작하고, 그리고 랜덤한게 2개 있다.
         int ranEnemy = Random.Range(0, 2);
         //0부터 시작하고, 그리고 랜덤으로 나오는 장소가 4개 있다.
-        int ranPoint = Random.Range(0, 4);
+        int ranPoint = Random.Range(0, 9);
 
-        Instantiate(GuestObjs[ranEnemy],
+        GameObject guestMove = Instantiate(GuestObjs[ranEnemy],
             spawnPoints[ranPoint].position,
             spawnPoints[ranPoint].rotation);
 
+        Rigidbody2D rigid = guestMove.GetComponent<Rigidbody2D>();
+        SpriteRenderer sprite = guestMove.GetComponent<SpriteRenderer>();
+        GuestMove guestLogic = guestMove.GetComponent<GuestMove>();
+        if (ranPoint < 5)
+        {
+            rigid.velocity = new Vector2(guestLogic.speed  , 0);
+        }
 
+        else if(ranPoint >= 5) //  right Spawn
+        {
+            rigid.velocity = new Vector2(guestLogic . speed * (-1), 0 );
+            sprite.flipX = true;
+        }
+
+     
     }
 
 
