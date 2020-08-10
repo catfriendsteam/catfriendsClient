@@ -13,6 +13,8 @@ public class ButtonMng : MonoBehaviour
 
 
     public GameObject menu_chunbae;
+    public GameObject menu_setting;
+    public GameObject menu_post;
 
     public NestedScrollManager nestedScrollMng;
 
@@ -134,31 +136,37 @@ public class ButtonMng : MonoBehaviour
 
     }
 
-    public void EndIntro()
-    {
-        statusMng.maincanvas.SetActive(true);
-        statusMng.introcanvas.SetActive(false);
-        statusMng.chunbae.SetActive(true);
-        
-    }
-    public void ClickChunBaeButton()
+    public void open_ChunbaeButton()
     {
         menu_chunbae.SetActive(true);
     }
+    public void open_Setting()
+    {
+        menu_setting.SetActive(true);
+    }
+    public void open_Post()
+    {
+        menu_post.SetActive(true);
+    }
 
-
-    public void XButton_ChunbaeButton()
+    public void close_ChunbaeButton()
     {
         menu_chunbae.SetActive(false);
     }
+    public void close_Setting()
+    {
+        menu_setting.SetActive(false);
+    }
+    public void close_Post()
+    {
+        menu_post.SetActive(false);
+    }
 
-
-
-    public void InsideCafe()
+    public void gotoCafe()
     {
         SceneManager.LoadScene("Cafe");
     }
-    public void OutsideMain_Cafe()
+    public void gotoMain()
     {
         SceneManager.LoadScene("Main");
     }
