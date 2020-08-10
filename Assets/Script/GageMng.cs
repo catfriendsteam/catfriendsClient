@@ -6,16 +6,13 @@ using UnityEngine.UI;
 public class GageMng : MonoBehaviour
 {
 
-
-   
     //피버 시간 설정 변수
     public float fevertime_default;
     //피버 1.5 2 2.5 새어주는 변수
     public float fevercount;
 
     public GameObject Fevergage_Text;
-    public bool isfever; // 피버 상태인지 아닌지 받아주는 변수
-
+    public bool isfever; // 피버 상태인지 아닌지 받아주는 변수 
 
     // 카페 게이지 선언
     public Slider slider_cafe;
@@ -58,7 +55,6 @@ public class GageMng : MonoBehaviour
     public Text gageText_Land;
     public bool isfever_land;
     public float feverfigure_land;
-
 
     void Awake()
     {

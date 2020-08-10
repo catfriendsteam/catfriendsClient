@@ -8,12 +8,19 @@ public class StatusManager : MonoBehaviour
 {
     public GageMng gagemng;
 
+    public GameObject maincanvas;
+    public GameObject introcanvas;
+    public GameObject chunbae;
 
+    //게임을 처음 시작했는지 판단하는 변수
+    public bool isFirst = true;
     public static long Money;
     public static int Diamond;
     public static int GoodPoint;
     //터치 당 게이지 차는 비율
     public float touch_value;
+
+
 
    
 
@@ -27,8 +34,17 @@ public class StatusManager : MonoBehaviour
     public static float Touch_Step;
 
 
+    void Start()
+    {
+        if (isFirst)
+        {
+            maincanvas.SetActive(false);
+            chunbae.SetActive(false);
+            isFirst = false;
+            introcanvas.SetActive(true);
+        }
+    }
 
-    // Start is called before the first frame update
     void Awake()
     {
         Money = 0;
@@ -36,7 +52,6 @@ public class StatusManager : MonoBehaviour
         GoodPoint = 2;
         Level_Chunbae = 1;
         touch_value = 1;
-
       
 
         //Update에서도 계속 호출 되어야 할 변수들. 터치당 이득, 현재 레벨에 따른 레벨단계, 춘배 레벨업 비용 

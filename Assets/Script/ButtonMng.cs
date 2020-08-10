@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class ButtonMng : MonoBehaviour
 {
-    
     public MoveAndAnimation_Chunbae moveAndAnimation_Chunbae;
 
     public GageMng gageMng;
@@ -16,9 +15,6 @@ public class ButtonMng : MonoBehaviour
     public GameObject menu_chunbae;
 
     public NestedScrollManager nestedScrollMng;
-
-
-
 
 
     //카페 슬라이더
@@ -32,10 +28,6 @@ public class ButtonMng : MonoBehaviour
     //냥냐랜드 슬라이더
     public Slider slider_Land;
 
-
-
-
-    
 
 
 
@@ -142,7 +134,13 @@ public class ButtonMng : MonoBehaviour
 
     }
 
-
+    public void EndIntro()
+    {
+        statusMng.maincanvas.SetActive(true);
+        statusMng.introcanvas.SetActive(false);
+        statusMng.chunbae.SetActive(true);
+        
+    }
     public void ClickChunBaeButton()
     {
         menu_chunbae.SetActive(true);
