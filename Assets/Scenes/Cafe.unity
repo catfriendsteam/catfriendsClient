@@ -499,7 +499,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1864916719}
-        m_MethodName: OutsideMain_Cafe
+        m_MethodName: gotoMain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -889,6 +889,8 @@ MonoBehaviour:
   gageMng: {fileID: 0}
   statusMng: {fileID: 0}
   menu_chunbae: {fileID: 0}
+  menu_setting: {fileID: 0}
+  menu_post: {fileID: 0}
   nestedScrollMng: {fileID: 0}
   slider: {fileID: 0}
   slider_chicken: {fileID: 0}
