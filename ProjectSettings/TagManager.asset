@@ -9,6 +9,7 @@ TagManager:
   - Fever_Text
   - Guest
   - BorderGuest
+  - Content
   layers:
   - Default
   - TransparentFX
