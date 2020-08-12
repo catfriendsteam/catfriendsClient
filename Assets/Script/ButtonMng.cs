@@ -15,6 +15,14 @@ public class ButtonMng : MonoBehaviour
     public GameObject menu_chunbae;
     public GameObject menu_setting;
     public GameObject menu_post;
+    public GameObject menu_center;
+    public GameObject menu_Donation;
+    public GameObject center_statButton;
+    public GameObject center_openButton;
+    public GameObject center_donation;
+    public GameObject stats_chunbae;
+    public GameObject stats_center;
+
 
     public NestedScrollManager nestedScrollMng;
 
@@ -140,6 +148,10 @@ public class ButtonMng : MonoBehaviour
     {
         menu_chunbae.SetActive(true);
     }
+    public void open_ChunbaeStats()
+    {
+        stats_chunbae.SetActive(true);
+    }
     public void open_Setting()
     {
         menu_setting.SetActive(true);
@@ -148,10 +160,30 @@ public class ButtonMng : MonoBehaviour
     {
         menu_post.SetActive(true);
     }
+    public void open_CenterUpgrade()
+    {
+        menu_center.SetActive(true);
+        center_openButton.SetActive(false);
+        center_statButton.SetActive(false);
+        center_donation.SetActive(false);
+    }
+    public void open_CenterStats()
+    {
+        stats_center.SetActive(true);
+    }
+    public void open_Donation()
+    {
+        menu_Donation.SetActive(true);
+    }
+
 
     public void close_ChunbaeButton()
     {
         menu_chunbae.SetActive(false);
+    }
+    public void close_ChunbaeStats()
+    {
+        stats_chunbae.SetActive(false);
     }
     public void close_Setting()
     {
@@ -161,6 +193,23 @@ public class ButtonMng : MonoBehaviour
     {
         menu_post.SetActive(false);
     }
+    public void close_CenterUpgrade()
+    {
+        menu_center.SetActive(false);
+        center_openButton.SetActive(true);
+        center_statButton.SetActive(true);
+        center_donation.SetActive(true);
+    }
+    public void close_CenterStats()
+    {
+        stats_center.SetActive(false);
+    }
+    public void close_Donation()
+    {
+        menu_Donation.SetActive(false);
+    }
+
+
 
     public void gotoCafe()
     {
