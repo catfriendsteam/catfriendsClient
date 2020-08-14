@@ -10,7 +10,7 @@ public class NestedScrollManager : MonoBehaviour, IBeginDragHandler, IDragHandle
 
     const int SIZE = 5;
     float[] pos = new float[SIZE];
-    float distance, curPos, targetPos;
+    public float distance, curPos, targetPos;
     bool isDrag;
     public int targetIndex;
 

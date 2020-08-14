@@ -22,7 +22,8 @@ public class ButtonMng : MonoBehaviour
     public GameObject center_donation;
     public GameObject stats_chunbae;
     public GameObject stats_center;
-
+    public GameObject chunbae, quest, shop, center;
+    bool isStoreClicked;
 
     public NestedScrollManager nestedScrollMng;
 
@@ -208,7 +209,6 @@ public class ButtonMng : MonoBehaviour
     {
         menu_Donation.SetActive(false);
     }
-
 
 
     public void gotoCafe()
