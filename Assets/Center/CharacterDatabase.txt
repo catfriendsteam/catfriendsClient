@@ -1,0 +1,2 @@
+Cat	리리	1	1000	TRUE 
+Ncat	나비	1	50000	FALSE
