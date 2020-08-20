@@ -53,7 +53,7 @@ public class ButtonMng : MonoBehaviour
         //카페 게이지 상승
 
 
-        if (nestedScrollMng.targetIndex >= 0 && nestedScrollMng.targetIndex < 1)
+        if (nestedScrollMng.targetPos >= 0 && nestedScrollMng.targetPos < 0.25)
         {
             if (gageMng.isfever_cafe == false)
             {
@@ -73,7 +73,7 @@ public class ButtonMng : MonoBehaviour
 
 
         //치킨 게이지 상승
-        if (nestedScrollMng.targetIndex >= 1 && nestedScrollMng.targetIndex < 2)
+        if (nestedScrollMng.targetPos >= 0.25 && nestedScrollMng.targetPos < 0.5)
         {
             if (gageMng.isfever_chicken == false)
             {
@@ -92,7 +92,7 @@ public class ButtonMng : MonoBehaviour
 
 
         //곱창 게이지 상승
-        if (nestedScrollMng.targetIndex >= 2 && nestedScrollMng.targetIndex < 3)
+        if (nestedScrollMng.targetPos >= 0.5 && nestedScrollMng.targetPos < 0.75)
         {
             if (gageMng.isfever_gobchang == false)
             {
@@ -109,7 +109,7 @@ public class ButtonMng : MonoBehaviour
         }
 
         //헬스 게이지 상승
-        if (nestedScrollMng.targetIndex >= 3 && nestedScrollMng.targetIndex < 4)
+        if (nestedScrollMng.targetPos >= 0.75 && nestedScrollMng.targetPos < 1)
         {
             if (gageMng.isfever_health == false)
             {
@@ -125,7 +125,7 @@ public class ButtonMng : MonoBehaviour
             }
         }
         //냥냐랜드 게이지 상승
-        if (nestedScrollMng.targetIndex >= 4 && nestedScrollMng.targetIndex < 5)
+        if (nestedScrollMng.targetPos >= 1 )
         {
             if (gageMng.isfever_land == false)
             {
