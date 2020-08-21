@@ -22,6 +22,9 @@ public class ButtonMng : MonoBehaviour
     public GameObject center_donation;
     public GameObject stats_chunbae;
     public GameObject stats_center;
+    public GameObject category_nyang;
+    public GameObject category_animal;
+
     public GameObject chunbae, quest, shop, center;
     bool isStoreClicked;
 
@@ -41,7 +44,11 @@ public class ButtonMng : MonoBehaviour
 
 
 
-
+    private void Awake()
+    {
+        category_nyang.SetActive(true);
+        category_animal.SetActive(false);
+    }
 
     public void IncreaseGage()
     {
@@ -209,7 +216,16 @@ public class ButtonMng : MonoBehaviour
     {
         menu_Donation.SetActive(false);
     }
-
+    public void open_Nyang()
+    {
+        category_nyang.SetActive(true);
+        category_animal.SetActive(false);
+    }
+    public void open_Animal()
+    {
+        category_nyang.SetActive(false);
+        category_animal.SetActive(true);
+    }
 
     public void gotoCafe()
     {
