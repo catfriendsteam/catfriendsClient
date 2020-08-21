@@ -227,6 +227,7 @@ public class ButtonMng : MonoBehaviour
         category_animal.SetActive(true);
     }
 
+
     public void gotoCafe()
     {
         SceneManager.LoadScene("Cafe");
@@ -235,5 +236,8 @@ public class ButtonMng : MonoBehaviour
     {
         SceneManager.LoadScene("Main");
     }
-
+    public void gotoCenter()
+    {
+        SceneManager.LoadScene("Center");
+    }
 }

@@ -7191,6 +7191,8 @@ MonoBehaviour:
   center_donation: {fileID: 0}
   stats_chunbae: {fileID: 2016489609}
   stats_center: {fileID: 0}
+  category_nyang: {fileID: 0}
+  category_animal: {fileID: 0}
   chunbae: {fileID: 0}
   quest: {fileID: 0}
   shop: {fileID: 0}
@@ -11183,6 +11185,8 @@ MonoBehaviour:
   center_donation: {fileID: 0}
   stats_chunbae: {fileID: 0}
   stats_center: {fileID: 0}
+  category_nyang: {fileID: 0}
+  category_animal: {fileID: 0}
   chunbae: {fileID: 0}
   quest: {fileID: 0}
   shop: {fileID: 0}
@@ -11348,6 +11352,8 @@ MonoBehaviour:
   center_donation: {fileID: 0}
   stats_chunbae: {fileID: 0}
   stats_center: {fileID: 0}
+  category_nyang: {fileID: 0}
+  category_animal: {fileID: 0}
   chunbae: {fileID: 0}
   quest: {fileID: 0}
   shop: {fileID: 0}
@@ -13080,7 +13086,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2065963409}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1285187287}
+        m_MethodName: gotoCenter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &2065963411
 CanvasRenderer:
   m_ObjectHideFlags: 0
