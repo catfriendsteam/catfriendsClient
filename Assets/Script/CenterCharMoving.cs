@@ -1,41 +1,107 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Data.SqlTypes;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class CenterCharMoving : MonoBehaviour
 {
-    Vector2 goalPos;
-    public int randomPosX, randomPosY;
-    float speed = 0.5f;
-    SpriteRenderer spriteRenderer;
+    //고양이 각각의 움직임과 선행포인트 이벤트 발현 스크립트
+    SpriteRenderer sprite;
+    Vector3 velocity;
+    public float speed=0.01f;
+    public bool CanRunRandomize;//이 변수가 true가 되어야 랜덤 움직임 가능
 
     void Start()
     {
-        goalPos.x = 2;
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        RandomMove();
-        Debug.Log(transform.position.x);
+        velocity = Vector3.zero;
+        sprite = GetComponent<SpriteRenderer>();
     }
-    void Update()
+
+    void FixedUpdate()
     {
-        //랜덤한 목표지점으로 이동
-        this.transform.position = Vector2.MoveTowards(this.transform.position, goalPos, speed * Time.deltaTime);
-        if (transform.position.x == goalPos.x)
-            RandomMove();
-            
+        //고양이 움직임
+        transform.position += velocity.normalized*speed;
+
+        //위아래 경계선 체크
+        if(transform.position.y>=0.24f)
+            velocity.y *= velocity.y > 0 ? -1 : 1;
+        else if(transform.position.y<=-4.53f)
+            velocity.y *= velocity.y > 0 ? 1 : -1;
+
+        //flip
+        if (velocity.x >= 0)
+            sprite.flipX = true;
+        else sprite.flipX = false;
     }
-    void RandomMove()
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        //랜덤한 목표지점 지정
-        randomPosX = Random.Range(-2, 8);
-        randomPosY = Random.Range(-3, 1);
+        //물체와 부딪혔을때 경로 재설정
+        if (collision.tag == "CenterObj")
+        {
+            Debug.Log("부딪힘");
+            velocity.x *= -1;
+            velocity.y *= -1;
+        }
+    }
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        //고양이가 캔버스 안에 있을때
+        if (collision.tag == "CenterContent")
+        {
+            if (CanRunRandomize)
+            {
+                //랜덤움직임 무한반복을 막기 위해 시간간격을 준다.
+                CanRunRandomize = false;
+                Randomize();
 
-        //Debug.Log(transform.position.x - goalPos.x);
-        //좌우 방향 바꿈 방향벡터가 음수이면 방향을 전환하면 될것같은데 어떻게 하지
-        //현재좌표가 왜 0이 아닐까..............ㅠㅠㅠ
-        bool dir = false;
-        spriteRenderer.flipX = (randomPosX < goalPos.x ? dir:!dir);
+                //타이머 함수를 외부 스레드에서 실행..동시작업.......
+                StartCoroutine(Timer());
+            }
+        }
+    }
 
-        //randompos 지정
-        goalPos.x = randomPosX;
-        goalPos.y = randomPosY;
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        //고양이가 캔버스를 벗어났을때
+        if (collision.tag == "CenterContent")
+        {
+            float dir = transform.position.x - collision.transform.position.x;
+            Debug.Log(transform.position.x);
+            Debug.Log(collision.transform.position.x);
+            if (dir >= 0)
+            {
+                //고양이가 화면 오른쪽으로 벗어났을때 방향전환
+                velocity.x *= velocity.x > 0 ? -1 : 1;
+            }
+            else
+            {
+                //고양이가 화면 왼쪽으로 벗어났을때
+                velocity.x *= velocity.x > 0 ? 1 : -1;
+            }
+        }
+    }
+
+    IEnumerator Timer()
+    {
+        int curtime = 0;
+        while (!CanRunRandomize)
+        {
+            curtime++;
+            if (curtime == 7)
+                CanRunRandomize = true;
+            yield return new WaitForSeconds(1);
+        }
+        yield break;
+    }
+
+    void Randomize()
+    {
+        float randomX, randomY;
+        randomX = Random.Range(-1f, 1.0f);
+        randomY = Random.Range(-1f, 1.0f);
+
+        velocity.x = randomX;
+        velocity.y = randomY;
     }
 }
