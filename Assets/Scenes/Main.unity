@@ -7294,6 +7294,7 @@ MonoBehaviour:
   GuestObjs:
   - {fileID: 5707012546729741826, guid: e899785d5cfeba44f85dfbc640a28a7c, type: 3}
   - {fileID: 903753857955216, guid: f3a1cdce27f178941b1a98188ef3399a, type: 3}
+  - {fileID: 1613853643338528325, guid: 7a94b644504676646986b1cf705d92e2, type: 3}
   spawnPoints:
   - {fileID: 1858010721}
   - {fileID: 863055823}
