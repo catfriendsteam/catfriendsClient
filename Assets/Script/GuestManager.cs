@@ -31,7 +31,7 @@ public class GuestManager : MonoBehaviour
     void SpawnEnemy()
     {
         //0부터 시작하고, 그리고 랜덤한게 2개 있다.
-        int ranEnemy = Random.Range(0, 2);
+        int ranEnemy = Random.Range(0, 3);
         //0부터 시작하고, 그리고 랜덤으로 나오는 장소가 10개 있다.
         int ranPoint = Random.Range(0, 10);
 
