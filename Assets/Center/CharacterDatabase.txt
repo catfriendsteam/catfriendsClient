@@ -1,2 +1,20 @@
-Cat	리리	1	1000	TRUE 
-Ncat	나비	1	50000	FALSE
+Cat	리리	1	1000	FALSE	1.3	평범한고양이이다.
+Ncat	김영철	1	50000	FALSE	1.5	영철이는 나비가 싫어요
+Ncat	반휘혈	1	56455	TRUE	1.5	테스트
+Ncat	김나비	1	50000	TRUE	1.5	테스트
+Ncat	김춘배	1	56455	TRUE	1.5	테스트
+Ncat	나남훈	1	50000	TRUE	1.5	테스트
+Ncat	최민수	1	56455	TRUE	1.5	테스트
+Ncat	강이지	1	50000	TRUE	1.5	테스트
+Ncat	쌍둥형	1	56455	TRUE	1.5	테스트
+Ncat	쌍둥동생	1	50000	TRUE	1.5	테스트
+Ncat	기억안나	1	56455	TRUE	1.5	테스트
+Cat	치즈	1	1000	TRUE	1.3	테스트
+Cat	고등어	1	1000	TRUE	1.3	테스트
+Cat	알프레동	1	1000	TRUE	1.3	테스트
+Cat	흠냐냐	1	1000	TRUE	1.3	테스트
+Cat	뚱이	1	1000	TRUE	1.3	테스트
+Cat	코코	1	1000	TRUE	1.3	테스트
+Cat	동동이	1	1000	TRUE	1.3	테스트
+Cat	폼실이	1	1000	TRUE	1.3	테스트
+Cat	길냥	1	1000	TRUE	1.3	테스트

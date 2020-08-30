@@ -1,12 +1,14 @@
 ﻿using System.Collections;
-using System.Data.SqlTypes;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CenterCharMoving : MonoBehaviour
 {
-    //고양이 각각의 움직임과 선행포인트 이벤트 발현 스크립트
+    //고양이 각각의 움직임
+    //선행포인트 이벤트 발현
+
+    public StatusManager statusManager;
+
     SpriteRenderer sprite;
     Vector3 velocity;
     public float speed=0.01f;
@@ -39,7 +41,7 @@ public class CenterCharMoving : MonoBehaviour
         //물체와 부딪혔을때 경로 재설정
         if (collision.tag == "CenterObj")
         {
-            Debug.Log("부딪힘");
+            //Debug.Log("부딪힘");
             velocity.x *= -1;
             velocity.y *= -1;
         }
@@ -67,8 +69,8 @@ public class CenterCharMoving : MonoBehaviour
         if (collision.tag == "CenterContent")
         {
             float dir = transform.position.x - collision.transform.position.x;
-            Debug.Log(transform.position.x);
-            Debug.Log(collision.transform.position.x);
+            //Debug.Log(transform.position.x);
+            //Debug.Log(collision.transform.position.x);
             if (dir >= 0)
             {
                 //고양이가 화면 오른쪽으로 벗어났을때 방향전환

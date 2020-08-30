@@ -1,0 +1,43 @@
+0. 업데이트 내용
+*내가 보유한 캐릭터(MyCharacterText)만 목록에 보임
+*그 외 캐릭터들은 ???으로 나타나며 잠김
+*테스트용으로 고양이와 영철이를 보유했다고 가정했으며(isRocked==false)
+ 그 둘은 시작하면 프리팹 형태로 센터에 배치됨
+*buildsetting 변경(othersettings)
+*레벨업 기능은 구현중인데 오류가 나서 고칠 예정
+*자세한 기능들은 CharacterManager스크립트의 주석들을 참고해주세요!
+
+
+1. 현재 저장된 데이터 관련
+센터 폴더에 들어가시면 CharacterDatabase라는 메모장이 있습니다. 순서는
+
+타입(냥인인지 동물인지),이름,레벨,레벨업비용,현재 보유하고있는지,능력치,설명
+
+입니다.
+데이터 수정을 위해서는 엑셀에서 데이터를 수정한뒤,
+유니티 에셋의 센터폴더에서 CharacterDatabase를 클릭하시면 비주얼스튜디오가 뜨는데
+거기에 엑셀 내용을 복붙해주시면 됩니다. 
+엑셀폴더도 첨부해놓겠습니다.
+(데이터가 20개라면 21번째 줄까지 보이도록 저장해주세요)
+
+
+2. 게임을 실행시키면 맨 처음에 CharacterDatabase를 MyCharacterText파일에 따로 저장하는 과정이 필요합니다.
+유니티를 실행시키면 콘솔창에
+C:\Users\jyr16\AppData\LocalLow\welcomtotheworld\catfriendsclient/MyCharacterText.txt
+(이 경로는 제 노트북에 저장된 경로니까 이걸로 복사하면 안됩니다...유니티 콘솔창에 뜬 경로 복사!)
+이런식으로 경로가 뜰텐데요, catfriensclient까지만 경로를 복사해서 들어가시면 MyCharacterText파일이 생성되어있을거에요!
+
+3. 만약 CharDatabase를 수정하셨다면
+위 경로에 있는 MyCharacterText파일을 삭제해주세요.
+( MyCharacterText 다시 생성해야하서)
+
+
+4.앞으로 구현할것
+레벨업 구현, 일정 시간마다 선행포인트 획득하는 이벤트,상점 냥뽑기
+
+이 영상들 참고하여 짰습니다
+https://www.youtube.com/watch?v=GNSD1-y6SeM  
+->여기 53분 30초에 파이어베이스 서버에 데이터를 저장하는것도 잠시 나옵니당
+https://www.youtube.com/watch?v=abwOVy5qTO4s
+
+궁금한점은 연락주세요ㅠㅠ
