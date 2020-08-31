@@ -25,6 +25,16 @@ public class ButtonMng : MonoBehaviour
     public GameObject category_nyang;
     public GameObject category_animal;
 
+    //가게
+    public GameObject menu_StoreUpgrade;
+    public GameObject menu_Store;
+    public GameObject stats_Store;
+
+    public GameObject store_statButton;
+    public GameObject store_openButton;
+    //가게 
+
+
     public GameObject chunbae, quest, shop, center;
     bool isStoreClicked;
 
@@ -151,6 +161,8 @@ public class ButtonMng : MonoBehaviour
 
     }
 
+
+
     public void open_ChunbaeButton()
     {
         menu_chunbae.SetActive(true);
@@ -228,4 +240,28 @@ public class ButtonMng : MonoBehaviour
     {
         SceneManager.LoadScene("Center");
     }
+
+    //가게
+
+    public void open_StorerUpgrade()
+    {
+        menu_StoreUpgrade.SetActive(true);
+        store_openButton.SetActive(false);
+        store_statButton.SetActive(false);
+    }
+    public void open_StoreStats()
+    {
+        stats_center.SetActive(true);
+    }
+
+    public void close_StoreUpgrade()
+    {
+        menu_StoreUpgrade.SetActive(false);
+        store_openButton.SetActive(true);
+        store_statButton.SetActive(true);
+        
+    }
+
 }
+
+
