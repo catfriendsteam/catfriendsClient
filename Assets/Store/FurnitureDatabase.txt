@@ -1,4 +1,4 @@
-카페	커피머신	CoffeMachine	1	1	FALSE
+카페	커피머신	CoffeMachine	1	2	FALSE
 카페	케이크	Cake	1	1	FALSE
 카페	카운터	Counter_Café	1	1	FALSE
 카페	테이블	Table_Café	1	1	FALSE

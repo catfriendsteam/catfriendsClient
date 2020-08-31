@@ -36,6 +36,9 @@ public class StoreManage : MonoBehaviour
     public string curType = "카페";
     public GameObject[] Slot;
     public Text StoreNameText;
+    public Image[] FurnitureImage;
+
+    public Sprite[] UsingSprite;
 
     public NestedScrollManager scrollMng;
 
@@ -69,25 +72,80 @@ public class StoreManage : MonoBehaviour
         */
     public void TabClick()
     {
-        if (scrollMng.targetPos == 0)
+
+        //타겟포인트에 따른 가구 불러오는 것 다르게
+        if (scrollMng.targetPos >= 0f && scrollMng.targetPos < 0.25f)
         {
             curType = "카페";
             CurStoreList = MyStoreList.FindAll(x => x.Type == "카페");
         }
-        
+        else if (scrollMng.targetPos >= 0.25f && scrollMng.targetPos < 0.5f)
+        {
+            curType = "치킨집";
+            CurStoreList = MyStoreList.FindAll(x => x.Type == "치킨집");
+        }
+        else if (scrollMng.targetPos >= 0.5f && scrollMng.targetPos < 0.75f)
+        {
+            curType = "곱창집";
+            CurStoreList = MyStoreList.FindAll(x => x.Type == "곱창집");
+        }
+        else if (scrollMng.targetPos >= 0.75f && scrollMng.targetPos < 1f)
+        {
+            curType = "헬스장";
+            CurStoreList = MyStoreList.FindAll(x => x.Type == "헬스장");
+        }
+        else if (scrollMng.targetPos >= 1.0f)
+        {
+            curType = "냥나랜드";
+            CurStoreList = MyStoreList.FindAll(x => x.Type == "냥냐랜드");
+        }
+
         // 
-        for(int i = 0; i<Slot.Length; i++)
+        for (int i = 0; i<Slot.Length; i++)
         {
             //꺼져있던 슬롯 활성화
             Slot[i].SetActive(i < CurStoreList.Count);
-            //이름을 받아옵니다.
-            Slot[i].GetComponentInChildren<Text>().text = i < CurStoreList.Count ? CurStoreList[i].Name : "";
 
-           // Slot[i].GetComponentInChildren<Text>().text = i < CurStoreList.Count ? CurStoreList[i].Level.ToString : "";
+
+
+            /*//이름을 받아옵니다.
+            Slot[i].GetComponentInChildren<Text>().text = i < CurStoreList.Count ? CurStoreList[i].Name : "";
+      
+            // Slot[i].GetComponentInChildren<Text>().text = i < CurStoreList.Count ? CurStoreList[i].Level.ToString : "";*/
+
+            //내가 보유한 캐릭터의 이름 가져오기
+            Text FurnitureName = Slot[i].transform.GetChild(1).gameObject.GetComponent<Text>();
+            FurnitureName.text = CurStoreList[i].Name;
+
+            //내가 보유한 캐릭터의 레벨 가져오기
+            Text FurnitureLevel = Slot[i].transform.GetChild(3).gameObject.GetComponent<Text>();
+            FurnitureLevel.text = CurStoreList[i].Level.ToString();
+
+            //내가 보유한 캐릭터의 버는 돈 가져오기
+            Text FurnitureProfit = Slot[i].transform.GetChild(4).gameObject.GetComponent<Text>();
+            FurnitureProfit.text =  (CurStoreList[i].Profit.ToString() +" " +  '/' + " s");
+
+            //비용
+            Text MyCharCost = Slot[i].transform.GetChild(5).GetChild(0).gameObject.GetComponent<Text>();
+            MyCharCost.text = ((CurStoreList[i].Level * 10).ToString()+ "원");
+
+            //레벨업 효과
+            Text MyCharEffect = Slot[i].transform.GetChild(5).GetChild(1).gameObject.GetComponent<Text>();
+            MyCharEffect.text =('+' + (3).ToString() + "원");
+
+
+
+
+
+
+            //아이템 이미지
+            FurnitureImage[i].sprite = UsingSprite[AllStoreList.FindIndex(x => x.RealName == CurStoreList[i].RealName)];
+         
         }
 
             //가게이름 받아오기
         StoreNameText.text = curType;
+    
 
 
 

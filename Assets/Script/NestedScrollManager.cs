@@ -23,11 +23,16 @@ public class NestedScrollManager : MonoBehaviour, IBeginDragHandler, IDragHandle
     }
     float SetPos()
     {
+
         //절반 거리를 기준으로 가까운 위치를 반환하는 함수
         for (int i = 0; i < SIZE; i++)
             if (scrollbar.value < pos[i] + distance * 0.5f && scrollbar.value > pos[i] - distance * 0.5f)
             {
                 targetIndex = i;
+
+                // 스토어매니저 반응 받기
+             
+
                 return pos[i];
             }
         return 0;
@@ -37,6 +42,10 @@ public class NestedScrollManager : MonoBehaviour, IBeginDragHandler, IDragHandle
     public void OnBeginDrag(PointerEventData eventData)
     {
         curPos = SetPos();
+
+
+        
+
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -50,14 +59,7 @@ public class NestedScrollManager : MonoBehaviour, IBeginDragHandler, IDragHandle
         targetPos = SetPos();
 
 
-
-        // 스토어매니저 반응 받기
-        if(StoreManage != null)
-        {
-            StoreManage.TabClick();
-            print("성공");
-        }
-
+        
 
 
 
@@ -84,6 +86,13 @@ public class NestedScrollManager : MonoBehaviour, IBeginDragHandler, IDragHandle
 
         //테스트용
         //  print(curPos + "/" + targetPos + "/" + targetIndex);
+
+
+        if (StoreManage != null)
+        {
+            StoreManage.TabClick();
+            print("성공1");
+        }
     }
 
 
