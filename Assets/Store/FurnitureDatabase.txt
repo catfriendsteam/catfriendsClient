@@ -1,21 +1,20 @@
-카페	CoffeMachine	커피머신	1	FALSE
-카페	Cake	케이크	1	FALSE
-카페	Counter_Café	카운터	1	FALSE
-카페	Table_Café	테이블	1	FALSE
-치킨집	Counter_Chicken	카운터	1	FALSE
-치킨집	Table_Chicken	테이블	1	FALSE
-치킨집	Kichen	주방	1	FALSE
-치킨집	BeerMachine	맥주기계	1	FALSE
-곱창집	Counter_Gobchang	카운터	1	FALSE
-곱창집	Table_Gobchang	테이블	1	FALSE
-곱창집	Refrigerator	술냉장고	1	FALSE
-곱창집	FireMachine	굽는기계	1	FALSE
-헬스장	Counter_Health	카운터	1	FALSE
-헬스장	Runningmachine	런닝머신	1	FALSE
-헬스장	Benchpress	벤치프레스	1	FALSE
-헬스장	Protein	프로틴정수기	1	FALSE
-냥냐랜드	Land1	관람차	1	FALSE
-냥냐랜드	Land2	썰렁별장	1	FALSE
-냥냐랜드	Land3	냥이아가라	1	FALSE
-냥냐랜드	Land4	사랑의회전컵	1	FALSE
-
+카페	커피머신	CoffeMachine	1	1	FALSE
+카페	케이크	Cake	1	1	FALSE
+카페	카운터	Counter_Café	1	1	FALSE
+카페	테이블	Table_Café	1	1	FALSE
+치킨집	카운터	Counter_Chicken	1	2	FALSE
+치킨집	테이블	Table_Chicken	1	2	FALSE
+치킨집	주방	Kichen	1	2	FALSE
+치킨집	맥주기계	BeerMachine	1	2	FALSE
+곱창집	카운터	Counter_Gobchang	1	4	FALSE
+곱창집	테이블	Table_Gobchang	1	4	FALSE
+곱창집	술냉장고	Refrigerator	1	4	FALSE
+곱창집	굽는기계	FireMachine	1	4	FALSE
+헬스장	카운터	Counter_Health	1	8	FALSE
+헬스장	런닝머신	Runningmachine	1	8	FALSE
+헬스장	벤치프레스	Benchpress	1	8	FALSE
+헬스장	프로틴정수기	Protein	1	8	FALSE
+냥냐랜드	관람차	Land1	1	16	FALSE
+냥냐랜드	썰렁별장	Land2	1	16	FALSE
+냥냐랜드	냥이아가라	Land3	1	16	FALSE
+냥냐랜드	사랑의회전컵	Land4	1	16	FALSE

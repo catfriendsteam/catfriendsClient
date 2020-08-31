@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class NestedScrollManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Scrollbar scrollbar;
+    public StoreManage StoreManage;
 
     const int SIZE = 5;
     float[] pos = new float[SIZE];
@@ -47,6 +48,18 @@ public class NestedScrollManager : MonoBehaviour, IBeginDragHandler, IDragHandle
     {
         isDrag = false;
         targetPos = SetPos();
+
+
+
+        // 스토어매니저 반응 받기
+        if(StoreManage != null)
+        {
+            StoreManage.TabClick();
+            print("성공");
+        }
+
+
+
 
         //절반거리를 넘지 않아도 마우스를 빠르게 이동하면
         if (curPos == targetPos)

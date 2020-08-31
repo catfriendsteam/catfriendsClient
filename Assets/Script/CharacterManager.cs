@@ -75,7 +75,7 @@ public class CharacterManager : MonoBehaviour
         }
 
         //모바일이든 컴퓨터든 파일이 저장된 경로에서 mycharacter 경로 저장
-        filePath = Application.persistentDataPath + "/MyCharacterText.txt";
+        filePath = Application.persistentDataPath + "/Resources/MyCharacterText.txt";
         Debug.Log(filePath);
         Load(); //MyCharacter불러옴
     }
