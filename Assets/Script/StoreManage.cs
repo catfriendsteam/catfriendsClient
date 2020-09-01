@@ -12,21 +12,32 @@ using UnityEngine.UI;
 //캐릭터의 특성을 저장하는 클래스
 public class Store
 {
+    
+
+
     //생성자 : 각각 타입(냥멍인/냥이),이름,레벨,레벨업비용,해금여부,레벨업 효과,설명글
     public Store(string _Type, string _Name, string _RealName, int _Level, int _Profit, bool _isRocked)
     {
         Type = _Type; Name = _Name; RealName = _RealName; Level = _Level; Profit = _Profit; isRocked = _isRocked;
     }
     public string Type, Name, RealName;
-    public int Level, Profit;
+    public int Level = 1;
+    public int Profit = 1;
     
     public bool isRocked;
 
-    public int Furnitureindex;
+    //차례대로 가구가 화면 4개의 슬롯중에 표시되는 순서, 가게배수, 리모델링 배수
+    public int Furnitureindex, Storemagnification;
+    public int RemodelingMagnifiaction;
+
 
     [TextArea]
     public string ExplainText;
 
+
+    
+
+    
     //추가해야 할 변수 : 능력치들
 }
 
@@ -57,31 +68,59 @@ public class StoreManage : MonoBehaviour
 
     void Start()
     {
+        Setting();
+        
+
+
+    }
+
+
+    
+    public void Setting()
+    {
         string[] line = StoreDatabase.text.Substring(0, StoreDatabase.text.Length - 1).Split('\n');
         for (int i = 0; i < line.Length; i++)
         {
             string[] row = line[i].Split('\t');
 
             AllStoreList.Add(new Store(row[0], row[1], row[2], int.Parse(row[3]), int.Parse(row[4]), row[5] == "TRUE"));
+
+
+
+            //리모델링 배수 설정 -> 지금 AllStore에다가 하는 중인데, MystoreList로 옮길까 생각중
+            if (AllStoreList[i].Type == "카페")
+                AllStoreList[i].RemodelingMagnifiaction = 1;
+            else if (AllStoreList[i].Type == "치킨집")
+                AllStoreList[i].RemodelingMagnifiaction = 2;
+            else if (AllStoreList[i].Type == "곱창집")
+                AllStoreList[i].RemodelingMagnifiaction = 4;
+            else if (AllStoreList[i].Type == "헬스장")
+                AllStoreList[i].RemodelingMagnifiaction = 8;
+            else if (AllStoreList[i].Type == "냥냐랜드")
+                AllStoreList[i].RemodelingMagnifiaction = 16;
+
+            //가게 배수 설정
+            if (AllStoreList[i].Type == "카페")
+                AllStoreList[i].Storemagnification = 1;
+            else if (AllStoreList[i].Type == "치킨집")
+                AllStoreList[i].Storemagnification = 4;
+            else if (AllStoreList[i].Type == "곱창집")
+                AllStoreList[i].Storemagnification = 16;
+            else if (AllStoreList[i].Type == "헬스장")
+                AllStoreList[i].Storemagnification = 64;
+            else if (AllStoreList[i].Type == "냥냐랜드")
+                AllStoreList[i].Storemagnification = 256;
+
+       
         }
 
         Load();
 
     }
 
-    public void LevelUpButton(int Buttonindex)
-    {
-        
-        Store CurFurniture = CurStoreList.Find(x => x.Furnitureindex == Buttonindex);
-        CurFurniture.Level = CurFurniture.Level + 1;
-        TabClick();
-    }
 
-    public void RemoveStoreClick()
-    {
 
-    }
-
+    
 
 
 
@@ -133,6 +172,36 @@ public class StoreManage : MonoBehaviour
 
 
 
+            // 리모델링 배수 설정 -> 지금 AllStore에다가 하는 중인데, MystoreList로 옮길까 생각중 하다가 -> CurStoreList에 넣어봄.
+
+            if (CurStoreList[i].Type == "카페")
+                CurStoreList[i].RemodelingMagnifiaction = 1;
+            else if (CurStoreList[i].Type == "치킨집")
+                CurStoreList[i].RemodelingMagnifiaction = 2;
+            else if (CurStoreList[i].Type == "곱창집")
+                CurStoreList[i].RemodelingMagnifiaction = 4;
+            else if (CurStoreList[i].Type == "헬스장")
+                CurStoreList[i].RemodelingMagnifiaction = 8;
+            else if (CurStoreList[i].Type == "냥냐랜드")
+                CurStoreList[i].RemodelingMagnifiaction = 16;
+
+            //가게 배수 설정
+            if (CurStoreList[i].Type == "카페")
+                CurStoreList[i].Storemagnification = 1;
+            else if (CurStoreList[i].Type == "치킨집")
+                CurStoreList[i].Storemagnification = 4;
+            else if (CurStoreList[i].Type == "곱창집")
+                CurStoreList[i].Storemagnification = 16;
+            else if (CurStoreList[i].Type == "헬스장")
+                CurStoreList[i].Storemagnification = 64;
+            else if (CurStoreList[i].Type == "냥냐랜드")
+                CurStoreList[i].Storemagnification = 256;
+
+
+
+
+
+
 
             /*//이름을 받아옵니다.
             Slot[i].GetComponentInChildren<Text>().text = i < CurStoreList.Count ? CurStoreList[i].Name : "";
@@ -149,11 +218,11 @@ public class StoreManage : MonoBehaviour
 
             //내가 보유한 캐릭터의 버는 돈 가져오기
             Text FurnitureProfit = Slot[i].transform.GetChild(4).gameObject.GetComponent<Text>();
-            FurnitureProfit.text =  (CurStoreList[i].Profit.ToString() +" " +  '/' + " s");
+            FurnitureProfit.text =  (CurStoreList[i].Profit).ToString() +" " +  '/' + " s");
 
             //비용
             Text MyCharCost = Slot[i].transform.GetChild(5).GetChild(0).gameObject.GetComponent<Text>();
-            MyCharCost.text = ((CurStoreList[i].Level * 10).ToString()+ "원");
+            MyCharCost.text = ((CurStoreList[i].Profit * CurStoreList[i].Level * CurStoreList[i].Storemagnification * CurStoreList[i].RemodelingMagnifiaction).ToString()+ "원");
 
             //레벨업 효과
             Text MyCharEffect = Slot[i].transform.GetChild(5).GetChild(1).gameObject.GetComponent<Text>();
@@ -203,6 +272,30 @@ public class StoreManage : MonoBehaviour
         TabClick();
 
     }
+
+
+
+    public void RemodelingClick(int Buttonindex)
+    {
+
+        Store CurFurniture = CurStoreList.Find(x => x.Furnitureindex == Buttonindex);
+        CurFurniture.RemodelingMagnifiaction = CurFurniture.RemodelingMagnifiaction + 1;
+        TabClick();
+
+        print(CurFurniture.RemodelingMagnifiaction);
+    }
+
+
+    public void LevelUpButton(int Buttonindex)
+    {
+
+        Store CurFurniture = CurStoreList.Find(x => x.Furnitureindex == Buttonindex);
+        CurFurniture.Level = CurFurniture.Level + 1;
+        TabClick();
+    }
+
+
+
 }
 
 
