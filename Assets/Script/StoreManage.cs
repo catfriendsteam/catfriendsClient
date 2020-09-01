@@ -218,7 +218,7 @@ public class StoreManage : MonoBehaviour
 
             //내가 보유한 캐릭터의 버는 돈 가져오기
             Text FurnitureProfit = Slot[i].transform.GetChild(4).gameObject.GetComponent<Text>();
-            FurnitureProfit.text =  (CurStoreList[i].Profit).ToString() +" " +  '/' + " s");
+            FurnitureProfit.text =  (CurStoreList[i].Profit.ToString() +" " +  '/' + " s");
 
             //비용
             Text MyCharCost = Slot[i].transform.GetChild(5).GetChild(0).gameObject.GetComponent<Text>();
