@@ -22,6 +22,8 @@ public class Store
     
     public bool isRocked;
 
+    public int Furnitureindex;
+
     [TextArea]
     public string ExplainText;
 
@@ -39,6 +41,9 @@ public class StoreManage : MonoBehaviour
     public Image[] FurnitureImage;
 
     public Sprite[] UsingSprite;
+    
+
+
 
     public NestedScrollManager scrollMng;
 
@@ -63,6 +68,22 @@ public class StoreManage : MonoBehaviour
         Load();
 
     }
+
+    public void LevelUpButton(int Buttonindex)
+    {
+        
+        Store CurFurniture = CurStoreList.Find(x => x.Furnitureindex == Buttonindex);
+        CurFurniture.Level = CurFurniture.Level + 1;
+        TabClick();
+    }
+
+    public void RemoveStoreClick()
+    {
+
+    }
+
+
+
 
     /*
         public void TabClick(String tabName)
@@ -107,6 +128,11 @@ public class StoreManage : MonoBehaviour
             Slot[i].SetActive(i < CurStoreList.Count);
 
 
+            //몇번째에 있는 지 받아오기 위해 for문의 i를 받는다.
+            CurStoreList[i].Furnitureindex = i;
+
+
+
 
             /*//이름을 받아옵니다.
             Slot[i].GetComponentInChildren<Text>().text = i < CurStoreList.Count ? CurStoreList[i].Name : "";
@@ -132,9 +158,6 @@ public class StoreManage : MonoBehaviour
             //레벨업 효과
             Text MyCharEffect = Slot[i].transform.GetChild(5).GetChild(1).gameObject.GetComponent<Text>();
             MyCharEffect.text =('+' + (3).ToString() + "원");
-
-
-
 
 
 
