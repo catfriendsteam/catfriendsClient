@@ -221,11 +221,11 @@ public class StoreManage : MonoBehaviour
             FurnitureProfit.text =  (CurStoreList[i].Profit.ToString() +" " +  '/' + " s");
 
             //비용
-            Text MyCharCost = Slot[i].transform.GetChild(5).GetChild(0).gameObject.GetComponent<Text>();
+            Text MyCharCost = Slot[i].transform.GetChild(6).GetChild(0).gameObject.GetComponent<Text>();
             MyCharCost.text = ((CurStoreList[i].Profit * CurStoreList[i].Level * CurStoreList[i].Storemagnification * CurStoreList[i].RemodelingMagnifiaction).ToString()+ "원");
 
             //레벨업 효과
-            Text MyCharEffect = Slot[i].transform.GetChild(5).GetChild(1).gameObject.GetComponent<Text>();
+            Text MyCharEffect = Slot[i].transform.GetChild(6).GetChild(1).gameObject.GetComponent<Text>();
             MyCharEffect.text =('+' + (3).ToString() + "원");
 
 
