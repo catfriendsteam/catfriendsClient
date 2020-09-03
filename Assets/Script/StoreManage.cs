@@ -26,10 +26,11 @@ public class Store
     
     public bool isRocked;
 
-    //차례대로 가구가 화면 4개의 슬롯중에 표시되는 순서, 가게배수, 리모델링 배수
+    //차례대로 가구가 화면 4개의 슬롯중에 표시되는 순서, 가게배수, 리모델링 배수, 업그레이드 비용
     public int Furnitureindex, Storemagnification;
     public int RemodelingMagnifiaction;
-
+    public int UpgradeCost;
+    public int UpgradeEffect_Profit;
 
     [TextArea]
     public string ExplainText;
@@ -201,6 +202,15 @@ public class StoreManage : MonoBehaviour
 
 
 
+            //slot에 애들을 UI로 표시하기전에 변수들 조금 세팅해주는 작업을 미리 해보장 ㅎㅎ
+            //업그레이드 비용
+            CurStoreList[i].UpgradeCost = CurStoreList[i].Profit * CurStoreList[i].Level * CurStoreList[i].Storemagnification * CurStoreList[i].RemodelingMagnifiaction;
+            CurStoreList[i].Profit = CurStoreList[i].Level * CurStoreList[i].RemodelingMagnifiaction * CurStoreList[i].Storemagnification;
+            CurStoreList[i].UpgradeEffect_Profit = CurStoreList[i].Level * CurStoreList[i].RemodelingMagnifiaction * CurStoreList[i].Storemagnification;
+
+
+
+
 
 
             /*//이름을 받아옵니다.
@@ -222,7 +232,7 @@ public class StoreManage : MonoBehaviour
 
             //비용
             Text MyCharCost = Slot[i].transform.GetChild(6).GetChild(0).gameObject.GetComponent<Text>();
-            MyCharCost.text = ((CurStoreList[i].Profit * CurStoreList[i].Level * CurStoreList[i].Storemagnification * CurStoreList[i].RemodelingMagnifiaction).ToString()+ "원");
+            MyCharCost.text = (CurStoreList[i].UpgradeCost).ToString()+ "원";
 
             //레벨업 효과
             Text MyCharEffect = Slot[i].transform.GetChild(6).GetChild(1).gameObject.GetComponent<Text>();
@@ -280,7 +290,9 @@ public class StoreManage : MonoBehaviour
 
         Store CurFurniture = CurStoreList.Find(x => x.Furnitureindex == Buttonindex);
         CurFurniture.RemodelingMagnifiaction = CurFurniture.RemodelingMagnifiaction + 1;
-        TabClick();
+
+
+        Save();
 
         print(CurFurniture.RemodelingMagnifiaction);
     }
@@ -291,7 +303,12 @@ public class StoreManage : MonoBehaviour
 
         Store CurFurniture = CurStoreList.Find(x => x.Furnitureindex == Buttonindex);
         CurFurniture.Level = CurFurniture.Level + 1;
-        TabClick();
+
+        print(CurFurniture.Level);
+        Save();
+
+
+
     }
 
 
