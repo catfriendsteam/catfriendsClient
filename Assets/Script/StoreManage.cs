@@ -6,7 +6,15 @@ using Newtonsoft.Json;
 using UnityEngine.UI;
 
 
-
+//save용 클래스
+/*
+[System.Serializable]
+public class SerializationData<T>
+{
+    public SerializationData(List<T> _target) => target = _target;
+    public List<T> target;
+}
+*/
 
 [System.Serializable] //직렬화
 //캐릭터의 특성을 저장하는 클래스
@@ -53,7 +61,8 @@ public class StoreManage : MonoBehaviour
     public Image[] FurnitureImage;
 
     public Sprite[] UsingSprite;
-    
+
+    string filepath2; //경로 저장변수
 
 
 
@@ -69,14 +78,51 @@ public class StoreManage : MonoBehaviour
 
     void Start()
     {
-        Setting();
+
+        string[] line = StoreDatabase.text.Substring(0, StoreDatabase.text.Length - 1).Split('\n');
+        for (int i = 0; i < line.Length; i++)
+        {
+            string[] row = line[i].Split('\t');
+
+            AllStoreList.Add(new Store(row[0], row[1], row[2], int.Parse(row[3]), int.Parse(row[4]), row[5] == "TRUE"));
+
+            //리모델링 배수 설정 -> 지금 AllStore에다가 하는 중인데, MystoreList로 옮길까 생각중
+            if (AllStoreList[i].Type == "카페")
+                AllStoreList[i].RemodelingMagnifiaction = 1;
+            else if (AllStoreList[i].Type == "치킨집")
+                AllStoreList[i].RemodelingMagnifiaction = 2;
+            else if (AllStoreList[i].Type == "곱창집")
+                AllStoreList[i].RemodelingMagnifiaction = 4;
+            else if (AllStoreList[i].Type == "헬스장")
+                AllStoreList[i].RemodelingMagnifiaction = 8;
+            else if (AllStoreList[i].Type == "냥냐랜드")
+                AllStoreList[i].RemodelingMagnifiaction = 16;
+            //가게 배수 설정
+            if (AllStoreList[i].Type == "카페")
+                AllStoreList[i].Storemagnification = 1;
+            else if (AllStoreList[i].Type == "치킨집")
+                AllStoreList[i].Storemagnification = 4;
+            else if (AllStoreList[i].Type == "곱창집")
+                AllStoreList[i].Storemagnification = 16;
+            else if (AllStoreList[i].Type == "헬스장")
+                AllStoreList[i].Storemagnification = 64;
+            else if (AllStoreList[i].Type == "냥냐랜드")
+                AllStoreList[i].Storemagnification = 256;
+
+
+        }
+
+        //모바일이든 컴퓨터든 파일이 저장된 경로에서 mycharacter 경로 저장
+        filepath2 = Application.persistentDataPath + "/MyStoreText.txt";
+        Debug.Log(filepath2);
+        Load();
         
 
 
     }
 
 
-    
+
     public void Setting()
     {
         string[] line = StoreDatabase.text.Substring(0, StoreDatabase.text.Length - 1).Split('\n');
@@ -115,8 +161,8 @@ public class StoreManage : MonoBehaviour
        
         }
 
-        Load();
 
+        
     }
 
 
@@ -265,10 +311,30 @@ public class StoreManage : MonoBehaviour
         }*/
     }
 
+    void Init()
+    {
+        //MyCharacter가 존재하지 않는 경우 MyCharacter만듦
+        for (int i = 0; i < AllStoreList.Count; i++)
+        {
+            MyStoreList.Add(AllStoreList[i]);
+        }
+        Save();
+        Load();
+    }
+
     void Save()
     {
+        /*
         string jdata = JsonConvert.SerializeObject(MyStoreList);
         File.WriteAllText(Application.dataPath + "/Resources/MyStoreText.txt", jdata);
+
+        TabClick(); */
+
+        //리스트가 바로 저장이 안되는 관계로 위에 클래스를(serializeationData) 만들어 줬음
+        //joson데이터로 직렬화해서 string형으로 변환
+        string jdata = JsonUtility.ToJson(new SerializationData<Store>(MyStoreList));
+        //debug.log(jdata);
+        File.WriteAllText(filepath2, jdata);
 
         TabClick();
     }
@@ -276,8 +342,20 @@ public class StoreManage : MonoBehaviour
 
     void Load()
     {
-        string jdata = File.ReadAllText(Application.dataPath + "/Resources/MyStoreText.txt");
+       /* string jdata = File.ReadAllText(Application.dataPath + "/Resources/MyStoreText.txt");
         MyStoreList = JsonConvert.DeserializeObject<List<Store>>(jdata);
+
+        TabClick();
+        */
+
+
+        //mycharacterText파일이 존재하지 않으면 init에서 새로 만들어줌
+        if (!File.Exists(filepath2)) { Init(); return; }
+
+        //데이터를 불러와서 mycharacter리스트에 역 직렬화 후 저장
+        //리스트가 바로 저장이 안되는 관계로 위에 클래스를 만들어 줬음
+        string jdata = File.ReadAllText(filepath2);
+        MyStoreList = JsonUtility.FromJson<SerializationData<Store>>(jdata).target;
 
         TabClick();
 
