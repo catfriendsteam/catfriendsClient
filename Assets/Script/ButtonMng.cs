@@ -30,6 +30,10 @@ public class ButtonMng : MonoBehaviour
     public Sprite Nyang;
     public Sprite Animal;
 
+    public GameObject shop_package;
+    public GameObject shop_draw;
+    public GameObject shop_dia;
+    public GameObject popup_draw;
     //가게
     public GameObject menu_StoreUpgrade;
     public GameObject menu_Store;
@@ -239,7 +243,33 @@ public void close_ChunbaeButton()
     {
         menu_bomi.SetActive(false);
     }
-    
+
+    public void shop_Package()
+    {
+        shop_package.SetActive(true);
+        shop_draw.SetActive(false);
+        shop_dia.SetActive(false);
+    }
+    public void shop_Draw()
+    {
+        shop_package.SetActive(false);
+        shop_draw.SetActive(true);
+        shop_dia.SetActive(false);
+    }
+    public void shop_Dia()
+    {
+        shop_package.SetActive(false);
+        shop_draw.SetActive(false);
+        shop_dia.SetActive(true);
+    }
+    public void open_popupDraw()
+    {
+        popup_draw.SetActive(true);
+    }
+    public void close_popupDraw()
+    {
+        popup_draw.SetActive(false);
+    }
 
     public void gotoCafe()
     {
