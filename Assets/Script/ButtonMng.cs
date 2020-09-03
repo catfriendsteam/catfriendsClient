@@ -22,8 +22,13 @@ public class ButtonMng : MonoBehaviour
     public GameObject center_donation;
     public GameObject stats_chunbae;
     public GameObject stats_center;
-    public GameObject category_nyang;
-    public GameObject category_animal;
+    public GameObject menu_bomi;
+
+    public GameObject category_background;
+
+    public Image default_image;
+    public Sprite Nyang;
+    public Sprite Animal;
 
     //가게
     public GameObject menu_StoreUpgrade;
@@ -56,7 +61,7 @@ public class ButtonMng : MonoBehaviour
 
     private void Awake()
     {
-       
+        
     }
 
     public void IncreaseGage()
@@ -194,9 +199,12 @@ public class ButtonMng : MonoBehaviour
     {
         menu_Donation.SetActive(true);
     }
+    public void open_Bomi()
+    {
+        menu_bomi.SetActive(true);
+    }
 
-
-    public void close_ChunbaeButton()
+public void close_ChunbaeButton()
     {
         menu_chunbae.SetActive(false);
     }
@@ -227,6 +235,11 @@ public class ButtonMng : MonoBehaviour
     {
         menu_Donation.SetActive(false);
     }
+    public void close_Bomi()
+    {
+        menu_bomi.SetActive(false);
+    }
+    
 
     public void gotoCafe()
     {
@@ -262,6 +275,18 @@ public class ButtonMng : MonoBehaviour
         
     }
 
+    //센터
+
+    public void center_NyangCategory()
+    {
+        default_image = category_background.GetComponent<Image>();
+        default_image.sprite = Nyang;
+    }
+    public void center_AnimalCategory()
+    {
+        default_image = category_background.GetComponent<Image>();
+        default_image.sprite = Animal;
+    }
 }
 
 
