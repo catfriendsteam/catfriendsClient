@@ -28,7 +28,7 @@ public class Character
     }
     public string Type, Name;
     public float LevelUpEffect;
-    public int Level, LevelUpCost;
+    public int Level, LevelUpCost,Characteridx;
     public bool isRocked;
 
     [TextArea]
@@ -192,22 +192,26 @@ public class CharacterManager : MonoBehaviour
         TabClick(curType);
     }
 
-    public void CheckLevelUp()
+    public void CheckLevelUp(int Buttonidx)
     {
         //보유한 선행포인트가 레벨업 비용보다 많으면 레벨업 진행
-        int NeedGoodPoint = int.Parse(transform.GetChild(0).gameObject.GetComponent<Text>().ToString());
+        Character CurChar = CurCharacter.Find(x => x.Characteridx == Buttonidx);
+        int NeedGoodPoint = CurChar.LevelUpCost;
         if (StatusManager.GoodPoint >= NeedGoodPoint)
-        {
-            StatusManager.GoodPoint -= NeedGoodPoint;
-            Debug.Log("레벨업 성공");
-            //LevelUpO.SetActive(true);
-            //0.5초후에 사라지도록 하려면 코루틴 함수 필요?
-        }
-        else
-        {
-            Debug.Log("선행포인트가 부족해욧");
-            //LevelUpX.SetActive(true);
-        }
+         {
+             StatusManager.GoodPoint -= NeedGoodPoint;
+             CurChar.Level += 1;
+
+             Save();
+             Debug.Log("레벨업 성공");
+             //LevelUpO.SetActive(true);
+             //0.5초후에 사라지도록 하려면 코루틴 함수 필요?
+         }
+         else
+         {
+             Debug.Log("선행포인트가 부족해욧");
+             //LevelUpX.SetActive(true);
+         }
     }
 
     public void Unlock()

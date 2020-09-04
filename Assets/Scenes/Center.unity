@@ -203,7 +203,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3459870}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1160295075}
+        m_MethodName: CheckLevelUp
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3459870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2269,7 +2280,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 264575202}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1160295075}
+        m_MethodName: CheckLevelUp
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &264575202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2786,7 +2808,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 391856192}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1160295075}
+        m_MethodName: CheckLevelUp
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 9
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &391856192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3964,7 +3997,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 534968972}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1160295075}
+        m_MethodName: CheckLevelUp
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &534968972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4547,7 +4591,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 589811358}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1160295075}
+        m_MethodName: CheckLevelUp
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &589811358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5023,7 +5078,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 702047790}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1160295075}
+        m_MethodName: CheckLevelUp
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &702047790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5254,7 +5320,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 3240, y: 1920}
+  m_SizeDelta: {x: 5400, y: 1920}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &716213164
 MonoBehaviour:
@@ -5275,7 +5341,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 97129601c2698bc4cbdaf28b00ad75fb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3204e5d732b4f3140b75355df5d9b829, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8143,12 +8209,12 @@ PrefabInstance:
     - target: {fileID: 5940775073983251510, guid: 7eb14f85b6d62b544be96820f73d8a69,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1275
+      value: -1894
       objectReference: {fileID: 0}
     - target: {fileID: 5940775073983251510, guid: 7eb14f85b6d62b544be96820f73d8a69,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -19
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5940775073983251510, guid: 7eb14f85b6d62b544be96820f73d8a69,
         type: 3}
@@ -8986,7 +9052,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1325462858}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1160295075}
+        m_MethodName: CheckLevelUp
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1325462858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9549,12 +9626,12 @@ PrefabInstance:
     - target: {fileID: 2773176706719475632, guid: 18f4f282761185b43a29e8fa60b1949e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -754
+      value: -2495
       objectReference: {fileID: 0}
     - target: {fileID: 2773176706719475632, guid: 18f4f282761185b43a29e8fa60b1949e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -535
+      value: -459
       objectReference: {fileID: 0}
     - target: {fileID: 2773176706719475632, guid: 18f4f282761185b43a29e8fa60b1949e,
         type: 3}
@@ -10288,7 +10365,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1544567485}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.16666666
+  m_Size: 0.1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -11031,7 +11108,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1160295075}
         m_MethodName: CheckLevelUp
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -13930,7 +14007,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2036127174}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1160295075}
+        m_MethodName: CheckLevelUp
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2036127174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14502,7 +14590,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2102218093}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1160295075}
+        m_MethodName: CheckLevelUp
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2102218093
 MonoBehaviour:
   m_ObjectHideFlags: 0
