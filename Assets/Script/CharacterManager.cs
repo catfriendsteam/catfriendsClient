@@ -102,8 +102,8 @@ public class CharacterManager : MonoBehaviour
         //슬롯과 텍스트 보이기
         for(int i = 0; i <10; i++)
         {
-            //현재 캐릭터 개수만큼 슬롯을 활성화
-            //Slot[i].SetActive(i < CurCharacter.Count);
+            //버튼인덱스 부여
+            CurCharacter[i].Characteridx = i;
 
             //해금이 된 경우
             if (!CurCharacter[i].isRocked)
