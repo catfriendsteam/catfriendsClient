@@ -52,13 +52,13 @@ public class StatusManager : MonoBehaviour
         SaveData save = new SaveData();
 
 
-        save.Money = Money;
+      //  save.Money = Money;
         save.Diamond = Diamond;
         save.GoodPoint = GoodPoint;
 
         save.Level_Chunbae = Level_Chunbae;
-        save.AllStoreProfit = AllStoreProfit;
-        save.touch_value = touch_value;
+        //save.AllStoreProfit = AllStoreProfit;
+       //save.touch_value = touch_value;
 
 
         SaveManager.Save(save);
@@ -67,13 +67,13 @@ public class StatusManager : MonoBehaviour
     public void LoadPlayer()
     {
         SaveData save = SaveManager.Load();
-        Money = save.Money;
+       // Money = save.Money;
         Diamond = save.Diamond;
         GoodPoint = save.GoodPoint;
 
         Level_Chunbae = save.Level_Chunbae;
-        AllStoreProfit = save.AllStoreProfit;
-        touch_value = save.touch_value;
+       // AllStoreProfit = save.AllStoreProfit;
+       // touch_value = save.touch_value;
 
     }
 
@@ -84,11 +84,13 @@ public class StatusManager : MonoBehaviour
 
     void Awake()
     {
-        /*
-        Money = 100;
+
+        Money = 0;
         Diamond = 1;
         GoodPoint = 2;
-    */
+        Level_Chunbae = 1;
+        touch_value = 1;
+
 
 
         Cafe_Active = true;
@@ -97,31 +99,36 @@ public class StatusManager : MonoBehaviour
         Health_Active = false;
         Land_Active = false;
 
-
-        // 저장 경로에 파일이 없다면 처음 시작으로 인지하여 저장하고 시작하고 아니면 그냥 로드
-        string path = Path.Combine(Application.dataPath, "PlayerData.bin");
-
-        if (!File.Exists(path))
-        {
-            SavePlayer();
-            LoadPlayer();
-        }
-        else
-        {
-            LoadPlayer();
-        }
-
-
-
-
+        AllStoreProfit = 10000;
 
 
         //Update에서도 계속 호출 되어야 할 변수들. 터치당 이득, 현재 레벨에 따른 레벨단계, 춘배 레벨업 비용 
         Touch_Profit = 10 * Level_Chunbae;
 
         Touch_Step = Mathf.Floor(Level_Chunbae / 100) + 1;
+
         LevelUpCost_Chunbae = Touch_Profit * (Level_Chunbae + 1) * (int)Touch_Step;
+
+
+        // 저장 경로에 파일이 없다면 처음 시작으로 인지하여 저장하고 시작하고 아니면 그냥 로드
+        string path = Path.Combine(Application.dataPath, "PlayerData.bin");
+      
+        /*
+      if (!File.Exists(path))
+      {
+          SavePlayer();
+          LoadPlayer();
+      }
+      else if(File.Exists(path))
+      {
+          LoadPlayer();
+      }
+      */
+        
+
+
     }
+
 
     // Update is called once per frame
     void Update()
@@ -130,11 +137,9 @@ public class StatusManager : MonoBehaviour
 
 
         ShowUpperMenu();
-        // TocheckChunbaeProfitAndUpgradeCost(); // 나중에 레벨업 버튼 추가시 Touch_Step 변수와 LevelUpCost_Chunbae는 항상 업데이트에 안걸어 놓고도 옮길 수 있을 것이다. 수정 필요
+        TocheckChunbaeProfitAndUpgradeCost(); // 나중에 레벨업 버튼 추가시 Touch_Step 변수와 LevelUpCost_Chunbae는 항상 업데이트에 안걸어 놓고도 옮길 수 있을 것이다. 수정 필요
 
-
-
-
+        
 
         // 여기 아래부터는 무조건 1초에 한번씩 호출
         t += Time.deltaTime;
@@ -143,7 +148,6 @@ public class StatusManager : MonoBehaviour
         t = 0f;
         Debug.Log(AllStoreProfit);
         Money = Money + AllStoreProfit;
-
 
 
 
@@ -213,6 +217,7 @@ public class StatusManager : MonoBehaviour
         if (gagemng.isfever == false)
         {
             Money += Touch_Profit;
+            print("터치 되는중 인컴");
 
         }
         else if (gagemng.isfever == true)

@@ -84,9 +84,11 @@ public class ButtonMng : MonoBehaviour
 
         if (nestedScrollMng.targetPos >= 0 && nestedScrollMng.targetPos < 0.25)
         {
+            print("카페 게이지 오릅니까?");
             if (gageMng.isfever_cafe == false)
             {
-                
+                print("카페 게이지 올라야됩니다");
+
                 slider.value += statusMng.touch_value;   //게이지 1%씩 증가
                 gageMng.isClicked_cafe = true;
                 gageMng.timer_cafe = 0.0f;

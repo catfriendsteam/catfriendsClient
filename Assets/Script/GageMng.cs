@@ -236,6 +236,8 @@ void AllFeverCheck()
             if (isClicked_cafe == true)
             {
                 timer_cafe += Time.deltaTime;
+
+                print("터치");
             }
 
             if (timer_cafe >= 2.0f)  // 2초동안 게이지버튼 클릭 안하면 게이지 제거
@@ -287,6 +289,7 @@ void AllFeverCheck()
             if (isClicked_chicken == true)
             {
                 timer_chicken += Time.deltaTime;
+                print("터치");
             }
 
             if (timer_chicken >= 2.0f)  // 2초동안 게이지버튼 클릭 안하면 게이지 제거
