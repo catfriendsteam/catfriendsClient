@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 
 public class StatusManager : MonoBehaviour
@@ -9,14 +10,17 @@ public class StatusManager : MonoBehaviour
     public GageMng gagemng;
     public StoreManage Storemng;
 
-    public static long Money;
-    public static int Diamond;
-    public static int GoodPoint;
+    public static long Money = 10;
+    public static int Diamond = 20;
+    public static int GoodPoint = 30;
     //터치 당 게이지 차는 비율
-    public float touch_value;
-
+    public float touch_value = 1;
     //춘배레벨
-    public int Level_Chunbae;
+    public int Level_Chunbae = 1;
+
+
+
+
     //레벨 업 비용
     public static int LevelUpCost_Chunbae;
     //터치 당 비용
@@ -24,17 +28,82 @@ public class StatusManager : MonoBehaviour
     //1~99 1  100~ 199 2
     public static float Touch_Step;
 
+
+
+
+
+
+    // 수익 들어오는 시간
     float t;
-    float t2;
+    public int AllStoreIncome;
+
+
+
+
+    public void SavePlayer()
+    {
+        SaveData save = new SaveData();
+
+
+        save.Money = Money;
+        save.Diamond = Diamond;
+        save.GoodPoint = GoodPoint;
+
+        save.Level_Chunbae = Level_Chunbae;
+        save.AllStoreIncome = AllStoreIncome;
+        save.touch_value = touch_value;
+
+
+        SaveManager.Save(save);
+    }
+
+    public void LoadPlayer()
+    {
+        SaveData save = SaveManager.Load();
+        Money = save.Money;
+        Diamond = save.Diamond;
+        GoodPoint = save.GoodPoint;
+
+        Level_Chunbae = save.Level_Chunbae;
+        AllStoreIncome = save.AllStoreIncome;
+        touch_value = save.touch_value;
+    
+    }
+
+
+
+
+
 
     void Awake()
     {
+        /*
         Money = 100;
         Diamond = 1;
         GoodPoint = 2;
-        Level_Chunbae = 1;
-        touch_value = 1;
-      
+    */
+
+
+
+
+
+        // 저장 경로에 파일이 없다면 처음 시작으로 인지하여 저장하고 시작하고 아니면 그냥 로드
+        string path = Path.Combine(Application.dataPath, "PlayerData.bin");
+
+        if (!File.Exists(path))
+        {
+            SavePlayer();
+            LoadPlayer();
+        }
+        else
+        {
+            LoadPlayer();
+        }
+
+
+
+
+
 
         //Update에서도 계속 호출 되어야 할 변수들. 터치당 이득, 현재 레벨에 따른 레벨단계, 춘배 레벨업 비용 
         Touch_Profit = 10 * Level_Chunbae;

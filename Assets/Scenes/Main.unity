@@ -7107,9 +7107,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gagemng: {fileID: 1285187289}
+  Storemng: {fileID: 0}
   touch_value: 0
   Level_Chunbae: 0
   Touch_Profit: 0
+  AllStoreIncome: 0
 --- !u!114 &1285187291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11309,6 +11311,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1833204649}
         m_MethodName: gotoCafe
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1285187290}
+        m_MethodName: SavePlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

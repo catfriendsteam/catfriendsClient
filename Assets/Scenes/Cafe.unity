@@ -448,6 +448,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 138199177}
+        m_MethodName: SavePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &52918788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,6 +658,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 138199179}
+  - component: {fileID: 138199177}
   - component: {fileID: 138199176}
   - component: {fileID: 138199175}
   m_Layer: 0
@@ -686,6 +698,10 @@ MonoBehaviour:
   default_image: {fileID: 0}
   Nyang: {fileID: 0}
   Animal: {fileID: 0}
+  shop_package: {fileID: 0}
+  shop_draw: {fileID: 0}
+  shop_dia: {fileID: 0}
+  popup_draw: {fileID: 0}
   menu_StoreUpgrade: {fileID: 275492051}
   menu_Store: {fileID: 0}
   stats_Store: {fileID: 0}
@@ -750,7 +766,26 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0c544f08666df924296cfe9a58eed852, type: 3}
   - {fileID: 21300000, guid: 0c544f08666df924296cfe9a58eed852, type: 3}
   - {fileID: 21300000, guid: 0c544f08666df924296cfe9a58eed852, type: 3}
+  AllStoreIncome: 0
   scrollMng: {fileID: 453402162}
+--- !u!114 &138199177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138199174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74e8bd79a4dd6614fa2e21ce6a14f9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gagemng: {fileID: 0}
+  Storemng: {fileID: 138199176}
+  touch_value: 0
+  Level_Chunbae: 0
+  Touch_Profit: 0
+  AllStoreIncome: 0
 --- !u!4 &138199179
 Transform:
   m_ObjectHideFlags: 0
@@ -1860,6 +1895,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 138199177}
+        m_MethodName: SavePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &236603558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2214,7 +2260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &275492052
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2822,9 +2868,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 138199176}
-        m_MethodName: RemodelingClick
-        m_Mode: 3
+      - m_Target: {fileID: 138199177}
+        m_MethodName: SavePlayer
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5401,6 +5447,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 138199177}
+        m_MethodName: SavePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &1036728909
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7161,6 +7218,17 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 138199177}
+        m_MethodName: SavePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

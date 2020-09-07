@@ -65,6 +65,9 @@ public class StoreManage : MonoBehaviour
     string filepath2; //경로 저장변수
 
 
+    public int AllStoreIncome;
+
+
 
     public NestedScrollManager scrollMng;
 
