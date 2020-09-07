@@ -20,7 +20,7 @@ public class SerializationData<T>
 //캐릭터의 특성을 저장하는 클래스
 public class Store
 {
-    
+
 
 
     //생성자 : 각각 타입(냥멍인/냥이),이름,레벨,레벨업비용,해금여부,레벨업 효과,설명글
@@ -29,9 +29,9 @@ public class Store
         Type = _Type; Name = _Name; RealName = _RealName; Level = _Level; Profit = _Profit; isRocked = _isRocked;
     }
     public string Type, Name, RealName;
-    public int Level = 1;
-    public int Profit = 0;
-    
+    public int Level;
+    public int Profit;
+
     public bool isRocked;
 
 
@@ -45,9 +45,9 @@ public class Store
     public string ExplainText;
 
 
-    
 
-    
+
+
     //추가해야 할 변수 : 능력치들
 }
 
@@ -73,35 +73,34 @@ public class StoreManage : MonoBehaviour
     public NestedScrollManager scrollMng;
     public StatusManager StatusMng;
 
-    
+
 
     void Start()
     {
 
-        Setting();
+        AllStoreListSetting();
         //모바일이든 컴퓨터든 파일이 저장된 경로에서 mycharacter 경로 저장
         filepath2 = Application.persistentDataPath + "/MyStoreText.txt";
         Debug.Log(filepath2);
         Load();
-        
+
     }
 
 
 
 
-
-public void TabClick()
+    public void TabClick()
     {
- 
+
 
         //타겟포인트에 따른 가구 불러오는 것 다르게해서 화면이 움직일때마다 UI에서 보이는 가구들을 다르게 보여줍니다.
         ShowListUI();
 
+        Setting();
 
-        
 
         // 
-        for (int i = 0; i<Slot.Length; i++)
+        for (int i = 0; i < Slot.Length; i++)
         {
             //꺼져있던 슬롯 활성화
             Slot[i].SetActive(i < CurStoreList.Count);
@@ -110,39 +109,28 @@ public void TabClick()
             //몇번째에 있는 지 받아오기 위해 for문의 i를 받는다.
             CurStoreList[i].Furnitureindex = i;
 
-            // 리모델링 배수 설정 -> 지금 AllStore에다가 하는 중인데, MystoreList로 옮길까 생각중 하다가 -> CurStoreList에 넣어봄.
 
-            if (CurStoreList[i].Type == "카페")
-                CurStoreList[i].RemodelingMagnifiaction = 1;
-            else if (CurStoreList[i].Type == "치킨집")
-                CurStoreList[i].RemodelingMagnifiaction = 2;
-            else if (CurStoreList[i].Type == "곱창집")
-                CurStoreList[i].RemodelingMagnifiaction = 4;
-            else if (CurStoreList[i].Type == "헬스장")
-                CurStoreList[i].RemodelingMagnifiaction = 8;
-            else if (CurStoreList[i].Type == "냥냐랜드")
-                CurStoreList[i].RemodelingMagnifiaction = 16;
 
-            //가게 배수 설정
-            if (CurStoreList[i].Type == "카페")
-                CurStoreList[i].Storemagnification = 1;
-            else if (CurStoreList[i].Type == "치킨집")
-                CurStoreList[i].Storemagnification = 4;
-            else if (CurStoreList[i].Type == "곱창집")
-                CurStoreList[i].Storemagnification = 16;
-            else if (CurStoreList[i].Type == "헬스장")
-                CurStoreList[i].Storemagnification = 64;
-            else if (CurStoreList[i].Type == "냥냐랜드")
-                CurStoreList[i].Storemagnification = 256;
-
+            /*
+            //초기 설정에 변수값은 변하지 않음으로 탭클립으로 값이 바뀌는 경우 즉시 건들여주는 것
             //slot에 애들을 UI로 표시하기전에 변수들 조금 세팅해주는 작업을 미리 해보장 ㅎㅎ
             //업그레이드 비용 , 이익, 업그레이드 효과
-
-
+            //Curstore의 업글비용 변수를 공식화했습니다. -> 그리고 Allstoreprofit이라는 지역변수를 이용하여 Allstore리스트 안에 있는 애와 지금 curstore에서 건들고 있는 같은 애를 찾아 냅니다. 그 후 Allstore값을 curstore값과 같게 합니다.
             CurStoreList[i].UpgradeCost = CurStoreList[i].Profit * CurStoreList[i].Level * CurStoreList[i].Storemagnification * CurStoreList[i].RemodelingMagnifiaction;
-            CurStoreList[i].Profit = CurStoreList[i].Level * CurStoreList[i].RemodelingMagnifiaction * CurStoreList[i].Storemagnification * 10;
-            CurStoreList[i].UpgradeEffect_Profit = CurStoreList[i].Level * CurStoreList[i].RemodelingMagnifiaction * CurStoreList[i].Storemagnification;
+            Store AllstoreUpgradeCost = AllStoreList.Find(x => x.RealName == CurStoreList[i].RealName);
+            AllstoreUpgradeCost.UpgradeCost = CurStoreList[i].UpgradeCost;
 
+
+            //Curstore의 프로핏 변수를 공식화했습니다. -> 그리고 Allstoreprofit이라는 지역변수를 이용하여 Allstore리스트 안에 있는 애와 지금 curstore에서 건들고 있는 같은 애를 찾아 냅니다. 그 후 Allstore값을 curstore값과 같게 합니다.
+            CurStoreList[i].Profit = CurStoreList[i].Level * CurStoreList[i].RemodelingMagnifiaction * CurStoreList[i].Storemagnification * 10;
+            Store AllstoreProfit = AllStoreList.Find(x => x.RealName == CurStoreList[i].RealName);
+            AllstoreProfit.Profit = CurStoreList[i].Profit;
+
+            //Curstore의 업그레이드이펙트프로핏을 공식화했습니다. -> 그리고 Allstoreprofit이라는 지역변수를 이용하여 Allstore리스트 안에 있는 애와 지금 curstore에서 건들고 있는 같은 애를 찾아 냅니다. 그 후 Allstore값을 curstore값과 같게 합니다.
+            CurStoreList[i].UpgradeEffect_Profit = CurStoreList[i].Level * CurStoreList[i].RemodelingMagnifiaction * CurStoreList[i].Storemagnification;
+            Store AllstoreUpgradeEffect_Profit = AllStoreList.Find(x => x.RealName == CurStoreList[i].RealName);
+            AllstoreUpgradeEffect_Profit.UpgradeEffect_Profit = CurStoreList[i].UpgradeEffect_Profit;
+            */
 
 
 
@@ -157,21 +145,21 @@ public void TabClick()
 
             //내가 보유한 캐릭터의 버는 돈 가져오기
             Text FurnitureProfit = Slot[i].transform.GetChild(4).gameObject.GetComponent<Text>();
-            FurnitureProfit.text =  (CurStoreList[i].Profit.ToString() +" " +  '/' + " s");
+            FurnitureProfit.text = (CurStoreList[i].Profit.ToString() + " " + '/' + " s");
 
             //비용
             Text MyCharCost = Slot[i].transform.GetChild(6).GetChild(0).gameObject.GetComponent<Text>();
-            MyCharCost.text = (CurStoreList[i].UpgradeCost).ToString()+ "원";
+            MyCharCost.text = (CurStoreList[i].UpgradeCost).ToString() + "원";
 
             //레벨업 효과
             Text MyCharEffect = Slot[i].transform.GetChild(6).GetChild(1).gameObject.GetComponent<Text>();
-            MyCharEffect.text =('+' + (3).ToString() + "원");
+            MyCharEffect.text = ('+' + (3).ToString() + "원");
 
 
 
             //아이템 이미지
             FurnitureImage[i].sprite = UsingSprite[AllStoreList.FindIndex(x => x.RealName == CurStoreList[i].RealName)];
-         
+
         }
         // statusManager에서 가게들의 해금이 열려있는지 체크하고, AllStoreProfit 변수에다가 활성화되어있는 가구의 돈을 합쳐줍니다.
         CheckAllprofit();
@@ -189,14 +177,14 @@ public void TabClick()
 
 
 
-    public void Setting()
+    public void AllStoreListSetting()
     {
         string[] line = StoreDatabase.text.Substring(0, StoreDatabase.text.Length - 1).Split('\n');
         for (int i = 0; i < line.Length; i++)
         {
             string[] row = line[i].Split('\t');
 
-            AllStoreList.Add(new Store(row[0], row[1], row[2], int.Parse(row[3]), int.Parse(row[4]), row[5] == "False"));
+            AllStoreList.Add(new Store(row[0], row[1], row[2], int.Parse(row[3]), int.Parse(row[4]), bool.Parse(row[5])));
 
 
 
@@ -224,10 +212,61 @@ public void TabClick()
             else if (AllStoreList[i].Type == "냥냐랜드")
                 AllStoreList[i].Storemagnification = 256;
 
+
+            //초기 업그레이드 비용, 프로핏, 업그레이드 프로핏 증가, 공식 설정
+            AllStoreList[i].UpgradeCost = AllStoreList[i].Profit * AllStoreList[i].Level * AllStoreList[i].Storemagnification * AllStoreList[i].RemodelingMagnifiaction;
+            AllStoreList[i].Profit = AllStoreList[i].Level * AllStoreList[i].RemodelingMagnifiaction * AllStoreList[i].Storemagnification * 10;
+            AllStoreList[i].UpgradeEffect_Profit = AllStoreList[i].Level * AllStoreList[i].RemodelingMagnifiaction * AllStoreList[i].Storemagnification;
+
+
         }
     }
 
 
+    public void Setting()
+    {
+        string[] line = StoreDatabase.text.Substring(0, StoreDatabase.text.Length - 1).Split('\n');
+        for (int i = 0; i < line.Length; i++)
+        {
+            string[] row = line[i].Split('\t');
+
+            MyStoreList.Add(new Store(row[0], row[1], row[2], int.Parse(row[3]), int.Parse(row[4]), bool.Parse(row[5])));
+
+
+
+            //리모델링 배수 설정 -> 지금 AllStore에다가 하는 중인데, MystoreList로 옮길까 생각중
+            if (MyStoreList[i].Type == "카페")
+                MyStoreList[i].RemodelingMagnifiaction = 1;
+            else if (MyStoreList[i].Type == "치킨집")
+                MyStoreList[i].RemodelingMagnifiaction = 2;
+            else if (MyStoreList[i].Type == "곱창집")
+                MyStoreList[i].RemodelingMagnifiaction = 4;
+            else if (MyStoreList[i].Type == "헬스장")
+                MyStoreList[i].RemodelingMagnifiaction = 8;
+            else if (MyStoreList[i].Type == "냥냐랜드")
+                MyStoreList[i].RemodelingMagnifiaction = 16;
+
+            //가게 배수 설정
+            if (MyStoreList[i].Type == "카페")
+                MyStoreList[i].Storemagnification = 1;
+            else if (MyStoreList[i].Type == "치킨집")
+                MyStoreList[i].Storemagnification = 4;
+            else if (MyStoreList[i].Type == "곱창집")
+                MyStoreList[i].Storemagnification = 16;
+            else if (MyStoreList[i].Type == "헬스장")
+                MyStoreList[i].Storemagnification = 64;
+            else if (MyStoreList[i].Type == "냥냐랜드")
+                MyStoreList[i].Storemagnification = 256;
+
+
+            //초기 업그레이드 비용, 프로핏, 업그레이드 프로핏 증가, 공식 설정
+            MyStoreList[i].UpgradeCost = MyStoreList[i].Profit * MyStoreList[i].Level * MyStoreList[i].Storemagnification * MyStoreList[i].RemodelingMagnifiaction;
+            MyStoreList[i].Profit = MyStoreList[i].Level * MyStoreList[i].RemodelingMagnifiaction * MyStoreList[i].Storemagnification * 10;
+            MyStoreList[i].UpgradeEffect_Profit = MyStoreList[i].Level * MyStoreList[i].RemodelingMagnifiaction * MyStoreList[i].Storemagnification;
+
+
+        }
+    }
 
 
     // statusManager에서 가게 해금 상태를 받아와서 잠긴 상태를 풉니다.
@@ -235,47 +274,47 @@ public void TabClick()
     {
         string[] line = StoreDatabase.text.Substring(0, StoreDatabase.text.Length - 1).Split('\n');
 
+        AllStoreProfit = 0;
+
+
         for (int i = 0; i < line.Length; i++)
         {
-            print("실행됨0");
 
-            if (AllStoreList[i].Type == "카페")
+            if (MyStoreList[i].Type == "카페" && StatusMng.Cafe_Active == true)
             {
-                AllStoreList[i].isRocked = true;
-                print(i + "실행됨" + AllStoreList[i].Profit);
+                MyStoreList[i].isRocked = true;
             }
-            else if (AllStoreList[i].Type == "치킨집" && StatusMng.Cafe_Active == true)
+            else if (MyStoreList[i].Type == "치킨집" && StatusMng.Chicken_Active == true)
             {
-                AllStoreList[i].isRocked = true;
-                print("실행됨2");
+                MyStoreList[i].isRocked = true;
             }
-            else if (AllStoreList[i].Type == "곱창집" && StatusMng.Cafe_Active == true)
+            else if (MyStoreList[i].Type == "곱창집" && StatusMng.Gobchang_Active == true)
             {
-                AllStoreList[i].isRocked = true;
+                MyStoreList[i].isRocked = true;
             }
-            else if (AllStoreList[i].Type == "헬스장" && StatusMng.Cafe_Active == true)
+            else if (MyStoreList[i].Type == "헬스장" && StatusMng.Health_Active == true)
             {
-                AllStoreList[i].isRocked = true;
+                MyStoreList[i].isRocked = true;
             }
-            else if (AllStoreList[i].Type == "냥냐랜드" && StatusMng.Cafe_Active == true)
+            else if (MyStoreList[i].Type == "냥냐랜드" && StatusMng.Land_Active == true)
             {
-                AllStoreList[i].isRocked = true;
+                MyStoreList[i].isRocked = true;
             }
 
-            // true인 가게들의 수입을 모두 AllstoreProfit에 더해주고 StatusManager의 Allstore변수로 값을 보내줍니다.
-            if (AllStoreList[i].isRocked == true)
+            if (MyStoreList[i].isRocked == true)
             {
-                AllStoreProfit = AllStoreProfit +AllStoreList[i].Profit;
-                print("돌아감");
+
+                AllStoreProfit = AllStoreProfit + MyStoreList[i].Profit;
             }
+
+
         }
-
 
         StatusMng.AllStoreProfit = AllStoreProfit;
 
     }
 
-   public void ShowListUI()
+    public void ShowListUI()
     {
 
         //타겟포인트에 따른 가구 불러오는 것 다르게
@@ -350,11 +389,7 @@ public void TabClick()
 
     void Load()
     {
-       /* string jdata = File.ReadAllText(Application.dataPath + "/Resources/MyStoreText.txt");
-        MyStoreList = JsonConvert.DeserializeObject<List<Store>>(jdata);
 
-        TabClick();
-        */
 
 
         //mycharacterText파일이 존재하지 않으면 init에서 새로 만들어줌

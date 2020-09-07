@@ -39,8 +39,8 @@ public class StatusManager : MonoBehaviour
 
 
     //카페가 사용가능한 상태인가? 해금되었는가?
-    public bool Cafe_Active = true;
-    public bool Chicken_Active ;
+    public bool Cafe_Active;
+    public bool Chicken_Active;
     public bool Gobchang_Active;
     public bool Health_Active;
     public bool Land_Active;
@@ -74,7 +74,7 @@ public class StatusManager : MonoBehaviour
         Level_Chunbae = save.Level_Chunbae;
         AllStoreProfit = save.AllStoreProfit;
         touch_value = save.touch_value;
-    
+
     }
 
 
@@ -91,7 +91,11 @@ public class StatusManager : MonoBehaviour
     */
 
 
-
+        Cafe_Active = true;
+        Chicken_Active = true;
+        Gobchang_Active = false;
+        Health_Active = false;
+        Land_Active = false;
 
 
         // 저장 경로에 파일이 없다면 처음 시작으로 인지하여 저장하고 시작하고 아니면 그냥 로드
@@ -116,14 +120,14 @@ public class StatusManager : MonoBehaviour
         Touch_Profit = 10 * Level_Chunbae;
 
         Touch_Step = Mathf.Floor(Level_Chunbae / 100) + 1;
-        LevelUpCost_Chunbae = Touch_Profit* (Level_Chunbae + 1)* (int)Touch_Step;
+        LevelUpCost_Chunbae = Touch_Profit * (Level_Chunbae + 1) * (int)Touch_Step;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        
+
 
         ShowUpperMenu();
         // TocheckChunbaeProfitAndUpgradeCost(); // 나중에 레벨업 버튼 추가시 Touch_Step 변수와 LevelUpCost_Chunbae는 항상 업데이트에 안걸어 놓고도 옮길 수 있을 것이다. 수정 필요
@@ -134,12 +138,12 @@ public class StatusManager : MonoBehaviour
 
         // 여기 아래부터는 무조건 1초에 한번씩 호출
         t += Time.deltaTime;
-      if (t < 1)
+        if (t < 1)
             return;
-      t = 0f;
+        t = 0f;
         Debug.Log(AllStoreProfit);
-        Money = Money + AllStoreProfit; 
-      
+        Money = Money + AllStoreProfit;
+
 
 
 
@@ -147,7 +151,7 @@ public class StatusManager : MonoBehaviour
 
 
 
-   public void TocheckChunbaeProfitAndUpgradeCost()
+    public void TocheckChunbaeProfitAndUpgradeCost()
     {
         Touch_Profit = 10 * Level_Chunbae;
         Touch_Step = Mathf.Floor(Level_Chunbae / 100) + 1;
@@ -155,7 +159,7 @@ public class StatusManager : MonoBehaviour
     }
 
     //Upper매뉴에 있는 돈, 다이아, 선행포인트를 보여줍니다.
-   void ShowUpperMenu()
+    void ShowUpperMenu()
     {
 
 
@@ -171,14 +175,14 @@ public class StatusManager : MonoBehaviour
             long Money_100000000 = (Money % 1000000000000) / 100000000;
             long Money_10000 = (Money % 100000000) / 10000;
             long Money_0 = (Money % 10000);
-            UpperMenu[0].text = Money_1000000000000+"조" + Money_100000000 + "억" + Money_10000 + "만" + Money_0.ToString() + "원";
+            UpperMenu[0].text = Money_1000000000000 + "조" + Money_100000000 + "억" + Money_10000 + "만" + Money_0.ToString() + "원";
         }
         else if (Money >= 100000000)
         {
             long Money_100000000 = Money / 100000000;
             long Money_10000 = (Money % 100000000) / 10000;
             long Money_0 = (Money % 10000);
-            UpperMenu[0].text = Money_100000000 + "억"+ Money_10000 + "만" + Money_0.ToString() + "원";
+            UpperMenu[0].text = Money_100000000 + "억" + Money_10000 + "만" + Money_0.ToString() + "원";
         }
         else if (Money >= 10000)
         {
@@ -190,7 +194,7 @@ public class StatusManager : MonoBehaviour
         {
             UpperMenu[0].text = Money.ToString() + "원";
         }
-      
+
 
 
 
@@ -211,10 +215,10 @@ public class StatusManager : MonoBehaviour
             Money += Touch_Profit;
 
         }
-        else if(gagemng.isfever == true)
+        else if (gagemng.isfever == true)
         {
-                   Money += (int)((float)Touch_Profit * gagemng.fevercount);
-       
+            Money += (int)((float)Touch_Profit * gagemng.fevercount);
+
         }
 
 
