@@ -30,6 +30,10 @@ public class ButtonMng : MonoBehaviour
     public Sprite Nyang;
     public Sprite Animal;
 
+    public GameObject QuestUI;
+    public GameObject DailyQuest;
+    public GameObject Achievement;
+
     public GameObject shop_package;
     public GameObject shop_draw;
     public GameObject shop_dia;
@@ -207,8 +211,22 @@ public class ButtonMng : MonoBehaviour
     {
         menu_bomi.SetActive(true);
     }
+    public void open_QuestUI()
+    {
+        QuestUI.SetActive(true);
+    }
+    public void open_DailyQuest()
+    {
+        DailyQuest.SetActive(true);
+        Achievement.SetActive(false);
+    }
+    public void open_Achievement()
+    {
+        DailyQuest.SetActive(false);
+        Achievement.SetActive(true);
+    }
 
-public void close_ChunbaeButton()
+    public void close_ChunbaeButton()
     {
         menu_chunbae.SetActive(false);
     }
@@ -242,6 +260,10 @@ public void close_ChunbaeButton()
     public void close_Bomi()
     {
         menu_bomi.SetActive(false);
+    }
+    public void close_QuestUI()
+    {
+        QuestUI.SetActive(false);
     }
 
     public void shop_Package()
@@ -282,6 +304,10 @@ public void close_ChunbaeButton()
     public void gotoCenter()
     {
         SceneManager.LoadScene("Center");
+    }
+    public void gotoShop()
+    {
+        SceneManager.LoadScene("Shop");
     }
 
     //가게
