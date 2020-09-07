@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class StatusManager : MonoBehaviour
 {
     public GageMng gagemng;
+    public StoreManage Storemng;
 
     public static long Money;
     public static int Diamond;
@@ -23,9 +24,12 @@ public class StatusManager : MonoBehaviour
     //1~99 1  100~ 199 2
     public static float Touch_Step;
 
+    float t;
+    float t2;
+
     void Awake()
     {
-        Money = 0;
+        Money = 100;
         Diamond = 1;
         GoodPoint = 2;
         Level_Chunbae = 1;
@@ -43,10 +47,26 @@ public class StatusManager : MonoBehaviour
     void Update()
     {
 
-       
+        
 
         ShowUpperMenu();
-        TocheckChunbaeProfitAndUpgradeCost(); // 나중에 레벨업 버튼 추가시 Touch_Step 변수와 LevelUpCost_Chunbae는 항상 업데이트에 안걸어 놓고도 옮길 수 있을 것이다. 수정 필요
+        // TocheckChunbaeProfitAndUpgradeCost(); // 나중에 레벨업 버튼 추가시 Touch_Step 변수와 LevelUpCost_Chunbae는 항상 업데이트에 안걸어 놓고도 옮길 수 있을 것이다. 수정 필요
+
+
+
+
+
+        // 여기 아래부터는 무조건 1초에 한번씩 호출
+        t += Time.deltaTime;
+      if (t < 1)
+            return;
+      t = 0f;
+        Debug.Log("1초마다 체크됩니다.");
+
+        
+        Money = Money + 10; 
+        //(long)(Time.deltaTime * 10) ;
+
 
 
     }
