@@ -7,8 +7,6 @@ public class CenterCharMoving : MonoBehaviour
     //고양이 각각의 움직임
     //선행포인트 이벤트 발현
 
-    public StatusManager statusManager;
-
     SpriteRenderer sprite;
     Vector3 velocity;
     public float speed=0.01f;
@@ -49,7 +47,7 @@ public class CenterCharMoving : MonoBehaviour
     void OnTriggerStay2D(Collider2D collision)
     {
         //고양이가 캔버스 안에 있을때
-        if (collision.tag == "CenterContent")
+        if (collision.name == "Center")
         {
             if (CanRunRandomize)
             {
@@ -66,7 +64,7 @@ public class CenterCharMoving : MonoBehaviour
     void OnTriggerExit2D(Collider2D collision)
     {
         //고양이가 캔버스를 벗어났을때
-        if (collision.tag == "CenterContent")
+        if (collision.name == "Center")
         {
             float dir = transform.position.x - collision.transform.position.x;
             //Debug.Log(transform.position.x);

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
+using UnityEditor;
 
 //센터 목록관리, 펫 배치, 레벨업 구현
 //https://www.youtube.com/watch?v=GNSD1-y6SeM
 //https://www.youtube.com/watch?v=abwOVy5qTO4s
 
 
- //save용 클래스
+//save용 클래스
 [System.Serializable]
 public class SerializationData<T>
 {
@@ -69,8 +70,8 @@ public class CharacterManager : MonoBehaviour
             //AllCharacter에서 isRocked가 false인 경우 CenterCharImages배열에서 이미지 불러옴
             if (!AllCharacter[i].isRocked)
             {
-                //CenterCharImages[i].SetActive(true);
-                Instantiate(CenterCharImages[i]);
+                GameObject instance=PrefabUtility.InstantiatePrefab(CenterCharImages[i]) as GameObject;
+                instance.transform.SetParent(GameObject.Find("Content").transform,false);
             }
         }
 

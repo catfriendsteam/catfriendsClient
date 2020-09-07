@@ -593,7 +593,12 @@ MonoBehaviour:
   touch_value: 0
   Level_Chunbae: 0
   Touch_Profit: 0
-  AllStoreIncome: 0
+  AllStoreProfit: 0
+  Cafe_Active: 0
+  Chicken_Active: 0
+  Gobchang_Active: 0
+  Health_Active: 0
+  Land_Active: 0
 --- !u!1 &32328619
 GameObject:
   m_ObjectHideFlags: 0
@@ -5826,6 +5831,7 @@ GameObject:
   - component: {fileID: 716213163}
   - component: {fileID: 716213165}
   - component: {fileID: 716213164}
+  - component: {fileID: 716213166}
   m_Layer: 5
   m_Name: Center
   m_TagString: Untagged
@@ -5909,6 +5915,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 716213162}
   m_CullTransparentMesh: 0
+--- !u!61 &716213166
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716213162}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4840, y: 1620}
+  m_EdgeRadius: 0
 --- !u!1 &732182445
 GameObject:
   m_ObjectHideFlags: 0
@@ -8548,7 +8580,6 @@ GameObject:
   - component: {fileID: 1160295074}
   - component: {fileID: 1160295075}
   - component: {fileID: 1160295071}
-  - component: {fileID: 1160295072}
   m_Layer: 0
   m_Name: GameMng
   m_TagString: Untagged
@@ -8586,6 +8617,9 @@ MonoBehaviour:
   default_image: {fileID: 0}
   Nyang: {fileID: 21300000, guid: 13bcf6372972b0447b36f0354c8278e5, type: 3}
   Animal: {fileID: 21300000, guid: cbde0deeff6598f469844fa99041f257, type: 3}
+  QuestUI: {fileID: 0}
+  DailyQuest: {fileID: 0}
+  Achievement: {fileID: 0}
   shop_package: {fileID: 0}
   shop_draw: {fileID: 0}
   shop_dia: {fileID: 0}
@@ -8605,24 +8639,6 @@ MonoBehaviour:
   slider_Gobchang: {fileID: 0}
   slider_Health: {fileID: 0}
   slider_Land: {fileID: 0}
---- !u!114 &1160295072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1160295070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74e8bd79a4dd6614fa2e21ce6a14f9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gagemng: {fileID: 0}
-  Storemng: {fileID: 0}
-  touch_value: 1
-  Level_Chunbae: 1
-  Touch_Profit: 0
-  AllStoreIncome: 0
 --- !u!4 &1160295074
 Transform:
   m_ObjectHideFlags: 0
@@ -12741,7 +12757,6 @@ GameObject:
   - component: {fileID: 1755851896}
   - component: {fileID: 1755851895}
   - component: {fileID: 1755851894}
-  - component: {fileID: 1755851897}
   - component: {fileID: 1755851898}
   m_Layer: 8
   m_Name: Canvas
@@ -12834,32 +12849,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!61 &1755851897
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1755851892}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 780, y: 1720}
-  m_EdgeRadius: 0
 --- !u!50 &1755851898
 Rigidbody2D:
   serializedVersion: 4
