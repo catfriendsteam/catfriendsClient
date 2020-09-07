@@ -11,7 +11,7 @@ public class SaveData
 
     public int Level_Chunbae;
 
-    public int AllStoreIncome;
+    public int AllStoreProfit;
 
     public float touch_value;
 }

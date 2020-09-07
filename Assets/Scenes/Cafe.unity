@@ -766,8 +766,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0c544f08666df924296cfe9a58eed852, type: 3}
   - {fileID: 21300000, guid: 0c544f08666df924296cfe9a58eed852, type: 3}
   - {fileID: 21300000, guid: 0c544f08666df924296cfe9a58eed852, type: 3}
-  AllStoreIncome: 0
+  AllStoreProfit: 0
   scrollMng: {fileID: 453402162}
+  StatusMng: {fileID: 138199177}
 --- !u!114 &138199177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -785,7 +786,12 @@ MonoBehaviour:
   touch_value: 0
   Level_Chunbae: 0
   Touch_Profit: 0
-  AllStoreIncome: 0
+  AllStoreProfit: 0
+  Cafe_Active: 0
+  Chicken_Active: 0
+  Gobchang_Active: 0
+  Health_Active: 0
+  Land_Active: 0
 --- !u!4 &138199179
 Transform:
   m_ObjectHideFlags: 0

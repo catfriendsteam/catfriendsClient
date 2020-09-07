@@ -35,8 +35,15 @@ public class StatusManager : MonoBehaviour
 
     // 수익 들어오는 시간
     float t;
-    public int AllStoreIncome;
+    public int AllStoreProfit;
 
+
+    //카페가 사용가능한 상태인가? 해금되었는가?
+    public bool Cafe_Active = true;
+    public bool Chicken_Active ;
+    public bool Gobchang_Active;
+    public bool Health_Active;
+    public bool Land_Active;
 
 
 
@@ -50,7 +57,7 @@ public class StatusManager : MonoBehaviour
         save.GoodPoint = GoodPoint;
 
         save.Level_Chunbae = Level_Chunbae;
-        save.AllStoreIncome = AllStoreIncome;
+        save.AllStoreProfit = AllStoreProfit;
         save.touch_value = touch_value;
 
 
@@ -65,7 +72,7 @@ public class StatusManager : MonoBehaviour
         GoodPoint = save.GoodPoint;
 
         Level_Chunbae = save.Level_Chunbae;
-        AllStoreIncome = save.AllStoreIncome;
+        AllStoreProfit = save.AllStoreProfit;
         touch_value = save.touch_value;
     
     }
@@ -130,11 +137,9 @@ public class StatusManager : MonoBehaviour
       if (t < 1)
             return;
       t = 0f;
-        Debug.Log("1초마다 체크됩니다.");
-
-        
-        Money = Money + 10; 
-        //(long)(Time.deltaTime * 10) ;
+        Debug.Log(AllStoreProfit);
+        Money = Money + AllStoreProfit; 
+      
 
 
 
