@@ -36,7 +36,11 @@ public static class SaveManager
         }
         catch(Exception e)
         {
-       
+            string path = Path.Combine(Application.dataPath, "PlayerData.bin");
+            if (!File.Exists(path))
+            {
+                Debug.Log("파일이 없덩");  
+            }
 
 
             Debug.Log(e.Message);

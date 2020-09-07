@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using System;
 
 
 public class StatusManager : MonoBehaviour
@@ -52,28 +53,56 @@ public class StatusManager : MonoBehaviour
         SaveData save = new SaveData();
 
 
-      //  save.Money = Money;
+        save.Money = Money;
         save.Diamond = Diamond;
         save.GoodPoint = GoodPoint;
 
         save.Level_Chunbae = Level_Chunbae;
-        //save.AllStoreProfit = AllStoreProfit;
-       //save.touch_value = touch_value;
+        save.AllStoreProfit = AllStoreProfit;
+        save.touch_value = touch_value;
 
 
         SaveManager.Save(save);
     }
 
+    public void FirstSavePlayer()
+    {
+        SaveData save = new SaveData();
+
+
+        save.Money = 10;
+        save.Diamond = 10;
+        save.GoodPoint = 10;
+
+        save.Level_Chunbae = 1;
+        save.AllStoreProfit = 0;
+        save.touch_value = 1;
+
+        SaveManager.Save(save);
+        // 가구도 초기화
+        try
+        {
+            Storemng.MyStoreList = new List<Store>() { };
+          
+        }
+        catch(NullReferenceException ex)
+        {
+
+            Debug.Log(ex.Message);
+        }
+
+    }
+
     public void LoadPlayer()
     {
         SaveData save = SaveManager.Load();
-       // Money = save.Money;
+        Money = save.Money;
         Diamond = save.Diamond;
         GoodPoint = save.GoodPoint;
 
         Level_Chunbae = save.Level_Chunbae;
-       // AllStoreProfit = save.AllStoreProfit;
-       // touch_value = save.touch_value;
+       AllStoreProfit = save.AllStoreProfit;
+       touch_value = save.touch_value;
 
     }
 
@@ -112,21 +141,20 @@ public class StatusManager : MonoBehaviour
 
         // 저장 경로에 파일이 없다면 처음 시작으로 인지하여 저장하고 시작하고 아니면 그냥 로드
         string path = Path.Combine(Application.dataPath, "PlayerData.bin");
-      
-        /*
-      if (!File.Exists(path))
-      {
-          SavePlayer();
-          LoadPlayer();
-      }
-      else if(File.Exists(path))
-      {
-          LoadPlayer();
-      }
-      */
+
         
 
-
+        
+      if (!File.Exists(path))
+      {
+          FirstSavePlayer();
+          LoadPlayer();
+      }
+      else 
+      {
+          LoadPlayer();
+      }
+  
     }
 
 
@@ -139,19 +167,62 @@ public class StatusManager : MonoBehaviour
         ShowUpperMenu();
         TocheckChunbaeProfitAndUpgradeCost(); // 나중에 레벨업 버튼 추가시 Touch_Step 변수와 LevelUpCost_Chunbae는 항상 업데이트에 안걸어 놓고도 옮길 수 있을 것이다. 수정 필요
 
-        
+
 
         // 여기 아래부터는 무조건 1초에 한번씩 호출
-        t += Time.deltaTime;
-        if (t < 1)
-            return;
-        t = 0f;
-        Debug.Log(AllStoreProfit);
-        Money = Money + AllStoreProfit;
+        //초당 수입 , 피버일 때, 피버 아닐 때
 
+        AutoProfit();
+
+       
+
+    }
+
+
+
+    // 여기 아래부터는 무조건 1초에 한번씩 호출
+    //초당 수입 , 피버일 때, 피버 아닐 때
+    public void AutoProfit()
+    {
+        try
+        {
+
+            if (gagemng.isfever == false)
+            {
+                t += Time.deltaTime;
+                if (t < 1)
+                    return;
+                t = 0f;
+                Debug.Log(AllStoreProfit);
+                Money = Money + AllStoreProfit;
+
+            }
+            else if (gagemng.isfever == true)
+            {
+                t += Time.deltaTime;
+                if (t < 1)
+                    return;
+                t = 0f;
+                Debug.Log(AllStoreProfit);
+                Money = Money + (long)(gagemng.fevercount * (float)(AllStoreProfit));
+                print("실험" + (long)(gagemng.fevercount * (float)(AllStoreProfit)));
+
+            }
+        }
+        catch (NullReferenceException ex)
+        {
+            t += Time.deltaTime;
+            if (t < 1)
+                return;
+            t = 0f;
+            Debug.Log(AllStoreProfit);
+            Money = Money + AllStoreProfit;
+
+        }
 
 
     }
+
 
 
 
@@ -217,7 +288,7 @@ public class StatusManager : MonoBehaviour
         if (gagemng.isfever == false)
         {
             Money += Touch_Profit;
-            print("터치 되는중 인컴");
+
 
         }
         else if (gagemng.isfever == true)
