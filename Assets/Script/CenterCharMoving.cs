@@ -26,7 +26,7 @@ public class CenterCharMoving : MonoBehaviour
         //위아래 경계선 체크
         if(transform.position.y>=0.24f)
             velocity.y *= velocity.y > 0 ? -1 : 1;
-        else if(transform.position.y<=-4.53f)
+        else if(transform.position.y<=-3.87f)
             velocity.y *= velocity.y > 0 ? 1 : -1;
 
         //flip
