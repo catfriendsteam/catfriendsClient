@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
+
+
 
 public class ButtonMng : MonoBehaviour
 {
@@ -64,6 +67,140 @@ public class ButtonMng : MonoBehaviour
     public Slider slider_Health;
     //냥냐랜드 슬라이더
     public Slider slider_Land;
+
+
+    //가게 해금 전, 해금 후 이미지
+    public Image[] UnActive_StoreImage;
+    public Sprite[] Active_Store;
+    //가게 해금 전 화살표, 해금 후 화살표 이미지
+    public Image[] UnActive_ArrowImage;
+    public Sprite Active_Arrow;
+
+    //가게 해금됐을때 터치랑 안해금됐을 때 터치
+
+
+   
+
+    void Update()
+    {
+
+
+        //Store가 해금되어 활성화되어있는지 아닌지 그 상태에 따라 표시되는 UI를 Update문으로 계쏙 호출하고 상태를 확인하면서 보여줌
+            Check_IsActiveAndShowUI();
+        
+    }
+
+
+    //Store가 해금되어 활성화되어있는지 아닌지 그 상태에 따라 표시되는 UI를 Update문으로 계쏙 호출하고 상태를 확인하면서 보여줌
+
+    void Check_IsActiveAndShowUI()
+    {
+        if (SceneManager.GetActiveScene().name == "Main")
+        {
+            try
+            {
+                if (statusMng.Cafe_Active == true)
+                {
+                    UnActive_StoreImage[0].sprite = Active_Store[0];
+                    UnActive_ArrowImage[0].sprite = Active_Arrow;
+
+                }
+                if (statusMng.Chicken_Active == true)
+                {
+                    UnActive_StoreImage[1].sprite = Active_Store[1];
+                    UnActive_ArrowImage[1].sprite = Active_Arrow;
+                }
+                if (statusMng.Gobchang_Active == true)
+                {
+                    UnActive_StoreImage[2].sprite = Active_Store[2];
+                    UnActive_ArrowImage[2].sprite = Active_Arrow;
+                }
+                if (statusMng.Health_Active == true)
+                {
+                    UnActive_StoreImage[3].sprite = Active_Store[3];
+                    UnActive_ArrowImage[3].sprite = Active_Arrow;
+                }
+                if (statusMng.Land_Active == true)
+                {
+                    UnActive_StoreImage[4].sprite = Active_Store[4];
+                    UnActive_ArrowImage[4].sprite = Active_Arrow;
+                }
+            }
+
+            catch (NullReferenceException ex)
+            {
+
+
+            }
+
+        }
+    }
+
+    // 각 가게가 활성화, 비활성화 상태일 때의 반응(비활성화면 팝업창 띄워서 해금하시겠습니까? 나오는걸로 바꿔야됌)
+    public void IsStoreClicked_ActiveOrUnactive(int Num)
+    {
+        if(Num == 0)
+        {
+            if(statusMng.Cafe_Active == false)
+            {
+                statusMng.Cafe_Active = true;
+            }
+            else if(statusMng.Cafe_Active == true)
+            {
+                IncreaseGage();
+            }
+        }
+
+        if (Num == 1)
+        {
+            if (statusMng.Chicken_Active == false)
+            {
+                statusMng.Chicken_Active = true;
+            }
+            else if (statusMng.Chicken_Active == true)
+            {
+                IncreaseGage();
+            }
+        }
+
+        if (Num == 2)
+        {
+            if (statusMng.Gobchang_Active == false)
+            {
+                statusMng.Gobchang_Active = true;
+            }
+            else if (statusMng.Gobchang_Active == true)
+            {
+                IncreaseGage();
+            }
+        }
+
+        if (Num == 3)
+        {
+            if (statusMng.Health_Active == false)
+            {
+                statusMng.Health_Active = true;
+            }
+            else if (statusMng.Health_Active == true)
+            {
+                IncreaseGage();
+            }
+        }
+
+        if (Num == 4)
+        {
+            if (statusMng.Land_Active == false)
+            {
+                statusMng.Land_Active = true;
+            }
+            else if (statusMng.Land_Active == true)
+            {
+                IncreaseGage();
+            }
+        }
+
+
+    }
 
 
 
@@ -295,12 +432,101 @@ public class ButtonMng : MonoBehaviour
         popup_draw.SetActive(false);
     }
 
+
+    //Arrow 버튼 비활성화때 클릭 , 활성화 때 클릭
+
+
     public void gotoCafe()
     {
-        SceneManager.LoadScene("Cafe");
+        if (statusMng.Cafe_Active == true)
+        {
+            statusMng.TargetPos = 0;
+            SceneManager.LoadScene("Cafe");
+
+        }
+
+        else if(statusMng.Cafe_Active == false)
+        {
+            statusMng.Cafe_Active = true;
+        }
+
     }
+  
+
+
+    public void gotoChicken()
+    {
+        if (statusMng.Chicken_Active == true)
+        {
+            statusMng.TargetPos = 0.25f;
+            SceneManager.LoadScene("Cafe");
+
+        }
+
+        else if (statusMng.Chicken_Active == false)
+        {
+            statusMng.Chicken_Active = true;
+        }
+    }
+
+
+    public void gotoGobchang()
+    {
+        if (statusMng.Gobchang_Active == true)
+        {
+            statusMng.TargetPos = 0.5f;
+            SceneManager.LoadScene("Cafe");
+
+        }
+
+        else if (statusMng.Gobchang_Active == false)
+        {
+           
+            statusMng.Gobchang_Active = true;
+        }
+    }
+
+
+    public void gotoHealth()
+    {
+        if (statusMng.Health_Active == true)
+        {
+            statusMng.TargetPos = 0.75f;
+            SceneManager.LoadScene("Cafe");
+
+        }
+
+        else if (statusMng.Health_Active == false)
+        {
+            statusMng.Health_Active = true;
+        }
+    }
+
+
+    public void gotoLand()
+    {
+        if (statusMng.Land_Active == true)
+        {
+            statusMng.TargetPos = 1f;
+            SceneManager.LoadScene("Cafe");
+
+        }
+
+        else if (statusMng.Land_Active == false)
+        {
+            statusMng.Land_Active = true;
+        }
+    }
+
+
+    //
+
+
+
     public void gotoMain()
     {
+        statusMng.TargetPos = nestedScrollMng.targetPos;
+
         SceneManager.LoadScene("Main");
     }
     public void gotoCenter()

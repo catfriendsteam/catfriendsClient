@@ -382,7 +382,7 @@ public class StoreManage : MonoBehaviour
         string jdata = JsonUtility.ToJson(new SerializationData<Store>(MyStoreList));
         //debug.log(jdata);
         File.WriteAllText(filepath2, jdata);
-
+        
         TabClick();
     }
 

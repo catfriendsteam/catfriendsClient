@@ -682,7 +682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveAndAnimation_Chunbae: {fileID: 0}
   gageMng: {fileID: 0}
-  statusMng: {fileID: 0}
+  statusMng: {fileID: 138199177}
   menu_chunbae: {fileID: 0}
   menu_setting: {fileID: 470124032}
   menu_post: {fileID: 1924964002}
@@ -698,6 +698,9 @@ MonoBehaviour:
   default_image: {fileID: 0}
   Nyang: {fileID: 0}
   Animal: {fileID: 0}
+  QuestUI: {fileID: 0}
+  DailyQuest: {fileID: 0}
+  Achievement: {fileID: 0}
   shop_package: {fileID: 0}
   shop_draw: {fileID: 0}
   shop_dia: {fileID: 0}
@@ -711,12 +714,16 @@ MonoBehaviour:
   quest: {fileID: 0}
   shop: {fileID: 0}
   center: {fileID: 0}
-  nestedScrollMng: {fileID: 0}
+  nestedScrollMng: {fileID: 453402162}
   slider: {fileID: 0}
   slider_chicken: {fileID: 0}
   slider_Gobchang: {fileID: 0}
   slider_Health: {fileID: 0}
   slider_Land: {fileID: 0}
+  UnActive_StoreImage: []
+  Active_Store: []
+  UnActive_ArrowImage: []
+  Active_Arrow: {fileID: 0}
 --- !u!114 &138199176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -787,6 +794,7 @@ MonoBehaviour:
   Level_Chunbae: 0
   Touch_Profit: 0
   AllStoreProfit: 0
+  TargetPos: 0
   Cafe_Active: 0
   Chicken_Active: 0
   Gobchang_Active: 0
@@ -3184,6 +3192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrollbar: {fileID: 648947411}
   StoreManage: {fileID: 138199176}
+  Statusmng: {fileID: 138199177}
   distance: 0
   curPos: 0
   targetPos: 0

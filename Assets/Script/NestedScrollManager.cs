@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class NestedScrollManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Scrollbar scrollbar;
     public StoreManage StoreManage;
+    public StatusManager Statusmng;
 
     const int SIZE = 5;
     float[] pos = new float[SIZE];
@@ -17,10 +19,26 @@ public class NestedScrollManager : MonoBehaviour, IBeginDragHandler, IDragHandle
 
     void Start()
     {
+        //받아오는 TargetPos로 초기 시작화면을 조정해보자
+        firstSet();
+
+
         //거리에 따라 -~1인 pos대입
         distance = 1f / (SIZE - 1);
         for (int i = 0; i < SIZE; i++) pos[i] = distance * i;
     }
+
+
+    void firstSet()
+    {
+        //받아오는 TargetPos로 초기 시작화면을 조정해보자
+        targetPos = Statusmng.TargetPos;
+        if (SceneManager.GetActiveScene().name == "Cafe")
+            StoreManage.TabClick();
+    }
+
+
+
     float SetPos()
     {
 

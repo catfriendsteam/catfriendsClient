@@ -38,6 +38,10 @@ public class StatusManager : MonoBehaviour
     float t;
     public int AllStoreProfit;
 
+    //받아오는 targetPos (스크롤 위치값)
+
+    public float TargetPos;
+
 
     //카페가 사용가능한 상태인가? 해금되었는가?
     public bool Cafe_Active;
@@ -62,6 +66,15 @@ public class StatusManager : MonoBehaviour
         save.touch_value = touch_value;
 
 
+
+        save.Cafe_Active = Cafe_Active;
+        save.Chicken_Active = Chicken_Active;
+        save.Gobchang_Active = Gobchang_Active;
+        save.Health_Active = Health_Active;
+        save.Land_Active = Land_Active;
+        save.TargetPos = TargetPos;
+
+
         SaveManager.Save(save);
     }
 
@@ -78,18 +91,23 @@ public class StatusManager : MonoBehaviour
         save.AllStoreProfit = 0;
         save.touch_value = 1;
 
-        SaveManager.Save(save);
-        // 가구도 초기화
-        try
-        {
-            Storemng.MyStoreList = new List<Store>() { };
-          
-        }
-        catch(NullReferenceException ex)
-        {
+        Cafe_Active = false;
+        Chicken_Active = false;
+        Gobchang_Active = false;
+        Health_Active = false;
+        Land_Active = false;
 
-            Debug.Log(ex.Message);
-        }
+        TargetPos = 0;
+
+        
+        
+               // 가구도 초기화
+        string filepath2;
+        filepath2 = Application.persistentDataPath + "/MyStoreText.txt";
+        File.Delete(filepath2);
+
+
+        SaveManager.Save(save);
 
     }
 
@@ -104,6 +122,14 @@ public class StatusManager : MonoBehaviour
        AllStoreProfit = save.AllStoreProfit;
        touch_value = save.touch_value;
 
+
+        Cafe_Active = save.Cafe_Active;
+        Chicken_Active = save.Chicken_Active;
+        Gobchang_Active = save.Gobchang_Active;
+        Health_Active = save.Health_Active;
+        Land_Active = save.Land_Active;
+
+        TargetPos = save.TargetPos;
     }
 
 
@@ -122,8 +148,8 @@ public class StatusManager : MonoBehaviour
 
 
 
-        Cafe_Active = true;
-        Chicken_Active = true;
+        Cafe_Active = false;
+        Chicken_Active = false;
         Gobchang_Active = false;
         Health_Active = false;
         Land_Active = false;
@@ -139,12 +165,10 @@ public class StatusManager : MonoBehaviour
         LevelUpCost_Chunbae = Touch_Profit * (Level_Chunbae + 1) * (int)Touch_Step;
 
 
+
         // 저장 경로에 파일이 없다면 처음 시작으로 인지하여 저장하고 시작하고 아니면 그냥 로드
         string path = Path.Combine(Application.dataPath, "PlayerData.bin");
 
-        
-
-        
       if (!File.Exists(path))
       {
           FirstSavePlayer();
@@ -155,7 +179,13 @@ public class StatusManager : MonoBehaviour
           LoadPlayer();
       }
   
+
+
+
+
     }
+
+
 
 
     // Update is called once per frame
@@ -174,10 +204,24 @@ public class StatusManager : MonoBehaviour
 
         AutoProfit();
 
-       
 
+        Reset_Input_R();
     }
 
+    //R누르면 초기화
+    public void Reset_Input_R()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            string filepath2;
+            filepath2 = Application.persistentDataPath + "/MyStoreText.txt";
+            File.Delete(filepath2);
+            print("R누름");
+
+
+            FirstSavePlayer();
+        }
+    }
 
 
     // 여기 아래부터는 무조건 1초에 한번씩 호출
@@ -216,6 +260,7 @@ public class StatusManager : MonoBehaviour
                 return;
             t = 0f;
             Debug.Log(AllStoreProfit);
+
             Money = Money + AllStoreProfit;
 
         }
