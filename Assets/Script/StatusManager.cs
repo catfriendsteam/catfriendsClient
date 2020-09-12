@@ -23,11 +23,13 @@ public class StatusManager : MonoBehaviour
 
 
     //레벨 업 비용
-    public static int LevelUpCost_Chunbae;
+    public int LevelUpCost_Chunbae;
     //터치 당 비용
     public int Touch_Profit;
     //1~99 1  100~ 199 2
     public static float Touch_Step;
+
+    public int LevelUp_Effect;
 
 
 
@@ -157,12 +159,26 @@ public class StatusManager : MonoBehaviour
         AllStoreProfit = 10000;
 
 
+
+        Touch_Profit = 0;
+        Touch_Step = 0;
+        LevelUpCost_Chunbae = 0;
+        LevelUp_Effect = 0;
+
+
+
+        /*
         //Update에서도 계속 호출 되어야 할 변수들. 터치당 이득, 현재 레벨에 따른 레벨단계, 춘배 레벨업 비용 
         Touch_Profit = 10 * Level_Chunbae;
 
         Touch_Step = Mathf.Floor(Level_Chunbae / 100) + 1;
 
         LevelUpCost_Chunbae = Touch_Profit * (Level_Chunbae + 1) * (int)Touch_Step;
+
+        //레벌당 오르는 이득
+        LevelUp_Effect = (int)Touch_Step * 10;
+
+    */
 
 
 
@@ -273,9 +289,72 @@ public class StatusManager : MonoBehaviour
 
     public void TocheckChunbaeProfitAndUpgradeCost()
     {
-        Touch_Profit = 10 * Level_Chunbae;
+
+
+        //터치단계
         Touch_Step = Mathf.Floor(Level_Chunbae / 100) + 1;
+        //레벨업 비용
         LevelUpCost_Chunbae = Touch_Profit * (Level_Chunbae + 1) * (int)Touch_Step;
+        //레벌당 오르는 이득
+        LevelUp_Effect = (int)Touch_Step * 10;
+
+        if (Level_Chunbae >= 1000)
+        {
+            Touch_Profit = LevelUp_Effect * (Level_Chunbae % 1000) + 1000 + 2000 + 3000 + 4000 + 5000 + 6000 + 7000 +8000 +9000 +10000;
+
+        }
+        else if (Level_Chunbae >= 900)
+        {
+            Touch_Profit = LevelUp_Effect * (Level_Chunbae % 900) + 1000 + 2000 + 3000 + 4000 + 5000 + 6000 + 7000 + 8000 +9000;
+
+        }
+        else if (Level_Chunbae >= 800)
+        {
+            Touch_Profit = LevelUp_Effect * (Level_Chunbae % 800) + 1000 + 2000 + 3000 + 4000 + 5000 + 6000 + 7000 + 8000;
+
+        }
+        else if (Level_Chunbae >= 700)
+        {
+            Touch_Profit = LevelUp_Effect * (Level_Chunbae % 700) + 1000 + 2000 + 3000 + 4000 + 5000 + 6000 + 7000;
+
+        }
+        else if (Level_Chunbae >= 600)
+        {
+            Touch_Profit = LevelUp_Effect * (Level_Chunbae % 600) + 1000 + 2000 + 3000 + 4000 + 5000 + 6000;
+
+        }
+        else if (Level_Chunbae >= 500)
+        {
+            Touch_Profit = LevelUp_Effect * (Level_Chunbae % 500) + 1000 + 2000 + 3000 + 4000 + 5000;
+
+        }
+        else if (Level_Chunbae >= 400)
+        {
+            Touch_Profit = LevelUp_Effect * (Level_Chunbae % 400) + 1000 + 2000 + 3000 + 4000;
+
+        }
+        else if (Level_Chunbae >= 300)
+        {
+            Touch_Profit = LevelUp_Effect * (Level_Chunbae % 300) + 1000 + 2000 + 3000;
+
+        }
+
+        else if (Level_Chunbae >= 200)
+        {
+            Touch_Profit = LevelUp_Effect * (Level_Chunbae % 200) + 1000 + 2000;
+
+        }
+        else if (Level_Chunbae >= 100)
+        {
+            Touch_Profit = LevelUp_Effect * (Level_Chunbae % 100) + 1000;
+
+        }
+        else if (Level_Chunbae < 100)
+        {
+            Touch_Profit = LevelUp_Effect * Level_Chunbae;
+        }
+       
+       
     }
 
     //Upper매뉴에 있는 돈, 다이아, 선행포인트를 보여줍니다.
