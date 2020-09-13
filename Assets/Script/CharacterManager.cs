@@ -198,9 +198,9 @@ public class CharacterManager : MonoBehaviour
         //보유한 선행포인트가 레벨업 비용보다 많으면 레벨업 진행
         Character CurChar = CurCharacter.Find(x => x.Characteridx == Buttonidx);
         int NeedGoodPoint = CurChar.LevelUpCost;
-        if (StatusManager.GoodPoint >= NeedGoodPoint)
+        if (SingletonMng.instance.GoodPoint >= NeedGoodPoint)
          {
-             StatusManager.GoodPoint -= NeedGoodPoint;
+            SingletonMng.instance.GoodPoint -= NeedGoodPoint;
              CurChar.Level += 1;
 
              Save();

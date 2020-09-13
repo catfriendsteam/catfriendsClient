@@ -109,9 +109,9 @@ public class ButtonMng : MonoBehaviour
     //춘배 레벨업 버튼을 눌렀을 때
     public void LevelUpButton_Chunbae()
     {
-        if(statusMng.Money >= statusMng.LevelUpCost_Chunbae)
+        if(SingletonMng.instance.Money >= statusMng.LevelUpCost_Chunbae)
         {
-            statusMng.Money = statusMng.Money - statusMng.LevelUpCost_Chunbae;
+            SingletonMng.instance.Money = SingletonMng.instance.Money - statusMng.LevelUpCost_Chunbae;
             statusMng.Level_Chunbae = statusMng.Level_Chunbae + 1;
             print("눌림");
             print(statusMng.Level_Chunbae);
@@ -126,12 +126,12 @@ public class ButtonMng : MonoBehaviour
         try
         {
             // 돈이 업글비용만큼 충분히 있으면 액티브 된 이미지로 보여집니다.
-            if (statusMng.Money >= statusMng.LevelUpCost_Chunbae)
+            if (SingletonMng.instance.Money >= statusMng.LevelUpCost_Chunbae)
             {
                 ChunbaeLevelUpButton.sprite = ChunbaeLevelUpButton_Active;
             }
             
-            else if(statusMng.Money < statusMng.LevelUpCost_Chunbae)
+            else if(SingletonMng.instance.Money < statusMng.LevelUpCost_Chunbae)
             {
                 ChunbaeLevelUpButton.sprite = ChunbaeLevelUpButton_UnActive;
             }

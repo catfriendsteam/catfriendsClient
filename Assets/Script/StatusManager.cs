@@ -11,9 +11,10 @@ public class StatusManager : MonoBehaviour
     public GageMng gagemng;
     public StoreManage Storemng;
 
-    public long Money = 10;
-    public static int Diamond = 20;
-    public static int GoodPoint = 30;
+    //public long Money = 10;
+    //public static int Diamond = 20;
+    //public static int GoodPoint = 30;
+
     //터치 당 게이지 차는 비율
     public float touch_value = 1;
     //춘배레벨
@@ -59,9 +60,9 @@ public class StatusManager : MonoBehaviour
         SaveData save = new SaveData();
 
 
-        save.Money = Money;
-        save.Diamond = Diamond;
-        save.GoodPoint = GoodPoint;
+        save.Money = SingletonMng.instance.Money;
+        save.Diamond = SingletonMng.instance.Diamond;
+        save.GoodPoint = SingletonMng.instance.GoodPoint;
 
         save.Level_Chunbae = Level_Chunbae;
         save.AllStoreProfit = AllStoreProfit;
@@ -116,9 +117,9 @@ public class StatusManager : MonoBehaviour
     public void LoadPlayer()
     {
         SaveData save = SaveManager.Load();
-        Money = save.Money;
-        Diamond = save.Diamond;
-        GoodPoint = save.GoodPoint;
+        SingletonMng.instance.Money = save.Money;
+        SingletonMng.instance.Diamond = save.Diamond;
+        SingletonMng.instance.GoodPoint = save.GoodPoint;
 
         Level_Chunbae = save.Level_Chunbae;
        AllStoreProfit = save.AllStoreProfit;
@@ -141,10 +142,6 @@ public class StatusManager : MonoBehaviour
 
     void Awake()
     {
-
-        Money = 0;
-        Diamond = 1;
-        GoodPoint = 2;
         Level_Chunbae = 1;
         touch_value = 1;
 
@@ -254,7 +251,7 @@ public class StatusManager : MonoBehaviour
                     return;
                 t = 0f;
                 Debug.Log(AllStoreProfit);
-                Money = Money + AllStoreProfit;
+                SingletonMng.instance.Money = SingletonMng.instance.Money + AllStoreProfit;
 
             }
             else if (gagemng.isfever == true)
@@ -264,7 +261,7 @@ public class StatusManager : MonoBehaviour
                     return;
                 t = 0f;
                 Debug.Log(AllStoreProfit);
-                Money = Money + (long)(gagemng.fevercount * (float)(AllStoreProfit));
+                SingletonMng.instance.Money = SingletonMng.instance.Money + (long)(gagemng.fevercount * (float)(AllStoreProfit));
                 print("실험" + (long)(gagemng.fevercount * (float)(AllStoreProfit)));
 
             }
@@ -277,7 +274,7 @@ public class StatusManager : MonoBehaviour
             t = 0f;
             Debug.Log(AllStoreProfit);
 
-            Money = Money + AllStoreProfit;
+            SingletonMng.instance.Money = SingletonMng.instance.Money + AllStoreProfit;
 
         }
 
@@ -368,38 +365,38 @@ public class StatusManager : MonoBehaviour
 
 
         //돈 보여주는 조건문
-        if (Money >= 1000000000000)
+        if (SingletonMng.instance.Money >= 1000000000000)
         {
-            long Money_1000000000000 = Money / 1000000000000;
-            long Money_100000000 = (Money % 1000000000000) / 100000000;
-            long Money_10000 = (Money % 100000000) / 10000;
-            long Money_0 = (Money % 10000);
+            long Money_1000000000000 = SingletonMng.instance.Money / 1000000000000;
+            long Money_100000000 = (SingletonMng.instance.Money % 1000000000000) / 100000000;
+            long Money_10000 = (SingletonMng.instance.Money % 100000000) / 10000;
+            long Money_0 = (SingletonMng.instance.Money % 10000);
             UpperMenu[0].text = Money_1000000000000 + "조" + Money_100000000 + "억" + Money_10000 + "만" + Money_0.ToString() + "원";
         }
-        else if (Money >= 100000000)
+        else if (SingletonMng.instance.Money >= 100000000)
         {
-            long Money_100000000 = Money / 100000000;
-            long Money_10000 = (Money % 100000000) / 10000;
-            long Money_0 = (Money % 10000);
+            long Money_100000000 = SingletonMng.instance.Money / 100000000;
+            long Money_10000 = (SingletonMng.instance.Money % 100000000) / 10000;
+            long Money_0 = (SingletonMng.instance.Money % 10000);
             UpperMenu[0].text = Money_100000000 + "억" + Money_10000 + "만" + Money_0.ToString() + "원";
         }
-        else if (Money >= 10000)
+        else if (SingletonMng.instance.Money >= 10000)
         {
-            long Money_10000 = Money / 10000;
-            long Money_0 = Money % 10000;
+            long Money_10000 = SingletonMng.instance.Money / 10000;
+            long Money_0 = SingletonMng.instance.Money % 10000;
             UpperMenu[0].text = Money_10000 + "만" + Money_0.ToString() + "원";
         }
-        else if (Money < 10000)
+        else if (SingletonMng.instance.Money < 10000)
         {
-            UpperMenu[0].text = Money.ToString() + "원";
+            UpperMenu[0].text = SingletonMng.instance.Money.ToString() + "원";
         }
 
 
 
 
 
-        UpperMenu[1].text = Diamond.ToString();
-        UpperMenu[2].text = GoodPoint.ToString();
+        UpperMenu[1].text = SingletonMng.instance.Diamond.ToString();
+        UpperMenu[2].text = SingletonMng.instance.GoodPoint.ToString();
 
     }
 
@@ -411,13 +408,13 @@ public class StatusManager : MonoBehaviour
     {
         if (gagemng.isfever == false)
         {
-            Money += Touch_Profit;
+            SingletonMng.instance.Money += Touch_Profit;
 
 
         }
         else if (gagemng.isfever == true)
         {
-            Money += (int)((float)Touch_Profit * gagemng.fevercount);
+            SingletonMng.instance.Money += (int)((float)Touch_Profit * gagemng.fevercount);
 
         }
 

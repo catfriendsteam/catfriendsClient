@@ -431,9 +431,9 @@ public class StoreManage : MonoBehaviour
 
         Store CurFurniture = CurStoreList.Find(x => x.Furnitureindex == Buttonindex);
 
-        if (StatusMng.Money >= CurFurniture.UpgradeCost)
+        if (SingletonMng.instance.Money >= CurFurniture.UpgradeCost)
         {
-            StatusMng.Money = StatusMng.Money - CurFurniture.UpgradeCost;
+            SingletonMng.instance.Money = SingletonMng.instance.Money - CurFurniture.UpgradeCost;
             CurFurniture.Level = CurFurniture.Level + 1;
             print(CurFurniture.Level);
             Save();
@@ -451,11 +451,11 @@ public class StoreManage : MonoBehaviour
         {
             print("시발 " + CurStoreList.Count);
             Store CurFurniture = CurStoreList.Find(x => x.Furnitureindex == i);
-            if (StatusMng.Money >= CurFurniture.UpgradeCost)
+            if (SingletonMng.instance.Money >= CurFurniture.UpgradeCost)
             {
                 FurnitureLevelUpButton.sprite =FurnitureLevelUpButton_Active;
             }
-            else if (StatusMng.Money < CurFurniture.UpgradeCost)
+            else if (SingletonMng.instance.Money < CurFurniture.UpgradeCost)
             {
                 FurnitureLevelUpButton.sprite = FurnitureLevelUpButton_UnActive;
             }
