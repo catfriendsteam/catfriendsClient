@@ -425,4 +425,9 @@ public class StatusManager : MonoBehaviour
 
     }
 
+    //게임 강제종료시 데이터 저장
+    /*private void OnApplicationQuit()
+    {
+        SavePlayer();
+    }*/
 }
