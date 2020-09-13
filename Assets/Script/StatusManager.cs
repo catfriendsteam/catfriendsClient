@@ -11,7 +11,7 @@ public class StatusManager : MonoBehaviour
     public GageMng gagemng;
     public StoreManage Storemng;
 
-    public static long Money = 10;
+    public long Money = 10;
     public static int Diamond = 20;
     public static int GoodPoint = 30;
     //터치 당 게이지 차는 비율

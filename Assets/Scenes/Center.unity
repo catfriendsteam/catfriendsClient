@@ -592,8 +592,11 @@ MonoBehaviour:
   Storemng: {fileID: 0}
   touch_value: 0
   Level_Chunbae: 0
+  LevelUpCost_Chunbae: 0
   Touch_Profit: 0
+  LevelUp_Effect: 0
   AllStoreProfit: 0
+  TargetPos: 0
   Cafe_Active: 0
   Chicken_Active: 0
   Gobchang_Active: 0
@@ -8554,6 +8557,11 @@ MonoBehaviour:
   slider_Gobchang: {fileID: 0}
   slider_Health: {fileID: 0}
   slider_Land: {fileID: 0}
+  UnActive_StoreImage: []
+  Active_Store: []
+  UnActive_ArrowImage: []
+  Active_Arrow: {fileID: 0}
+  ChunbaeButtonText: []
 --- !u!4 &1160295074
 Transform:
   m_ObjectHideFlags: 0

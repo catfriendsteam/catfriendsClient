@@ -75,6 +75,13 @@ public class StoreManage : MonoBehaviour
 
 
 
+    //돈이 업그레이드비용보다 있으면 엑티브 한 상태로 보여주기 위해
+
+    public Image FurnitureLevelUpButton;
+    public Sprite FurnitureLevelUpButton_Active;
+    public Sprite FurnitureLevelUpButton_UnActive;
+
+
     void Start()
     {
 
@@ -382,7 +389,7 @@ public class StoreManage : MonoBehaviour
         string jdata = JsonUtility.ToJson(new SerializationData<Store>(MyStoreList));
         //debug.log(jdata);
         File.WriteAllText(filepath2, jdata);
-        
+
         TabClick();
     }
 
@@ -423,13 +430,45 @@ public class StoreManage : MonoBehaviour
     {
 
         Store CurFurniture = CurStoreList.Find(x => x.Furnitureindex == Buttonindex);
-        CurFurniture.Level = CurFurniture.Level + 1;
 
-        print(CurFurniture.Level);
-        Save();
+        if (StatusMng.Money >= CurFurniture.UpgradeCost)
+        {
+            StatusMng.Money = StatusMng.Money - CurFurniture.UpgradeCost;
+            CurFurniture.Level = CurFurniture.Level + 1;
+            print(CurFurniture.Level);
+            Save();
+        }
+
+        //
+    }
 
 
+    void Show_FurnitureLevelUpButton_UI()
+    {
+       
 
+        for (int i = 0; i < CurStoreList.Count; i++)
+        {
+            print("시발 " + CurStoreList.Count);
+            Store CurFurniture = CurStoreList.Find(x => x.Furnitureindex == i);
+            if (StatusMng.Money >= CurFurniture.UpgradeCost)
+            {
+                FurnitureLevelUpButton.sprite =FurnitureLevelUpButton_Active;
+            }
+            else if (StatusMng.Money < CurFurniture.UpgradeCost)
+            {
+                FurnitureLevelUpButton.sprite = FurnitureLevelUpButton_UnActive;
+            }
+
+        }
+       
+
+       
+    }
+
+    void Update()
+    {
+      //  Show_FurnitureLevelUpButton_UI();
     }
 
 

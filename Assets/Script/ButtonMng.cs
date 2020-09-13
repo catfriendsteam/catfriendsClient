@@ -81,6 +81,11 @@ public class ButtonMng : MonoBehaviour
 
     public Text[] ChunbaeButtonText;
 
+
+    public Image ChunbaeLevelUpButton;
+    public Sprite ChunbaeLevelUpButton_Active;
+    public Sprite ChunbaeLevelUpButton_UnActive;
+
     void Start()
     {
        
@@ -101,57 +106,70 @@ public class ButtonMng : MonoBehaviour
     }
 
 
-
-
-    void ChunBae_UI()
+    //춘배 레벨업 버튼을 눌렀을 때
+    public void LevelUpButton_Chunbae()
     {
-        if (SceneManager.GetActiveScene().name == "Main")
+        if(statusMng.Money >= statusMng.LevelUpCost_Chunbae)
         {
-            for (int i = 0; i < ChunbaeButtonText.Length; i++)
-            {
-                //춘배 레벨
-                Text ChunbaeLevel = ChunbaeButtonText[0].gameObject.GetComponent<Text>();
-                ChunbaeLevel.text = (statusMng.Level_Chunbae).ToString();
-
-                //터치 시 오르는 수치
-                Text Touch_profit = ChunbaeButtonText[1].gameObject.GetComponent<Text>();
-                Touch_profit.text = (statusMng.Touch_Profit).ToString();
-
-                //레벨업 시 드는 비용
-                Text LevelUpCost_Chunbae = ChunbaeButtonText[2].gameObject.GetComponent<Text>();
-                LevelUpCost_Chunbae.text = (statusMng.LevelUpCost_Chunbae).ToString();
-
-                //레벨업 시 오르는 수치
-                Text LevelUp_Effect = ChunbaeButtonText[3].gameObject.GetComponent<Text>();
-                LevelUp_Effect.text = (statusMng.LevelUp_Effect).ToString();
-
-
-            }
+            statusMng.Money = statusMng.Money - statusMng.LevelUpCost_Chunbae;
+            statusMng.Level_Chunbae = statusMng.Level_Chunbae + 1;
+            print("눌림");
+            print(statusMng.Level_Chunbae);
         }
         
 
-        /*
-        if (SceneManager.GetActiveScene().name == "Main")
+
+    }
+
+    void ChunBae_UI()
+    {
+        try
         {
-           
-             //춘배 레벨
-                Text ChunbaeLevel = ChunbaeButtonText[0].gameObject.GetComponent<Text>();
-                ChunbaeLevel.text = (statusMng.Level_Chunbae).ToString();
+            // 돈이 업글비용만큼 충분히 있으면 액티브 된 이미지로 보여집니다.
+            if (statusMng.Money >= statusMng.LevelUpCost_Chunbae)
+            {
+                ChunbaeLevelUpButton.sprite = ChunbaeLevelUpButton_Active;
+            }
+            
+            else if(statusMng.Money < statusMng.LevelUpCost_Chunbae)
+            {
+                ChunbaeLevelUpButton.sprite = ChunbaeLevelUpButton_UnActive;
+            }
+            
 
-                //터치 시 오르는 수치
-                Text Touch_profit = ChunbaeButtonText[1].gameObject.GetComponent<Text>();
-                Touch_profit.text = (statusMng.Touch_Profit).ToString();
 
-                //레벨업 시 드는 비용
-                Text LevelUpCost_Chunbae = ChunbaeButtonText[2].gameObject.GetComponent<Text>();
-                LevelUpCost_Chunbae.text = (statusMng.LevelUpCost_Chunbae).ToString();
 
-                //레벨업 시 오르는 수치
-                Text LevelUp_Effect = ChunbaeButtonText[3].gameObject.GetComponent<Text>();
-                LevelUp_Effect.text = (statusMng.LevelUp_Effect).ToString();
-          }
+            if (SceneManager.GetActiveScene().name == "Main")
+            {
+                for (int i = 0; i < ChunbaeButtonText.Length; i++)
+                {
+                    //춘배 레벨
+                    Text ChunbaeLevel = ChunbaeButtonText[0].gameObject.GetComponent<Text>();
+                    ChunbaeLevel.text = (statusMng.Level_Chunbae).ToString();
 
-        */
+                    //터치 시 오르는 수치
+                    Text Touch_profit = ChunbaeButtonText[1].gameObject.GetComponent<Text>();
+                    Touch_profit.text = (statusMng.Touch_Profit).ToString();
+
+                    //레벨업 시 드는 비용
+                    Text LevelUpCost_Chunbae = ChunbaeButtonText[2].gameObject.GetComponent<Text>();
+                    LevelUpCost_Chunbae.text = (statusMng.LevelUpCost_Chunbae).ToString();
+
+                    //레벨업 시 오르는 수치
+                    Text LevelUp_Effect = ChunbaeButtonText[3].gameObject.GetComponent<Text>();
+                    LevelUp_Effect.text = (statusMng.LevelUp_Effect).ToString();
+
+
+                }
+            }
+
+        }
+        catch (NullReferenceException ex)
+        {
+
+        }
+      
+
     }
 
     //Store가 해금되어 활성화되어있는지 아닌지 그 상태에 따라 표시되는 UI를 Update문으로 계쏙 호출하고 상태를 확인하면서 보여줌
@@ -588,9 +606,17 @@ public class ButtonMng : MonoBehaviour
 
     public void gotoMain()
     {
-        statusMng.TargetPos = nestedScrollMng.targetPos;
+        if (SceneManager.GetActiveScene().name == "Cafe")
+        {
+            statusMng.TargetPos = nestedScrollMng.targetPos;
+            SceneManager.LoadScene("Main");
+        }
+        else
+        {
+            SceneManager.LoadScene("Main");
+        }
 
-        SceneManager.LoadScene("Main");
+        
     }
     public void gotoCenter()
     {

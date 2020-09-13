@@ -868,6 +868,9 @@ MonoBehaviour:
   UnActive_ArrowImage: []
   Active_Arrow: {fileID: 0}
   ChunbaeButtonText: []
+  ChunbaeLevelUpButton: {fileID: 0}
+  ChunbaeLevelUpButton_Active: {fileID: 0}
+  ChunbaeLevelUpButton_UnActive: {fileID: 0}
 --- !u!114 &78947671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2849,6 +2852,9 @@ MonoBehaviour:
   UnActive_ArrowImage: []
   Active_Arrow: {fileID: 0}
   ChunbaeButtonText: []
+  ChunbaeLevelUpButton: {fileID: 0}
+  ChunbaeLevelUpButton_Active: {fileID: 0}
+  ChunbaeLevelUpButton_UnActive: {fileID: 0}
 --- !u!114 &342887001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9174,7 +9180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4d272448f6ef32a448c7f99c47090da7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 56b798bb0a7344c44a64050dd626e84e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9237,6 +9243,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1285187290}
         m_MethodName: SavePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1285187287}
+        m_MethodName: LevelUpButton_Chunbae
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9799,6 +9816,11 @@ MonoBehaviour:
   - {fileID: 1412150946}
   - {fileID: 1518279000}
   - {fileID: 10235200}
+  ChunbaeLevelUpButton: {fileID: 1163450971}
+  ChunbaeLevelUpButton_Active: {fileID: 21300000, guid: 4d272448f6ef32a448c7f99c47090da7,
+    type: 3}
+  ChunbaeLevelUpButton_UnActive: {fileID: 21300000, guid: 56b798bb0a7344c44a64050dd626e84e,
+    type: 3}
 --- !u!4 &1285187288
 Transform:
   m_ObjectHideFlags: 0
@@ -9873,6 +9895,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gagemng: {fileID: 1285187289}
   Storemng: {fileID: 0}
+  Money: 10
   touch_value: 0
   Level_Chunbae: 0
   LevelUpCost_Chunbae: 0
@@ -12333,7 +12356,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1559510051
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14405,6 +14428,9 @@ MonoBehaviour:
   UnActive_ArrowImage: []
   Active_Arrow: {fileID: 0}
   ChunbaeButtonText: []
+  ChunbaeLevelUpButton: {fileID: 0}
+  ChunbaeLevelUpButton_Active: {fileID: 0}
+  ChunbaeLevelUpButton_UnActive: {fileID: 0}
 --- !u!114 &1771747031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15196,6 +15222,9 @@ MonoBehaviour:
   UnActive_ArrowImage: []
   Active_Arrow: {fileID: 0}
   ChunbaeButtonText: []
+  ChunbaeLevelUpButton: {fileID: 0}
+  ChunbaeLevelUpButton_Active: {fileID: 0}
+  ChunbaeLevelUpButton_UnActive: {fileID: 0}
 --- !u!114 &1828476515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15394,6 +15423,9 @@ MonoBehaviour:
   UnActive_ArrowImage: []
   Active_Arrow: {fileID: 0}
   ChunbaeButtonText: []
+  ChunbaeLevelUpButton: {fileID: 0}
+  ChunbaeLevelUpButton_Active: {fileID: 0}
+  ChunbaeLevelUpButton_UnActive: {fileID: 0}
 --- !u!114 &1833204650
 MonoBehaviour:
   m_ObjectHideFlags: 0
