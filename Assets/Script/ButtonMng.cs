@@ -164,7 +164,7 @@ public class ButtonMng : MonoBehaviour
             }
 
         }
-        catch (NullReferenceException ex)
+        catch (NullReferenceException)
         {
            // Debug.Log(ex);
         }
@@ -207,7 +207,7 @@ public class ButtonMng : MonoBehaviour
                     UnActive_ArrowImage[4].sprite = Active_Arrow;
                 }
             }
-            catch(NullReferenceException ex)
+            catch(NullReferenceException)
             {
                // Debug.Log(ex);
             }

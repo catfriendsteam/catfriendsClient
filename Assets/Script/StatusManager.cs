@@ -260,13 +260,12 @@ public class StatusManager : MonoBehaviour
                 if (t < 1)
                     return;
                 t = 0f;
-                Debug.Log(AllStoreProfit);
+
                 SingletonMng.instance.Money = SingletonMng.instance.Money + (long)(gagemng.fevercount * (float)(AllStoreProfit));
-                print("실험" + (long)(gagemng.fevercount * (float)(AllStoreProfit)));
 
             }
         }
-        catch (NullReferenceException ex)
+        catch (NullReferenceException)
         {
             t += Time.deltaTime;
             if (t < 1)

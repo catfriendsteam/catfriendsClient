@@ -92,7 +92,10 @@ public class StoreManage : MonoBehaviour
 
         //모바일이든 컴퓨터든 파일이 저장된 경로에서 mycharacter 경로 저장
         filepath2 = Application.persistentDataPath + "/MyStoreText.txt";
-        Debug.Log(filepath2);
+
+        //경로찍어보고싶으면 주석 푸세요
+        // Debug.Log(filepath2);
+
         Load();
 
     }
