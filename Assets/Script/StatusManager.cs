@@ -250,7 +250,7 @@ public class StatusManager : MonoBehaviour
                 if (t < 1)
                     return;
                 t = 0f;
-                Debug.Log(AllStoreProfit);
+
                 SingletonMng.instance.Money = SingletonMng.instance.Money + AllStoreProfit;
 
             }
@@ -272,7 +272,7 @@ public class StatusManager : MonoBehaviour
             if (t < 1)
                 return;
             t = 0f;
-            Debug.Log(AllStoreProfit);
+            //Debug.Log(ex);
 
             SingletonMng.instance.Money = SingletonMng.instance.Money + AllStoreProfit;
 

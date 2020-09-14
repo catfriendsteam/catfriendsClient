@@ -166,7 +166,7 @@ public class ButtonMng : MonoBehaviour
         }
         catch (NullReferenceException ex)
         {
-
+           // Debug.Log(ex);
         }
       
 
@@ -209,7 +209,7 @@ public class ButtonMng : MonoBehaviour
             }
             catch(NullReferenceException ex)
             {
-
+               // Debug.Log(ex);
             }
 
 

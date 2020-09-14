@@ -428,7 +428,7 @@ public class StoreManage : MonoBehaviour
 
         for (int i = 0; i < CurStoreList.Count; i++)
         {
-            print("시발 " + CurStoreList.Count);
+           
             Store CurFurniture = CurStoreList.Find(x => x.Furnitureindex == i);
             if (SingletonMng.instance.Money >= CurFurniture.UpgradeCost)
             {

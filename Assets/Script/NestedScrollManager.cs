@@ -33,6 +33,7 @@ public class NestedScrollManager : MonoBehaviour, IBeginDragHandler, IDragHandle
     {
         //받아오는 TargetPos로 초기 시작화면을 조정해보자
         targetPos = Statusmng.TargetPos;
+        //초기 UI 불러오는 것
         if (SceneManager.GetActiveScene().name == "Cafe")
             StoreManage.TabClick();
     }
