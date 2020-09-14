@@ -86,6 +86,10 @@ public class StoreManage : MonoBehaviour
     {
 
         AllStoreListSetting();
+
+
+       //Setting();
+
         //모바일이든 컴퓨터든 파일이 저장된 경로에서 mycharacter 경로 저장
         filepath2 = Application.persistentDataPath + "/MyStoreText.txt";
         Debug.Log(filepath2);
@@ -118,26 +122,6 @@ public class StoreManage : MonoBehaviour
 
 
 
-            /*
-            //초기 설정에 변수값은 변하지 않음으로 탭클립으로 값이 바뀌는 경우 즉시 건들여주는 것
-            //slot에 애들을 UI로 표시하기전에 변수들 조금 세팅해주는 작업을 미리 해보장 ㅎㅎ
-            //업그레이드 비용 , 이익, 업그레이드 효과
-            //Curstore의 업글비용 변수를 공식화했습니다. -> 그리고 Allstoreprofit이라는 지역변수를 이용하여 Allstore리스트 안에 있는 애와 지금 curstore에서 건들고 있는 같은 애를 찾아 냅니다. 그 후 Allstore값을 curstore값과 같게 합니다.
-            CurStoreList[i].UpgradeCost = CurStoreList[i].Profit * CurStoreList[i].Level * CurStoreList[i].Storemagnification * CurStoreList[i].RemodelingMagnifiaction;
-            Store AllstoreUpgradeCost = AllStoreList.Find(x => x.RealName == CurStoreList[i].RealName);
-            AllstoreUpgradeCost.UpgradeCost = CurStoreList[i].UpgradeCost;
-
-
-            //Curstore의 프로핏 변수를 공식화했습니다. -> 그리고 Allstoreprofit이라는 지역변수를 이용하여 Allstore리스트 안에 있는 애와 지금 curstore에서 건들고 있는 같은 애를 찾아 냅니다. 그 후 Allstore값을 curstore값과 같게 합니다.
-            CurStoreList[i].Profit = CurStoreList[i].Level * CurStoreList[i].RemodelingMagnifiaction * CurStoreList[i].Storemagnification * 10;
-            Store AllstoreProfit = AllStoreList.Find(x => x.RealName == CurStoreList[i].RealName);
-            AllstoreProfit.Profit = CurStoreList[i].Profit;
-
-            //Curstore의 업그레이드이펙트프로핏을 공식화했습니다. -> 그리고 Allstoreprofit이라는 지역변수를 이용하여 Allstore리스트 안에 있는 애와 지금 curstore에서 건들고 있는 같은 애를 찾아 냅니다. 그 후 Allstore값을 curstore값과 같게 합니다.
-            CurStoreList[i].UpgradeEffect_Profit = CurStoreList[i].Level * CurStoreList[i].RemodelingMagnifiaction * CurStoreList[i].Storemagnification;
-            Store AllstoreUpgradeEffect_Profit = AllStoreList.Find(x => x.RealName == CurStoreList[i].RealName);
-            AllstoreUpgradeEffect_Profit.UpgradeEffect_Profit = CurStoreList[i].UpgradeEffect_Profit;
-            */
 
 
 
@@ -235,9 +219,8 @@ public class StoreManage : MonoBehaviour
         string[] line = StoreDatabase.text.Substring(0, StoreDatabase.text.Length - 1).Split('\n');
         for (int i = 0; i < line.Length; i++)
         {
-            string[] row = line[i].Split('\t');
-
-            MyStoreList.Add(new Store(row[0], row[1], row[2], int.Parse(row[3]), int.Parse(row[4]), bool.Parse(row[5])));
+           //  string[] row = line[i].Split('\t');
+           // MyStoreList.Add(new Store(row[0], row[1], row[2], int.Parse(row[3]), int.Parse(row[4]), bool.Parse(row[5])));
 
 
 
@@ -378,11 +361,7 @@ public class StoreManage : MonoBehaviour
 
     void Save()
     {
-        /*
-        string jdata = JsonConvert.SerializeObject(MyStoreList);
-        File.WriteAllText(Application.dataPath + "/Resources/MyStoreText.txt", jdata);
-
-        TabClick(); */
+    
 
         //리스트가 바로 저장이 안되는 관계로 위에 클래스를(serializeationData) 만들어 줬음
         //joson데이터로 직렬화해서 string형으로 변환

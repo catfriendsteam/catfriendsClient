@@ -724,6 +724,10 @@ MonoBehaviour:
   Active_Store: []
   UnActive_ArrowImage: []
   Active_Arrow: {fileID: 0}
+  ChunbaeButtonText: []
+  ChunbaeLevelUpButton: {fileID: 0}
+  ChunbaeLevelUpButton_Active: {fileID: 0}
+  ChunbaeLevelUpButton_UnActive: {fileID: 0}
 --- !u!114 &138199176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -776,6 +780,9 @@ MonoBehaviour:
   AllStoreProfit: 0
   scrollMng: {fileID: 453402162}
   StatusMng: {fileID: 138199177}
+  FurnitureLevelUpButton: {fileID: 0}
+  FurnitureLevelUpButton_Active: {fileID: 0}
+  FurnitureLevelUpButton_UnActive: {fileID: 0}
 --- !u!114 &138199177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -792,7 +799,9 @@ MonoBehaviour:
   Storemng: {fileID: 138199176}
   touch_value: 0
   Level_Chunbae: 0
+  LevelUpCost_Chunbae: 0
   Touch_Profit: 0
+  LevelUp_Effect: 0
   AllStoreProfit: 0
   TargetPos: 0
   Cafe_Active: 0
