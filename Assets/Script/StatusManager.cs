@@ -261,7 +261,7 @@ public class StatusManager : MonoBehaviour
                     return;
                 t = 0f;
 
-                SingletonMng.instance.Money = SingletonMng.instance.Money + (long)(gagemng.fevercount * (float)(AllStoreProfit));
+                SingletonMng.instance.Money = SingletonMng.instance.Money + (long)(SingletonMng.instance.fevercount * (float)(AllStoreProfit));
 
             }
         }
@@ -413,7 +413,7 @@ public class StatusManager : MonoBehaviour
         }
         else if (gagemng.isfever == true)
         {
-            SingletonMng.instance.Money += (int)((float)Touch_Profit * gagemng.fevercount);
+            SingletonMng.instance.Money += (int)((float)Touch_Profit * SingletonMng.instance.fevercount);
 
         }
 

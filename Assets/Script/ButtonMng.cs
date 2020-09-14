@@ -303,17 +303,15 @@ public class ButtonMng : MonoBehaviour
         if (nestedScrollMng.targetPos >= 0 && nestedScrollMng.targetPos < 0.25)
         {
            
-            if (gageMng.isfever_cafe == false)
+            if (SingletonMng.instance.isfever_cafe == false && SingletonMng.instance.gage_cafe < 100)
             {
-                
-
-                slider.value += statusMng.touch_value;   //게이지 1%씩 증가
-                gageMng.isClicked_cafe = true;
-                gageMng.timer_cafe = 0.0f;
+                SingletonMng.instance.gage_cafe += 50;   //게이지 1%씩 증가
+                SingletonMng.instance.isClicked_cafe = true;
+                SingletonMng.instance.timer_cafe = 0.0f;
 
                 statusMng.Touch_IncreaseMoney();
             }
-            else if(gageMng.isfever_cafe == true)
+            else if(SingletonMng.instance.isfever_cafe == true)
             {
                 statusMng.Touch_IncreaseMoney();
             }
@@ -324,15 +322,15 @@ public class ButtonMng : MonoBehaviour
         //치킨 게이지 상승
         if (nestedScrollMng.targetPos >= 0.25 && nestedScrollMng.targetPos < 0.5)
         {
-            if (gageMng.isfever_chicken == false)
+            if (SingletonMng.instance.isfever_chicken == false && SingletonMng.instance.gage_chicken < 100)
             {
-                slider_chicken.value += 1;   //게이지 1%씩 증가
-                gageMng.isClicked_chicken = true;
-                gageMng.timer_chicken = 0.0f;
+                SingletonMng.instance.gage_chicken += 1;   //게이지 1%씩 증가
+                SingletonMng.instance.isClicked_chicken = true;
+                SingletonMng.instance.timer_chicken = 0.0f;
 
                 statusMng.Touch_IncreaseMoney();
             }
-            else if (gageMng.isfever_chicken == true)
+            else if (SingletonMng.instance.isfever_chicken == true)
             {
                 statusMng.Touch_IncreaseMoney();
             }
@@ -343,15 +341,15 @@ public class ButtonMng : MonoBehaviour
         //곱창 게이지 상승
         if (nestedScrollMng.targetPos >= 0.5 && nestedScrollMng.targetPos < 0.75)
         {
-            if (gageMng.isfever_gobchang == false)
+            if (SingletonMng.instance.isfever_gobchang == false && SingletonMng.instance.gage_gobchang < 100)
             {
-                slider_Gobchang.value += 1;   //게이지 1%씩 증가
-                gageMng.isClicked_Gobchang = true;
-                gageMng.timer_Gobchang = 0.0f;
+                SingletonMng.instance.gage_gobchang += 1;   //게이지 1%씩 증가
+                SingletonMng.instance.isClicked_Gobchang = true;
+                SingletonMng.instance.timer_Gobchang = 0.0f;
 
                 statusMng.Touch_IncreaseMoney();
             }
-            else if (gageMng.isfever_gobchang == true)
+            else if (SingletonMng.instance.isfever_gobchang == true)
             {
                 statusMng.Touch_IncreaseMoney();
             }
@@ -360,15 +358,15 @@ public class ButtonMng : MonoBehaviour
         //헬스 게이지 상승
         if (nestedScrollMng.targetPos >= 0.75 && nestedScrollMng.targetPos < 1)
         {
-            if (gageMng.isfever_health == false)
+            if (SingletonMng.instance.isfever_health == false && SingletonMng.instance.gage_health < 100)
             {
-                slider_Health.value += 1;   //게이지 1%씩 증가
-                gageMng.isClicked_Health = true;
-                gageMng.timer_Health = 0.0f;
+                SingletonMng.instance.gage_health += 1;   //게이지 1%씩 증가
+                SingletonMng.instance.isClicked_Health = true;
+                SingletonMng.instance.timer_Health = 0.0f;
 
                 statusMng.Touch_IncreaseMoney();
             }
-            else if (gageMng.isfever_health == true)
+            else if (SingletonMng.instance.isfever_health == true)
             {
                 statusMng.Touch_IncreaseMoney();
             }
@@ -376,15 +374,15 @@ public class ButtonMng : MonoBehaviour
         //냥냐랜드 게이지 상승
         if (nestedScrollMng.targetPos >= 1 )
         {
-            if (gageMng.isfever_land == false)
+            if (SingletonMng.instance.isfever_land == false && SingletonMng.instance.gage_land < 100)
             {
-                slider_Land.value += 1;   //게이지 1%씩 증가
-                gageMng.isClicked_Land = true;
-                gageMng.timer_Land = 0.0f;
+                SingletonMng.instance.gage_land += 1;   //게이지 1%씩 증가
+                SingletonMng.instance.isClicked_Land = true;
+                SingletonMng.instance.timer_Land = 0.0f;
 
                 statusMng.Touch_IncreaseMoney();
             }
-            else if (gageMng.isfever_land == true)
+            else if (SingletonMng.instance.isfever_land == true)
             {
                 statusMng.Touch_IncreaseMoney();
             }
