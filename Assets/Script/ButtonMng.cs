@@ -305,7 +305,7 @@ public class ButtonMng : MonoBehaviour
            
             if (SingletonMng.instance.isfever_cafe == false && SingletonMng.instance.gage_cafe < 100)
             {
-                SingletonMng.instance.gage_cafe += 50;   //게이지 1%씩 증가
+                SingletonMng.instance.gage_cafe += 1;   //게이지 1%씩 증가
                 SingletonMng.instance.isClicked_cafe = true;
                 SingletonMng.instance.timer_cafe = 0.0f;
 

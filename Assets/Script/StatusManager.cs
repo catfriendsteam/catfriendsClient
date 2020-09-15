@@ -405,13 +405,13 @@ public class StatusManager : MonoBehaviour
     //터치하면 오르는 돈, 피버 상태에 따라 피버 배율 적용
     public void Touch_IncreaseMoney()
     {
-        if (gagemng.isfever == false)
+        if (SingletonMng.instance.isfever == false)
         {
             SingletonMng.instance.Money += Touch_Profit;
 
 
         }
-        else if (gagemng.isfever == true)
+        else if (SingletonMng.instance.isfever == true)
         {
             SingletonMng.instance.Money += (int)((float)Touch_Profit * SingletonMng.instance.fevercount);
 
