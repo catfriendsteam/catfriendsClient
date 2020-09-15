@@ -58,28 +58,28 @@ public class NestedScrollManager : MonoBehaviour, IBeginDragHandler, IDragHandle
     {
         if (Statusmng.Land_Active == true)
         {
-            SIZE_Unactive = 4;
-            Max_targetPoint = distance_unactive * SIZE_Unactive;
+            SIZE_Unactive = 5;
+            Max_targetPoint = distance_unactive * (SIZE_Unactive-1);
         }
         else if (Statusmng.Health_Active == true && Statusmng.Land_Active == false)
         {
-            SIZE_Unactive = 3;
-            Max_targetPoint = distance_unactive * SIZE_Unactive;
+            SIZE_Unactive = 4;
+            Max_targetPoint = distance_unactive * (SIZE_Unactive - 1);
         }
         else if (Statusmng.Gobchang_Active == true && Statusmng.Health_Active == false && Statusmng.Land_Active == false)
         {
-            SIZE_Unactive = 2;
-            Max_targetPoint = distance_unactive * SIZE_Unactive;
+            SIZE_Unactive = 3;
+            Max_targetPoint = distance_unactive * (SIZE_Unactive - 1);
         }
         else if (Statusmng.Chicken_Active == true && Statusmng.Gobchang_Active == false && Statusmng.Health_Active == false && Statusmng.Land_Active == false)
         {
-            SIZE_Unactive = 1;
-            Max_targetPoint = distance_unactive * SIZE_Unactive;
+            SIZE_Unactive = 2;
+            Max_targetPoint = distance_unactive * (SIZE_Unactive - 1);
         }
         else if (Statusmng.Cafe_Active == true && Statusmng.Chicken_Active == false && Statusmng.Gobchang_Active == false && Statusmng.Health_Active == false && Statusmng.Land_Active == false)
         {
-            SIZE_Unactive = 0;
-            Max_targetPoint = distance_unactive * SIZE_Unactive;
+            SIZE_Unactive = 1;
+            Max_targetPoint = distance_unactive * (SIZE_Unactive - 1);
         }
     }
 
@@ -95,7 +95,7 @@ public class NestedScrollManager : MonoBehaviour, IBeginDragHandler, IDragHandle
                 if (scrollbar.value < pos[i] + distance * 0.5f && scrollbar.value > pos[i] - distance * 0.5f)
                 {
                     targetIndex = i;
-                    print("여기 실행되는중");
+                   
 
                     return pos[i];
                 }
@@ -160,10 +160,13 @@ public class NestedScrollManager : MonoBehaviour, IBeginDragHandler, IDragHandle
             //스크롤이 오른쪽으로 빠르게 이동시 목표가 하나 증가
             else if (eventData.delta.x < -18 && curPos + distance <= 1.01f)
             {
+                
+
+                
                 //가게 안에서만 해금되지 않은 가게의 최대 타겟값을 제한하여 해금안되면 움직이지 못하게 하는 경우를 추가한 코드
                 if (SceneManager.GetActiveScene().name == "Cafe" && targetPos == Max_targetPoint)
                 {
-                    print("최대값이랑 같으면 여기 걸려야하는데");
+
                     targetPos = curPos;
                 }
                 else
@@ -171,6 +174,7 @@ public class NestedScrollManager : MonoBehaviour, IBeginDragHandler, IDragHandle
                     ++targetIndex;
                     targetPos = curPos + distance;
                 }
+
             }
 
         }
@@ -188,7 +192,25 @@ public class NestedScrollManager : MonoBehaviour, IBeginDragHandler, IDragHandle
 
     void Update()
     {
-        if (!isDrag) scrollbar.value = Mathf.Lerp(scrollbar.value, targetPos, 0.1f);
+        if (SceneManager.GetActiveScene().name == "Cafe" && targetPos == Max_targetPoint)
+        {
+           // Mathf.Clamp(scrollbar.value, 0f, Max_targetPoint);
+
+             if (isDrag) scrollbar.value = Mathf.Lerp(scrollbar.value, Max_targetPoint, 0.1f);
+            if (!isDrag) scrollbar.value = Mathf.Lerp(scrollbar.value, targetPos, 0.1f);
+           
+
+        }
+
+
+        //가게가 아니면 모든 경우
+        else
+        {
+           // Mathf.Clamp(scrollbar.value, 0f, 1f);
+            if (!isDrag) scrollbar.value = Mathf.Lerp(scrollbar.value, targetPos, 0.1f);
+    
+        }
+          
 
     }
 }
