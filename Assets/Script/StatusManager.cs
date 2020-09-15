@@ -8,7 +8,6 @@ using System;
 
 public class StatusManager : MonoBehaviour
 {
-    public GageMng gagemng;
     public StoreManage Storemng;
 
     //public long Money = 10;
@@ -244,7 +243,7 @@ public class StatusManager : MonoBehaviour
         try
         {
 
-            if (gagemng.isfever == false)
+            if (SingletonMng.instance.isfever == false)
             {
                 t += Time.deltaTime;
                 if (t < 1)
@@ -254,7 +253,7 @@ public class StatusManager : MonoBehaviour
                 SingletonMng.instance.Money = SingletonMng.instance.Money + AllStoreProfit;
 
             }
-            else if (gagemng.isfever == true)
+            else if (SingletonMng.instance.isfever == true)
             {
                 t += Time.deltaTime;
                 if (t < 1)

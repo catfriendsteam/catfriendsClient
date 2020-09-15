@@ -11,7 +11,6 @@ public class ButtonMng : MonoBehaviour
 {
     public MoveAndAnimation_Chunbae moveAndAnimation_Chunbae;
 
-    public GageMng gageMng;
     public StatusManager statusMng;
 
 
