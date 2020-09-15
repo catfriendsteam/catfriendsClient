@@ -337,7 +337,7 @@ public class SingletonMng : MonoBehaviour
                 isClicked_cafe = false;
                 gage_cafe -= Time.deltaTime * 10;   // 초당 10씩 게이지 제거
             }
-            if (gage_cafe == 100)
+            if (gage_cafe >= 100)
             {
                 isfever_cafe = true;
             }
@@ -368,7 +368,7 @@ public class SingletonMng : MonoBehaviour
                 isClicked_chicken = false;
                 gage_chicken -= Time.deltaTime * 10;   // 초당 10씩 게이지 제거
             }
-            if (gage_chicken == 100)
+            if (gage_chicken >= 100)
             {
                 isfever_chicken = true;
 
@@ -395,7 +395,7 @@ public class SingletonMng : MonoBehaviour
                 isClicked_Gobchang = false;
                 gage_gobchang -= Time.deltaTime * 10;   // 초당 10씩 게이지 제거
             }
-            if (gage_gobchang == 100)
+            if (gage_gobchang >= 100)
             {
                 isfever_gobchang = true;
             }
@@ -420,7 +420,7 @@ public class SingletonMng : MonoBehaviour
                 isClicked_Health = false;
                 gage_health -= Time.deltaTime * 10;   // 초당 10씩 게이지 제거
             }
-            if (gage_health == 100)
+            if (gage_health >= 100)
             {
                 isfever_health = true;
             }
@@ -446,7 +446,7 @@ public class SingletonMng : MonoBehaviour
                 isClicked_Land = false;
                 gage_land -= Time.deltaTime * 10;   // 초당 10씩 게이지 제거
             }
-            if (gage_land == 100)
+            if (gage_land >= 100)
             {
                 isfever_land = true;
             }
