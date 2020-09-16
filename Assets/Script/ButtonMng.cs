@@ -85,10 +85,25 @@ public class ButtonMng : MonoBehaviour
     public Sprite ChunbaeLevelUpButton_Active;
     public Sprite ChunbaeLevelUpButton_UnActive;
 
+
+
+    //스킬버튼
+
+    public Image ChunbaeSkillButton_1;
+    public Image ChunbaeSkillButton_2;
+    public Image ChunbaeSkillButton_3;
+    public float coolTime_1;
+    public float coolTime_2;
+    public float coolTime_3;
+
+
+
     void Start()
     {
-       
+ 
     }
+    
+  
 
 
 
@@ -105,6 +120,74 @@ public class ButtonMng : MonoBehaviour
     }
 
 
+    public void Useskill_1()
+    {
+        if(ChunbaeSkillButton_1.fillAmount == 0)
+        {
+            ChunbaeSkillButton_1.fillAmount = 1;
+            StartCoroutine("Cooltime_1");
+        }
+       
+
+    }
+    public void Useskill_2()
+    {
+        if (ChunbaeSkillButton_2.fillAmount == 0)
+        {
+            ChunbaeSkillButton_2.fillAmount = 1;
+            StartCoroutine("Cooltime_2");
+        }
+          
+    
+
+
+    }
+    public void Useskill_3()
+    {
+
+        if (ChunbaeSkillButton_3.fillAmount == 0)
+        {
+            ChunbaeSkillButton_3.fillAmount = 1;
+            StartCoroutine("Cooltime_3");
+        }
+
+    }
+
+    IEnumerator Cooltime_1()
+    {
+        while (ChunbaeSkillButton_1.fillAmount > 0)
+        {
+            ChunbaeSkillButton_1.fillAmount -= 1 * Time.smoothDeltaTime / coolTime_1;
+
+            yield return null;
+
+        }
+    }
+    IEnumerator Cooltime_2()
+    {
+        while (ChunbaeSkillButton_2.fillAmount > 0)
+        {
+            ChunbaeSkillButton_2.fillAmount -= 1 * Time.smoothDeltaTime / coolTime_2;
+
+            yield return null;
+
+        }
+    }
+    IEnumerator Cooltime_3()
+    {
+        while (ChunbaeSkillButton_3.fillAmount > 0)
+        {
+            ChunbaeSkillButton_3.fillAmount -= 1 * Time.smoothDeltaTime / coolTime_3;
+
+            yield return null;
+
+        }
+    }
+
+
+
+
+
     //춘배 레벨업 버튼을 눌렀을 때
     public void LevelUpButton_Chunbae()
     {
@@ -112,8 +195,6 @@ public class ButtonMng : MonoBehaviour
         {
             SingletonMng.instance.Money = SingletonMng.instance.Money - statusMng.LevelUpCost_Chunbae;
             statusMng.Level_Chunbae = statusMng.Level_Chunbae + 1;
-            print("눌림");
-            print(statusMng.Level_Chunbae);
         }
         
 
