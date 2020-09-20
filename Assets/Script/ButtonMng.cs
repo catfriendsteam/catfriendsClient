@@ -92,15 +92,29 @@ public class ButtonMng : MonoBehaviour
     public Image ChunbaeSkillButton_1;
     public Image ChunbaeSkillButton_2;
     public Image ChunbaeSkillButton_3;
+    //스킬쿨타임
     public float coolTime_1;
     public float coolTime_2;
     public float coolTime_3;
 
 
+    public GameObject[] SkillTextObject;
+    public Text[] SKillText;
+    //스킬 지속시간
+    public float SkillTime_1;
+    public float SkillTime_2;
+    public float SkillTime_3;
+
+    public bool IsSkill1;
+    public bool IsSkill2;
+    public bool IsSkill3;
+
+
 
     void Start()
     {
- 
+
+
     }
     
   
@@ -126,7 +140,17 @@ public class ButtonMng : MonoBehaviour
         {
             ChunbaeSkillButton_1.fillAmount = 1;
             StartCoroutine("Cooltime_1");
+
+            //스킬 임시로 10초동안 텍스트 활성화해서 보여주고 스킬지속시간 끝나면 꺼지는 거 해놓은 장치
+            SkillTextObject[0].SetActive(true);
+            SKillText[0].text = "스킬 1 발동중";
+            IsSkill1 = true;
+
+            Invoke("SkillEffect1", SkillTime_1);
+
         }
+
+
        
 
     }
@@ -136,6 +160,14 @@ public class ButtonMng : MonoBehaviour
         {
             ChunbaeSkillButton_2.fillAmount = 1;
             StartCoroutine("Cooltime_2");
+
+
+            //스킬 임시로 10초동안 텍스트 활성화해서 보여주고 스킬지속시간 끝나면 꺼지는 거 해놓은 장치
+            SkillTextObject[1].SetActive(true);
+            SKillText[1].text = "스킬 2 발동중";
+            IsSkill2 = true;
+
+            Invoke("SkillEffect2", SkillTime_2);
         }
           
     
@@ -149,6 +181,14 @@ public class ButtonMng : MonoBehaviour
         {
             ChunbaeSkillButton_3.fillAmount = 1;
             StartCoroutine("Cooltime_3");
+
+
+            //스킬 임시로 10초동안 텍스트 활성화해서 보여주고 스킬지속시간 끝나면 꺼지는 거 해놓은 장치
+            SkillTextObject[2].SetActive(true);
+            SKillText[2].text = "스킬 3 발동중";
+            IsSkill3 = true;
+
+            Invoke("SkillEffect3", SkillTime_3);
         }
 
     }
@@ -182,6 +222,23 @@ public class ButtonMng : MonoBehaviour
             yield return null;
 
         }
+    }
+
+
+    public void SkillEffect1()
+    {
+    SkillTextObject[0].SetActive(false);
+        IsSkill1 = false;
+    }
+    public void SkillEffect2()
+    {
+        SkillTextObject[1].SetActive(false);
+        IsSkill2 = false;
+    }
+    public void SkillEffect3()
+    {
+        SkillTextObject[2].SetActive(false);
+        IsSkill3 = false;
     }
 
 
