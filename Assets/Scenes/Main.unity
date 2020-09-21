@@ -1172,6 +1172,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 101260016}
   m_CullTransparentMesh: 0
+  m_GameObject: {fileID: 113439686}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1459487743}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 25, y: -300}
+  m_SizeDelta: {x: 800, y: 200}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &113439688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113439686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc1d70c1aed47b4983983a9b6994456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gagemng: {fileID: 0}
+  Fevergage_Text: {fileID: 113439686}
+--- !u!114 &113439689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113439686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 100
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 100
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\uC2A4 \uD0AC \uBC1C \uB3D9 \uC911"
+--- !u!222 &113439690
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113439686}
+  m_CullTransparentMesh: 0
 --- !u!1 &156768828
 GameObject:
   m_ObjectHideFlags: 0
@@ -4826,6 +4894,99 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 621725173}
+  m_CullTransparentMesh: 0
+--- !u!1 &633627068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 633627069}
+  - component: {fileID: 633627072}
+  - component: {fileID: 633627071}
+  - component: {fileID: 633627070}
+  m_Layer: 5
+  m_Name: SKill_Text3
+  m_TagString: Fever_Text
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &633627069
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633627068}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1459487743}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 25, y: -350}
+  m_SizeDelta: {x: 800, y: 200}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &633627070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633627068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc1d70c1aed47b4983983a9b6994456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gagemng: {fileID: 0}
+  Fevergage_Text: {fileID: 633627068}
+--- !u!114 &633627071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633627068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 100
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 100
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\uC2A4 \uD0AC \uBC1C \uB3D9 \uC911"
+--- !u!222 &633627072
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633627068}
   m_CullTransparentMesh: 0
 --- !u!1 &656133920
 GameObject:
@@ -9945,9 +10106,25 @@ MonoBehaviour:
   ChunbaeSkillButton_1: {fileID: 1661685308}
   ChunbaeSkillButton_2: {fileID: 761258007}
   ChunbaeSkillButton_3: {fileID: 316555169}
-  coolTime_1: 10
-  coolTime_2: 10
-  coolTime_3: 10
+  coolTime_1: 600
+  coolTime_2: 1800
+  coolTime_3: 1800
+  SkillTextObject:
+  - {fileID: 1972738442}
+  - {fileID: 113439686}
+  - {fileID: 633627068}
+  SKillText:
+  - {fileID: 1972738445}
+  - {fileID: 113439689}
+  - {fileID: 633627071}
+  SkillTime_1: 600
+  SkillTime_2: 1800
+  SkillTime_3: 1800
+  SkillHoldingTime_1: 20
+  SkillHoldingTime_2: 10
+  SkillHoldingTime_3: 10
+  IsSkill2: 0
+  IsSkill3: 0
 --- !u!4 &1285187288
 Transform:
   m_ObjectHideFlags: 0
@@ -9974,7 +10151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74e8bd79a4dd6614fa2e21ce6a14f9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Storemng: {fileID: 0}
+  Buttonmng: {fileID: 1285187287}
   touch_value: 0
   Level_Chunbae: 0
   LevelUpCost_Chunbae: 0
@@ -11430,6 +11607,8 @@ RectTransform:
   m_Children:
   - {fileID: 1531741371}
   - {fileID: 1972738443}
+  - {fileID: 113439687}
+  - {fileID: 633627069}
   m_Father: {fileID: 1480517926}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16710,12 +16889,12 @@ GameObject:
   - component: {fileID: 1972738445}
   - component: {fileID: 1972738444}
   m_Layer: 5
-  m_Name: Fevergage_Text (1)
+  m_Name: SKill_Text
   m_TagString: Fever_Text
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1972738443
 RectTransform:
   m_ObjectHideFlags: 0

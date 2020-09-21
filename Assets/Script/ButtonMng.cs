@@ -101,13 +101,16 @@ public class ButtonMng : MonoBehaviour
     public GameObject[] SkillTextObject;
     public Text[] SKillText;
     //스킬 지속시간
-    public float SkillTime_1;
-    public float SkillTime_2;
-    public float SkillTime_3;
+   
+    public float SkillHoldingTime_1;
+    public float SkillHoldingTime_2;
+    public float SkillHoldingTime_3;
 
-    public bool IsSkill1;
+    float SkillChecker_1;
+    float SkillChecker_2;
+    float SkillChecker_3;
+
     public bool IsSkill2;
-    public bool IsSkill3;
 
 
 
@@ -138,15 +141,22 @@ public class ButtonMng : MonoBehaviour
     {
         if(ChunbaeSkillButton_1.fillAmount == 0)
         {
+            //스킬 쿨타임 관련
             ChunbaeSkillButton_1.fillAmount = 1;
             StartCoroutine("Cooltime_1");
 
-            //스킬 임시로 10초동안 텍스트 활성화해서 보여주고 스킬지속시간 끝나면 꺼지는 거 해놓은 장치
+                 //스킬 유지시간을 받아주는 임의의 변수에 받아오기
+            SkillChecker_1 = SkillHoldingTime_1;
+
+
             SkillTextObject[0].SetActive(true);
             SKillText[0].text = "스킬 1 발동중";
-            IsSkill1 = true;
 
-            Invoke("SkillEffect1", SkillTime_1);
+            //스킬 유지시간에 따른 스킬 효과 시작
+            StartCoroutine("Skill_1");
+
+           
+        
 
         }
 
@@ -158,16 +168,22 @@ public class ButtonMng : MonoBehaviour
     {
         if (ChunbaeSkillButton_2.fillAmount == 0)
         {
+            //스킬 쿨타임 관련
+
             ChunbaeSkillButton_2.fillAmount = 1;
             StartCoroutine("Cooltime_2");
 
 
-            //스킬 임시로 10초동안 텍스트 활성화해서 보여주고 스킬지속시간 끝나면 꺼지는 거 해놓은 장치
+            //스킬 유지시간을 받아주는 임의의 변수에 받아오기
+            SkillChecker_2 = SkillHoldingTime_2;
+
+
             SkillTextObject[1].SetActive(true);
             SKillText[1].text = "스킬 2 발동중";
-            IsSkill2 = true;
 
-            Invoke("SkillEffect2", SkillTime_2);
+
+            //스킬 유지시간에 따른 스킬 효과 시작
+            StartCoroutine("Skill_2");
         }
           
     
@@ -179,16 +195,22 @@ public class ButtonMng : MonoBehaviour
 
         if (ChunbaeSkillButton_3.fillAmount == 0)
         {
+            //스킬 쿨타임 관련
+
             ChunbaeSkillButton_3.fillAmount = 1;
             StartCoroutine("Cooltime_3");
 
 
-            //스킬 임시로 10초동안 텍스트 활성화해서 보여주고 스킬지속시간 끝나면 꺼지는 거 해놓은 장치
+            //스킬 유지시간을 받아주는 임의의 변수에 받아오기
+            SkillChecker_3 = SkillHoldingTime_3;
+
+
             SkillTextObject[2].SetActive(true);
             SKillText[2].text = "스킬 3 발동중";
-            IsSkill3 = true;
+            
+            //스킬 유지시간에 따른 스킬 효과 시작
+            StartCoroutine("Skill_3");
 
-            Invoke("SkillEffect3", SkillTime_3);
         }
 
     }
@@ -225,21 +247,61 @@ public class ButtonMng : MonoBehaviour
     }
 
 
-    public void SkillEffect1()
+
+
+    IEnumerator Skill_1()
     {
-    SkillTextObject[0].SetActive(false);
-        IsSkill1 = false;
+        while (SkillChecker_1 > 0)
+        {
+            SkillChecker_1 -= 0.1f;
+            statusMng.Touch_IncreaseMoney();
+            statusMng.Touch_IncreaseMoney();
+
+
+            yield return new WaitForSeconds(0.1f);
+
+        }
+        SkillTextObject[0].SetActive(false);
+        StopCoroutine("Skill_1");
+
+
     }
-    public void SkillEffect2()
+    IEnumerator Skill_2()
     {
-        SkillTextObject[1].SetActive(false);
+       
+        IsSkill2 = true;
+          
+       yield return new WaitForSeconds(SkillHoldingTime_2);
+
+       
+
         IsSkill2 = false;
+        SkillTextObject[1].SetActive(false);
+        StopCoroutine("Skill_2");
+
+
     }
-    public void SkillEffect3()
+
+    IEnumerator Skill_3()
     {
+        SingletonMng.instance.gage_cafe = 100;
+        SingletonMng.instance.gage_chicken = 100;
+        SingletonMng.instance.gage_gobchang = 100;
+        SingletonMng.instance.gage_health = 100;
+        SingletonMng.instance.gage_land = 100;
+
+
+        
+        yield return new WaitForSeconds(SkillHoldingTime_3);
+
+
         SkillTextObject[2].SetActive(false);
-        IsSkill3 = false;
+        StopCoroutine("Skill_3");
+
+
     }
+
+
 
 
 

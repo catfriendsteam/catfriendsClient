@@ -8,7 +8,9 @@ using System;
 
 public class StatusManager : MonoBehaviour
 {
-    public StoreManage Storemng;
+    
+    public ButtonMng Buttonmng;
+
 
     //public long Money = 10;
     //public static int Diamond = 20;
@@ -404,17 +406,40 @@ public class StatusManager : MonoBehaviour
     //터치하면 오르는 돈, 피버 상태에 따라 피버 배율 적용
     public void Touch_IncreaseMoney()
     {
-        if (SingletonMng.instance.isfever == false)
+
+
+        // 스킬2 사용이 True면 2배의 터치 수익을 얻습니다.
+        if(Buttonmng.IsSkill2 == true)
         {
-            SingletonMng.instance.Money += Touch_Profit;
+            if (SingletonMng.instance.isfever == false)
+            {
+                SingletonMng.instance.Money += Touch_Profit * 2;
 
 
+            }
+            else if (SingletonMng.instance.isfever == true)
+            {
+                SingletonMng.instance.Money += (int)((float)Touch_Profit * SingletonMng.instance.fevercount * 2);
+
+            }
         }
-        else if (SingletonMng.instance.isfever == true)
+
+        //스킬이 사용되지 않는 경우 터치 수익입니다.
+        else
         {
-            SingletonMng.instance.Money += (int)((float)Touch_Profit * SingletonMng.instance.fevercount);
+            if (SingletonMng.instance.isfever == false)
+            {
+                SingletonMng.instance.Money += Touch_Profit;
 
+
+            }
+            else if (SingletonMng.instance.isfever == true)
+            {
+                SingletonMng.instance.Money += (int)((float)Touch_Profit * SingletonMng.instance.fevercount);
+
+            }
         }
+       
 
 
 
