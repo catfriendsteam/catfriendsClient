@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6417120432207630981}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3612, y: -1572, z: 0}
+  m_LocalPosition: {x: 4099, y: -1572, z: 0}
   m_LocalScale: {x: 80, y: 80, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -116,8 +116,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a84040da1f88a44a7ab01e3f5fbe6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 6417120432207630976}
+  catRigid: {fileID: 6417120432207630978}
   speed: 0.005
   CanRunRandomize: 1
+  jumpheight: 4
 --- !u!61 &6417120432207630979
 BoxCollider2D:
   m_ObjectHideFlags: 0

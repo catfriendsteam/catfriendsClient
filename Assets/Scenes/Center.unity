@@ -492,6 +492,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: center-mat
       objectReference: {fileID: 0}
+    - target: {fileID: 6526548521909883928, guid: be1ea75c8bc348746b055b582a4be8ed,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be1ea75c8bc348746b055b582a4be8ed, type: 3}
 --- !u!1 &26340242
@@ -506,7 +511,7 @@ GameObject:
   - component: {fileID: 26340245}
   - component: {fileID: 26340244}
   - component: {fileID: 26340246}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: UpperMenu
   m_TagString: UI_UpperMenu
   m_Icon: {fileID: 0}
@@ -576,32 +581,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26340242}
   m_CullTransparentMesh: 0
---- !u!114 &26340246
-MonoBehaviour:
+--- !u!223 &26340246
+Canvas:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26340242}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74e8bd79a4dd6614fa2e21ce6a14f9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gagemng: {fileID: 0}
-  Storemng: {fileID: 0}
-  touch_value: 0
-  Level_Chunbae: 0
-  LevelUpCost_Chunbae: 0
-  Touch_Profit: 0
-  LevelUp_Effect: 0
-  AllStoreProfit: 0
-  TargetPos: 0
-  Cafe_Active: 0
-  Chicken_Active: 0
-  Gobchang_Active: 0
-  Health_Active: 0
-  Land_Active: 0
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 21
+  m_TargetDisplay: 0
 --- !u!1 &32328619
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,7 +898,7 @@ GameObject:
   - component: {fileID: 72428905}
   - component: {fileID: 72428907}
   - component: {fileID: 72428906}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1051,6 +1051,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: center-cat_tower2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5302160104217399516, guid: c04b5e718e912ef419db4cb44230cb33,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c04b5e718e912ef419db4cb44230cb33, type: 3}
@@ -2117,7 +2122,7 @@ GameObject:
   - component: {fileID: 177748111}
   - component: {fileID: 177748110}
   - component: {fileID: 177748109}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2246,6 +2251,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: center-window
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802803869162527428, guid: 6b4910636ec0f084fa3ebfbf6968bf6c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6458011911277511720, guid: 6b4910636ec0f084fa3ebfbf6968bf6c,
         type: 3}
@@ -2757,6 +2767,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: center-stone_left
       objectReference: {fileID: 0}
+    - target: {fileID: 6518953086777260065, guid: 582aff2a05dd2d24f8de0cf60ad972eb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 582aff2a05dd2d24f8de0cf60ad972eb, type: 3}
 --- !u!1 &321423958
@@ -2768,7 +2783,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 321423959}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Sliding Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4644,6 +4659,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: center-cat_tower4
       objectReference: {fileID: 0}
+    - target: {fileID: 8005668353324005750, guid: 8b0eb303fcd7d0b488a87a8fea1c4a53,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b0eb303fcd7d0b488a87a8fea1c4a53, type: 3}
 --- !u!1 &556432256
@@ -5265,7 +5285,7 @@ GameObject:
   - component: {fileID: 648287045}
   - component: {fileID: 648287044}
   - component: {fileID: 648287043}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Diamond
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5593,6 +5613,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: center-ball
       objectReference: {fileID: 0}
+    - target: {fileID: 349859157785562053, guid: 3290a71fa9e73cb47ae7cd530ecb53d4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7340597808132177190, guid: 3290a71fa9e73cb47ae7cd530ecb53d4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5834,7 +5859,7 @@ GameObject:
   - component: {fileID: 716213165}
   - component: {fileID: 716213164}
   - component: {fileID: 716213166}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5954,7 +5979,7 @@ GameObject:
   - component: {fileID: 732182446}
   - component: {fileID: 732182448}
   - component: {fileID: 732182447}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6190,6 +6215,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: center-window (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802803869162527428, guid: 6b4910636ec0f084fa3ebfbf6968bf6c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6458011911277511720, guid: 6b4910636ec0f084fa3ebfbf6968bf6c,
         type: 3}
@@ -6723,7 +6753,7 @@ GameObject:
   - component: {fileID: 824360314}
   - component: {fileID: 824360313}
   - component: {fileID: 824360312}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7004,7 +7034,7 @@ GameObject:
   - component: {fileID: 872845164}
   - component: {fileID: 872845163}
   - component: {fileID: 872845162}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: GuideLine_Bomi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7700,7 +7730,7 @@ GameObject:
   - component: {fileID: 1054658346}
   - component: {fileID: 1054658348}
   - component: {fileID: 1054658347}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7779,7 +7809,7 @@ GameObject:
   - component: {fileID: 1062259507}
   - component: {fileID: 1062259506}
   - component: {fileID: 1062259505}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: GoodPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8218,7 +8248,7 @@ GameObject:
   - component: {fileID: 1129626496}
   - component: {fileID: 1129626495}
   - component: {fileID: 1129626494}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8518,7 +8548,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveAndAnimation_Chunbae: {fileID: 0}
-  gageMng: {fileID: 0}
   statusMng: {fileID: 0}
   menu_chunbae: {fileID: 0}
   menu_setting: {fileID: 427180985}
@@ -8562,6 +8591,21 @@ MonoBehaviour:
   UnActive_ArrowImage: []
   Active_Arrow: {fileID: 0}
   ChunbaeButtonText: []
+  ChunbaeLevelUpButton: {fileID: 0}
+  ChunbaeLevelUpButton_Active: {fileID: 0}
+  ChunbaeLevelUpButton_UnActive: {fileID: 0}
+  ChunbaeSkillButton_1: {fileID: 0}
+  ChunbaeSkillButton_2: {fileID: 0}
+  ChunbaeSkillButton_3: {fileID: 0}
+  coolTime_1: 0
+  coolTime_2: 0
+  coolTime_3: 0
+  SkillTextObject: []
+  SKillText: []
+  SkillHoldingTime_1: 0
+  SkillHoldingTime_2: 0
+  SkillHoldingTime_3: 0
+  IsSkill2: 0
 --- !u!4 &1160295074
 Transform:
   m_ObjectHideFlags: 0
@@ -8607,8 +8651,8 @@ MonoBehaviour:
   TabImage:
   - {fileID: 476791928}
   - {fileID: 800687455}
-  TabIdleSprite: {fileID: 21300000, guid: c706c6d29a0551844ba5103c27646256, type: 3}
-  TabSelectSprite: {fileID: 21300000, guid: 10512ce295bff934992f5c0fa1735cbf, type: 3}
+  TabIdleSprite: {fileID: 0}
+  TabSelectSprite: {fileID: 0}
   CenterCharImages:
   - {fileID: 6417120432207630981, guid: 8bcca5ca82b3bd94e98f490df331c893, type: 3}
   - {fileID: 2705940589994852057, guid: 1b9e31ca800949c4ea7281a401b51b80, type: 3}
@@ -8625,6 +8669,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: center-fountain
+      objectReference: {fileID: 0}
+    - target: {fileID: 502171001835034417, guid: 25ebb3728347e71429dac4006866a6dd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7511537622376829733, guid: 25ebb3728347e71429dac4006866a6dd,
         type: 3}
@@ -8972,6 +9021,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: center-bush2
+      objectReference: {fileID: 0}
+    - target: {fileID: 97365891889735653, guid: 7eb14f85b6d62b544be96820f73d8a69,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5940775073983251510, guid: 7eb14f85b6d62b544be96820f73d8a69,
         type: 3}
@@ -9515,6 +9569,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: center-dog_house
       objectReference: {fileID: 0}
+    - target: {fileID: 7288213834506770706, guid: 589ed022f447a3c418af363a5589dd86,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 589ed022f447a3c418af363a5589dd86, type: 3}
 --- !u!4 &1266789148 stripped
@@ -9534,7 +9593,7 @@ GameObject:
   - component: {fileID: 1275104563}
   - component: {fileID: 1275104565}
   - component: {fileID: 1275104564}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9982,7 +10041,7 @@ GameObject:
   - component: {fileID: 1332100337}
   - component: {fileID: 1332100336}
   - component: {fileID: 1332100335}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: PostBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10567,6 +10626,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: center-bush3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4021779984856026869, guid: 18f4f282761185b43a29e8fa60b1949e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18f4f282761185b43a29e8fa60b1949e, type: 3}
@@ -11170,7 +11234,7 @@ GameObject:
   - component: {fileID: 1449512926}
   - component: {fileID: 1449512925}
   - component: {fileID: 1449512924}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Scrollbar Horizontal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11294,6 +11358,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: center-window (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2802803869162527428, guid: 6b4910636ec0f084fa3ebfbf6968bf6c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6458011911277511720, guid: 6b4910636ec0f084fa3ebfbf6968bf6c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11372,6 +11441,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: center-mat2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747285979880878814, guid: e0ad57637412b5542bc2ef008ad98792,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7065138619358720325, guid: e0ad57637412b5542bc2ef008ad98792,
         type: 3}
@@ -11456,7 +11530,7 @@ GameObject:
   - component: {fileID: 1493848014}
   - component: {fileID: 1493848016}
   - component: {fileID: 1493848015}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11618,7 +11692,7 @@ GameObject:
   - component: {fileID: 1544567485}
   - component: {fileID: 1544567487}
   - component: {fileID: 1544567486}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11919,6 +11993,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: center-cat_tower3
       objectReference: {fileID: 0}
+    - target: {fileID: 5774789314197873488, guid: 8e7a5e6a4e17e0844a59af5c442be987,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e7a5e6a4e17e0844a59af5c442be987, type: 3}
 --- !u!1 &1591489413
@@ -12010,7 +12089,7 @@ GameObject:
   - component: {fileID: 1600937832}
   - component: {fileID: 1600937834}
   - component: {fileID: 1600937833}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12602,6 +12681,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: center-mat2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4747285979880878814, guid: e0ad57637412b5542bc2ef008ad98792,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7065138619358720325, guid: e0ad57637412b5542bc2ef008ad98792,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12771,7 +12855,7 @@ GameObject:
   - component: {fileID: 1755851895}
   - component: {fileID: 1755851894}
   - component: {fileID: 1755851898}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: CenterContent
   m_Icon: {fileID: 0}
@@ -13197,7 +13281,7 @@ GameObject:
   - component: {fileID: 1849553948}
   - component: {fileID: 1849553947}
   - component: {fileID: 1849553946}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Viewport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13434,6 +13518,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: center-stone_right
       objectReference: {fileID: 0}
+    - target: {fileID: 5433782689322297703, guid: dce683d1ba1cb864e98317296d8484cb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dce683d1ba1cb864e98317296d8484cb, type: 3}
 --- !u!1 &1883744474
@@ -13448,7 +13537,7 @@ GameObject:
   - component: {fileID: 1883744478}
   - component: {fileID: 1883744477}
   - component: {fileID: 1883744476}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Money
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13726,6 +13815,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: center-bush1
       objectReference: {fileID: 0}
+    - target: {fileID: 6415685220119755603, guid: 503c964d1310ff04d9a2b60ffc768f4f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8260693737526372478, guid: 503c964d1310ff04d9a2b60ffc768f4f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13962,7 +14056,7 @@ GameObject:
   - component: {fileID: 1925148165}
   - component: {fileID: 1925148164}
   - component: {fileID: 1925148163}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Setting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14097,7 +14191,7 @@ GameObject:
   - component: {fileID: 1934153337}
   - component: {fileID: 1934153336}
   - component: {fileID: 1934153335}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Scroll View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14873,6 +14967,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: center-basket
       objectReference: {fileID: 0}
+    - target: {fileID: 6664732185870013290, guid: ed8a8841003c0e149866e8ccc8e58412,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed8a8841003c0e149866e8ccc8e58412, type: 3}
 --- !u!1 &1981085834
@@ -15115,6 +15214,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: center-cat_tower5
       objectReference: {fileID: 0}
+    - target: {fileID: 522343062450221241, guid: ce060c947ac0b5947845a477192948a7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce060c947ac0b5947845a477192948a7, type: 3}
 --- !u!1 &2006240419
@@ -15129,7 +15233,7 @@ GameObject:
   - component: {fileID: 2006240423}
   - component: {fileID: 2006240422}
   - component: {fileID: 2006240421}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Donation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16145,6 +16249,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: center-craw
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984865880997376363, guid: 088fddfc58fc961418ffc288d2635cea,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 088fddfc58fc961418ffc288d2635cea, type: 3}
