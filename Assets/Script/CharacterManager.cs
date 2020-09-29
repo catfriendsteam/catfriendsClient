@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
-using UnityEditor;
 
 //센터 목록관리, 펫 배치, 레벨업 구현
 //https://www.youtube.com/watch?v=GNSD1-y6SeM
@@ -47,7 +45,7 @@ public class CharacterManager : MonoBehaviour
 
     //탭이미지 저장및 변환
     public Image[] TabImage;
-    public Sprite TabIdleSprite, TabSelectSprite;
+    //public Sprite TabIdleSprite, TabSelectSprite;
 
     //고양이, 냥인 그림 저장하는 리스트(AllCharacter데이터에 있는 순서대로 그림 넣어줘야 함)
     public GameObject[] CenterCharImages;
@@ -70,7 +68,7 @@ public class CharacterManager : MonoBehaviour
             //AllCharacter에서 isRocked가 false인 경우 CenterCharImages배열에서 이미지 불러옴
             if (!AllCharacter[i].isRocked)
             {
-                GameObject instance=PrefabUtility.InstantiatePrefab(CenterCharImages[i]) as GameObject;
+                GameObject instance=Instantiate(CenterCharImages[i]) as GameObject;
                 instance.transform.SetParent(GameObject.Find("Content").transform,false);
             }
         }
@@ -89,15 +87,15 @@ public class CharacterManager : MonoBehaviour
         //탭을 무엇을 클릭하느냐에 따라 냥멍인/고양이만 골라와서 curCharacter리스트에 저장
         CurCharacter = MyCharacter.FindAll(x => x.Type == tabName);
 
-        //탭이미지 전환
-        int tabNum = 0;
+        //탭이미지 전환->buttonmng로 이동
+        /*int tabNum = 0;
         switch (tabName)
         {
             case "Ncat": tabNum = 0;break;
             case "Cat": tabNum = 1;break;
         }
         for (int i = 0; i < 2; i++)
-            TabImage[i].sprite = i == tabNum ? TabSelectSprite : TabIdleSprite;
+            TabImage[i].sprite = i == tabNum ? TabSelectSprite : TabIdleSprite;*/
 
 
         //슬롯과 텍스트 보이기

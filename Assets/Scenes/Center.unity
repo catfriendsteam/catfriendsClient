@@ -8651,8 +8651,6 @@ MonoBehaviour:
   TabImage:
   - {fileID: 476791928}
   - {fileID: 800687455}
-  TabIdleSprite: {fileID: 0}
-  TabSelectSprite: {fileID: 0}
   CenterCharImages:
   - {fileID: 6417120432207630981, guid: 8bcca5ca82b3bd94e98f490df331c893, type: 3}
   - {fileID: 2705940589994852057, guid: 1b9e31ca800949c4ea7281a401b51b80, type: 3}
